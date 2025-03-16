@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.bg-test {
+    background-image: url('/herobg.svg');
+    background-size: cover;
+    background-position: center;
+  }
+  

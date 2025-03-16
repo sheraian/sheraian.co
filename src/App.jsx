@@ -1,13 +1,10 @@
 import "./App.css";
 
 function App() {
-
   return (
-    <>
-      <header>
-        <img src="/logo.svg" alt="" />
-      </header>
-    </>
+    <div className="w-screen h-screen bg-cover bg-center" style={{ backgroundImage: "url('/herobg.svg')" }}>
+      
+    </div>
   );
 }
 
