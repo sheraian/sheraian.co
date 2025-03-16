@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../../assets/Navbar/Logo.svg";
 
 const buttonsData = [
   {
@@ -39,15 +38,15 @@ const Navbar = () => {
     <div className=" px-[70px] py-[26px] bg-white">
       {/* Logo Section */}
       <div>
-        <img src={Logo} alt="Shararian" />
+        <img src="/assets/Navbar/Logo.svg" alt="Shararian" />
       </div>
       {/* Button Section */}
       <div>
         {buttonsData.map((button, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="">
               <p>{button.title}</p>
-              {button.isArrow ? <img /> : null}
+              {button.isArrow ? <img src="/assets/Navbar/DropDown.svg" alt="Arrow" /> : null}
             </div>
           );
         })}
