@@ -3,7 +3,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", // Add this
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Inter", "Poppins", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
