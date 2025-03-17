@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      rotate: {
+        "-5": "-5deg",
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0, transform: "translateY(10px)" },
