@@ -115,7 +115,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full bg-[#f5f5f5]">
-      <div className="w-[95%] mx-auto py-[10px]  flex justify-between items-center relative">
+      <div className="w-[90%] mx-auto py-[10px]  flex justify-between items-center relative">
         {/* Logo Section */}
         <div>
           <img className="cursor-pointer" src="/assets/Navbar/Logo.svg" alt="Shararian" />
