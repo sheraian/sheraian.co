@@ -3,7 +3,7 @@ import BlogCat from './BlogCat'
 
 function BlogCard() {
   return (
-    <div className="mt-2 md:mt-0 w-[90%] mx-auto h-[280px] md:w-[240px] md:h-[240px]  flex flex-col items-center">
+    <div className="mt-2 md:mt-0 w-[90%] mx-auto h-[280px] md:w-[240px] md:h-[240px]  flex flex-col items-center hover:scale-105">
     <img
       className="w-full h-[250px]  xl:h-[270px] rounded-lg object-cover bg-no-repeat"
       src="/blog.png"
@@ -23,10 +23,10 @@ function BlogCard() {
           text={"Technology"}
         />
       </div>
-      <h1 className=" md:hidden font-poppins text-sm font-semibold">
+      <h1 className=" md:hidden font-poppins text-sm font-semibold cursor-pointer">
         Tackling the Changes of Retail Industry Changes of Retail Industry
       </h1>
-      <h1 className="hidden md:flex font-poppins text-sm font-semibold">
+      <h1 className="hidden md:flex font-poppins text-sm font-semibold cursor-pointer">
         Tackling the Changes of Retail Industry 
       </h1>
       <div className="flex items-center gap-1.5">
