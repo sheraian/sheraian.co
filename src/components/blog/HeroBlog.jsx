@@ -1,4 +1,5 @@
 import Btn from "../Btn";
+
 function HeroBlog({ P_BtnText, H_Text, M_Text, isSBtnShow = false, S_BtnText = "" }) {
   return (
     <div className="w-screen h-[500px] bg-[url(/herobg.svg)] bg-cover bg-center flex flex-col items-center justify-center gap-2 md:gap-5">
