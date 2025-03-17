@@ -6,10 +6,10 @@ const FaqCard = ({ keyId, title, description }) => {
   let closer = "Closer.png";
 
   return (
-    <div className="w-[95%] md:w-[80%] mx-auto flex flex-col items-cenrer bg-white rounded-lg py-8 justify-center border-2 border-[#A8A8A8]">
+    <div className="w-[95%] md:w-[80%] mx-auto flex flex-col items-cenrer bg-white rounded-lg py-8 justify-center border-2 border-[#A8A8A8] transition-all duration-500 ease-in-out transform hover:scale-105">
       <div className="w-[100%] flex flex-row items-center">
         <div className=" md:flex w-[15%] flex items-center justify-center">
-          <strong className="text-[1.2rem]">{keyId}</strong>
+          {/* <strong className="text-[1.2rem]">{keyId}</strong> */}
         </div>
         <div className="w-[70%] flex flex-col gap-4">
           <h1 className="font-poppins text-sm font-bold  md:font-semibold md:text-[1.2rem]">
@@ -31,8 +31,8 @@ const FaqCard = ({ keyId, title, description }) => {
         </div>
       </div>
       {isOpen && (
-      <div className="w-[90%] mx-auto  mt-10 md:mt-0">
-            <p className="flex  text-left md:hidden text-[1rem] font-poppins font-normal">
+      <div className="w-[90%] mx-auto  mt-5 md:mt-0">
+            <p className="flex  text-center md:hidden text-[0.8rem] font-poppins font-normal">
               {description}
             </p>
       </div>
