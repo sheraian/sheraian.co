@@ -46,8 +46,8 @@ function App() {
         </div>
       </div>
       <div className="w-full bg-[#F5F5F5] ">
-        <div className="w-[95%] mx-auto text-center flex flex-col items-center gap-10 ">
-          <div className="flex flex-col items-center py-28 gap-2 md:gap-8">
+        <div className="w-[95%] mx-auto text-center flex flex-col items-center  ">
+          <div className="flex flex-col items-center md:py-28 gap-2 md:gap-8">
             <h1 className="font-poppins font-semibold text-lg md:text-[3rem]">
               Frequently Asked Question
             </h1>
