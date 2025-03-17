@@ -1,6 +1,6 @@
 function HeroBlog() {
   return (
-     <div className="w-screen h-[500px] bg-[url(/herobg.svg)] bg-cover bg-center flex flex-col items-center justify-center gap-2 md:gap-5" >
+     <div className="w-full h-[500px] bg-[url(/herobg.svg)] bg-cover bg-center flex flex-col items-center justify-center gap-2 md:gap-5" >
       <div className="py-2.5 px-20 bg-[#D7D5DF] rounded-full ">
         <h1 className="text-[#4A2848] font-bold ">Blog</h1>
       </div>
