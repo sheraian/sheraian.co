@@ -1,11 +1,9 @@
 import React from 'react'
-import BlogPage from './pages/Blog/BlogPage'
+import PriceWidget from './components/PriceWidget'
 
 function App() {
   return (
-    <div>
-      <BlogPage />
-    </div>
+   <PriceWidget />
   )
 }
 
