@@ -1,4 +1,3 @@
-import React from "react";
 
 function Btn({S_BtnText,onpress}) {
   return (

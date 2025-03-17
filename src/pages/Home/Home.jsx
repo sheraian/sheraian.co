@@ -1,9 +1,90 @@
-import React from "react";
+import { useState } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
+import Btn from "../../components/Btn";
+import { motion, AnimatePresence } from "framer-motion";
+
+const testimonials = [
+  {
+    name: "Chandan Dubey",
+    position: "Project Manager",
+    feedback:
+      "Sheraian has completely transformed our mobile app process. Here is a review from one of our clients: 'Very polite, understanding, and flexible.' We are grateful for such positive feedback and look forward to continuing our excellent service.",
+    image: "/assets/Home/Testimonials/UserIcone.svg",
+  },
+  {
+    name: "Sarah Johnson",
+    position: "Software Engineer",
+    feedback:
+      "Working with this team has been a seamless experience. The communication and quality of work exceeded our expectations. Highly recommended!",
+    image: "/assets/Home/Testimonials/UserIcone.svg",
+  },
+  {
+    name: "Michael Smith",
+    position: "CEO, Tech Corp",
+    feedback: "They delivered the project on time and with exceptional quality. I couldn't have asked for a better development partner!",
+    image: "/assets/Home/Testimonials/UserIcone.svg",
+  },
+];
+
+const cardData = [
+  {
+    Icone: "/assets/Home/Third/requirement.svg",
+    H_main: "Requirement",
+    B_Text: "Requirements are the features, functions",
+  },
+  {
+    Icone: "/assets/Home/Third/design.svg",
+    H_main: "UI/UX Design",
+    B_Text: "Focuses on the look and feel of the product",
+  },
+  {
+    Icone: "/assets/Home/Third/development.svg",
+    H_main: "Development",
+    B_Text: "Development is the process of building the actual",
+  },
+  {
+    Icone: "/assets/Home/Third/development.svg",
+    H_main: "Testing",
+    B_Text: "Development is the process of building the actual",
+  },
+];
+
+const Card = ({ img, H_main, B_Text }) => {
+  return (
+    <div className="w-[326px] rounded-[15px] bg-white">
+      <div className="flex flex-col justify-center items-start gap-[50px] px-[30px] pt-[40px] pb-[25px]">
+        <div className="bg-[#4A2848] rounded-[15px] w-[62px] h-[62px] flex justify-center items-center">
+          <img src={img} alt="" />
+        </div>
+        <div>
+          <p className="font-inter font-semibold text-[25px] leading-[35px] tracking-[-1px]">{H_main}</p>
+          <p className="font-inter font-normal text-[16px] leading-[26px] tracking-[0px] text-[#7A7A7A]">{B_Text}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Home = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for right, -1 for left
+
+  const handleNext = () => {
+    if (currentIndex < testimonials.length - 1) {
+      setDirection(1); // Moving Right
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setDirection(-1); // Moving Left
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#F5F5F5]">
       {/* Hero Section */}
       <HeroBlog
         P_BtnText={"Best IT Solution Provder"}
@@ -17,7 +98,7 @@ const Home = () => {
         S_BtnText={"Explore More"}
       />
       {/* Second Section */}
-      <div className="w-full pt-[100px] lg:pt-[105px] pb-[100px] lg:pb-[105px]">
+      <div className="w-full flex justify-center items-center pt-[100px] lg:pt-[105px] pb-[100px] lg:pb-[105px]">
         <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[75px]">
           {/* Image Section */}
           <img src="/assets/Home/SecondSec_Image.svg" alt="Section Image" />
@@ -53,23 +134,16 @@ const Home = () => {
               </div>
               <div></div>
             </div>
-            <div className="flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer group">
-              <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-white">Explore More</p>
-              <img
-                className="rotate-[225deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
-                src="/assets/Navbar/CallToActionArrow.svg"
-                alt="Explore More"
-              />
-            </div>
+            <Btn S_BtnText={"Explore More"} />
           </div>
         </div>
       </div>
       {/* Third Section */}
-      <div className="w-full bg-[#340831] relative overflow-hidden py-[70px]">
+      <div className="w-full flex justify-center items-center bg-[#340831] relative overflow-hidden py-[40px]">
         <img src="/assets/Home/SecondSection/CurlyLines.svg" className=" absolute left-2" alt="curlies" />
         <img src="/assets/Home/SecondSection/DotsShapes.svg" className=" absolute right-0 bottom-0" alt="dotes" />
         {/* Main Content */}
-        <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-center items-center gap-[75px]">
+        <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[75px]">
           {/* Data Section */}
           <div className="flex flex-col justify-center items-start gap-[24px]">
             <div className="flex justify-center items-center px-[22px] py-[5px] bg-[#DEDAE5] rounded-[50px] text-[#4A2848]">
@@ -88,6 +162,112 @@ const Home = () => {
                 className="rotate-[225deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
                 src="/assets/Home/SecondSection/Purple_Icone.svg"
                 alt="Explore More"
+              />
+            </div>
+          </div>
+          {/* Card Section */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-[34px] z-[1]">
+            {/* first */}
+            <div className="flex flex-col justify-center items-center gap-[34px]">
+              {cardData.slice(0, 2).map((c, index) => {
+                return <Card key={index} img={c.Icone} H_main={c.H_main} B_Text={c.B_Text} />;
+              })}
+            </div>
+            {/* second */}
+            <div className="flex flex-col justify-center items-center gap-[34px] md:pt-[80px]">
+              {cardData.slice(-2).map((c, index) => {
+                return <Card key={index} img={c.Icone} H_main={c.H_main} B_Text={c.B_Text} />;
+              })}
+            </div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      {/* fourth Section */}
+      <div className="w-full flex justify-center items-center py-[70px] md:py-[100px]">
+        <div className="w-[90%] flex flex-col justify-center items-center gap-[40px]">
+          {/* Heading */}
+          <div className="w-full flex flex-col justify-center items-center gap-[30px]">
+            <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
+              Testimonials
+            </div>
+            <p className="font-inter font-semibold text-[40px] md:text-[56px] leading-[45px] md:leading-[65px] tracking-[0px] text-center">
+              What Happy Clients <br /> Say About Us?
+            </p>
+          </div>
+
+          {/* Slider */}
+          <div className="w-full h-[700px] md:h-[500px] lg:h-[400px] flex flex-col md:flex-row justify-center items-center relative overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: direction * 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction * -50 }}
+                transition={{ duration: 0.5 }}
+                className="w-full flex flex-col md:flex-row justify-center items-center"
+              >
+                {/* User Image */}
+                <img
+                  src={testimonials[currentIndex].image}
+                  className="md:mr-[-40px] mb-[-40px] md:mb-0 z-[1] w-[200px] h-[200px] md:w-[332px] md:h-[332px]"
+                  alt="User"
+                />
+                <div className="w-full md:w-[971px] py-[45px] pl-[20px] sm:pl-[110px] pr-[20px] sm:pr-[62px] bg-white rounded-tl-[50px] rounded-br-[50px] flex flex-col justify-center items-start gap-5">
+                  {/* Stars & Quote */}
+                  <div className="w-full flex justify-between items-center">
+                    <div className="flex justify-center items-center gap-[5px]">
+                      {Array(5)
+                        .fill(0)
+                        .map((_, index) => (
+                          <img key={index} src="/assets/Home/Testimonials/star.svg" alt="Star" />
+                        ))}
+                    </div>
+                    <div className="w-[65px] h-[65px] rounded-full bg-[#4A2848] flex justify-center items-center">
+                      <img src="/assets/Home/Testimonials/Quotations.svg" alt="Quotation" />
+                    </div>
+                  </div>
+                  {/* Testimonial */}
+                  <p className="font-inter font-medium text-[18px] leading-[27px] tracking-[0%] customScreen:text-[24px] customScreen:leading-[34px]">
+                    {testimonials[currentIndex].feedback}
+                  </p>
+                  {/* User Details */}
+                  <div className="flex justify-start items-center gap-[26px]">
+                    <img src={testimonials[currentIndex].image} alt="User" className="w-[68px] h-[68px]" />
+                    <div>
+                      <p className="font-inter font-semibold text-[20px] leading-[20px] tracking-[0%]">{testimonials[currentIndex].name}</p>
+                      <p className="font-[Plus Jakarta Sans] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#726B7D]">
+                        {testimonials[currentIndex].role}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="w-full flex justify-end items-center gap-[20px] mt-[-30px] 2xl:mr-[100px]">
+            <div
+              onClick={handlePrev}
+              className={`rounded-full w-[54px] h-[54px] border ${currentIndex > 0 ? "bg-[#4A2848]" : "bg-transparent"} flex justify-center items-center cursor-pointer`}
+            >
+              <img
+                src={currentIndex > 0 ? "/assets/Home/Testimonials/leftWhiteArrow.svg" : "/assets/Home/Testimonials/leftArrow.svg"}
+                alt="LeftArrow"
+              />
+            </div>
+            <div
+              onClick={handleNext}
+              className={`rounded-full w-[54px] h-[54px] border border-black flex justify-center items-center ${currentIndex < testimonials.length - 1 ? "bg-[#4A2848]" : "bg-transparent"} cursor-pointer`}
+            >
+              <img
+                src={
+                  currentIndex < testimonials.length - 1
+                    ? "/assets/Home/Testimonials/rightWhiteArrow.svg"
+                    : "/assets/Home/Testimonials/rightBlackArrow.svg"
+                }
+                alt="RightArrow"
               />
             </div>
           </div>

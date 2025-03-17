@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        customScreen: "850px", // 2XL Screens (Default)
+      },
       fontFamily: {
         poppins: ["Inter", "Poppins", "sans-serif"],
       },

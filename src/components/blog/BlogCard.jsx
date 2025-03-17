@@ -1,5 +1,3 @@
-import React from 'react'
-import BlogCat from './BlogCat'
 
 function BlogCard() {
   return (

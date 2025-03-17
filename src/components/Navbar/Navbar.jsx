@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const buttonsData = [
   {
@@ -150,7 +150,7 @@ const Navbar = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="hidden lg:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer group">
+        <div className="hidden lg:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer hover:scale-105 group">
           <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-white">Get In Touch</p>
           <img
             className="rotate-[225deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
