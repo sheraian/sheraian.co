@@ -1,9 +1,10 @@
 import React from 'react'
-import PriceWidget from './components/PriceWidget'
+import PortfolioCard from './components/PortfolioCard'
+import PortfolioWidget from './components/PortfolioWidget'
 
 function App() {
   return (
-   <PriceWidget />
+   <PortfolioWidget />
   )
 }
 
