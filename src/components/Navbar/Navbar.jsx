@@ -1,34 +1,35 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const buttonsData = [
   {
     title: "Services",
-    link: "/",
+    // link: "/",
     isArrow: true,
   },
   {
     title: "Company",
-    link: "/",
+    // link: "/",
     isArrow: true,
   },
   {
     title: "Blog",
-    link: "/",
+    link: "/blogs",
     isArrow: false,
   },
   {
     title: "Portfolio",
-    link: "/",
+    link: "/portfolio",
     isArrow: false,
   },
   {
     title: "Career",
-    link: "/",
+    link: "/career",
     isArrow: false,
   },
   {
     title: "Contact Us",
-    link: "/",
+    link: "/contact-us",
     isArrow: false,
   },
 ];
@@ -118,7 +119,9 @@ const Navbar = () => {
       <div className="w-[90%] mx-auto py-[10px]  flex justify-between items-center relative">
         {/* Logo Section */}
         <div>
-          <img className="cursor-pointer" src="/assets/Navbar/Logo.svg" alt="Shararian" />
+          <Link to="/">
+            <img className="cursor-pointer" src="/assets/Navbar/Logo.svg" alt="Shararian" />
+          </Link>
         </div>
 
         {/* Button Section */}
@@ -131,7 +134,10 @@ const Navbar = () => {
                 onMouseEnter={() => button.isArrow && setActiveDropdown(index)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <div className="flex justify-center items-center gap-[6px] cursor-pointer font-inter font-semibold text-[18px] leading-[100px] tracking-[0%] align-middle group">
+                <Link
+                  to={button?.link}
+                  className="flex justify-center items-center gap-[6px] cursor-pointer font-inter font-semibold text-[18px] leading-[100px] tracking-[0%] align-middle group"
+                >
                   <p>{button.title}</p>
                   {button.isArrow ? (
                     <img
@@ -140,7 +146,7 @@ const Navbar = () => {
                       alt="Arrow"
                     />
                   ) : null}
-                </div>
+                </Link>
 
                 {/* Dropdown Menu */}
                 {button.isArrow && <DropDownComponent isVisible={activeDropdown === index} />}

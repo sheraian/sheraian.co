@@ -2,6 +2,9 @@ import { useState } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
 import Btn from "../../components/Btn";
 import { motion, AnimatePresence } from "framer-motion";
+import BlogBottomSection from "../Blog/BlogBottomSection";
+import PortfolioWidget from "../../components/PortfolioWidget";
+import PriceWidget from "../../components/PriceWidget";
 
 const testimonials = [
   {
@@ -48,6 +51,8 @@ const cardData = [
     B_Text: "Development is the process of building the actual",
   },
 ];
+
+const data = [1, 2, 3];
 
 const Card = ({ img, H_main, B_Text }) => {
   return (
@@ -271,6 +276,25 @@ const Home = () => {
               />
             </div>
           </div>
+        </div>
+      </div>
+      <PortfolioWidget />
+      <div className="w-full flex justify-center items-center pt-[70px] md:pt-[100px]">
+        <PriceWidget />
+      </div>
+      {/* fifth Section */}
+      <div className="w-full flex flex-col justify-center items-center">
+        <div className="w-[90%] flex flex-col justify-center items-center gap-[40px] pt-[70px]">
+          {/* Heading */}
+          <div className="w-full flex flex-col justify-center items-center gap-[30px]">
+            <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
+              News & Article
+            </div>
+            <p className="font-inter font-semibold text-[40px] md:text-[56px] leading-[45px] md:leading-[65px] tracking-[0px] text-center">
+              Read our latest insights
+            </p>
+          </div>
+          <BlogBottomSection data={data} />
         </div>
       </div>
     </div>
