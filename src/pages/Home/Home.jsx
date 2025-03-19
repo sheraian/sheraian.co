@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import BlogBottomSection from "../Blog/BlogBottomSection";
 import PortfolioWidget from "../../components/PortfolioWidget";
 import PriceWidget from "../../components/PriceWidget";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -295,6 +296,118 @@ const Home = () => {
             </p>
           </div>
           <BlogBottomSection data={data} />
+        </div>
+      </div>
+      {/* footer Section */}
+      <div className="w-full flex flex-col justify-center items-center bg-[url('/assets/Footer/bgImage.svg')] bg-no-repeat bg-cover">
+        <div className="w-full flex flex-col justify-between items-center gap-y-[2.5rem]">
+          {/* Email */}
+          <div className="w-full flex flex-col md:flex-row justify-center items-center gap-[1.5rem] bg-white/5 md:rounded-b-[3rem] py-[2rem]">
+            <p className="text-white text-center">News Letter</p>
+            <div className="flex focus:ring-0 outline-none justify-between items-center bg-white py-[0.3rem] pl-[0.3rem] pr-[0.22rem] rounded-[36px] gap-[0.2rem] w-[17rem] md:w-[20rem]">
+              <input type="email" placeholder="Your Email" class="p-2 outline-none border-none focus:ring-0 bg-transparent w-[15rem] text-sm" />
+              <div className="flex justify-center items-center p-[0.7rem] rounded-full bg-[#4A2848] cursor-pointer">
+                <img src="/assets/Footer/sendingIcon.svg" alt="" className="w-[1rem] h-[1rem]" />
+              </div>
+            </div>
+          </div>
+          {/* Links */}
+          <div className="w-[90%] flex flex-col flex-wrap justify-between items-center gap-[2rem]">
+            {/* 1 */}
+            <div className="flex flex-col justify-center items-center gap-y-[1.5rem]">
+              <img src="/assets/Navbar/Logo.svg" alt="Logo" />
+              <p class="font-inter font-normal text-[14px] md:text-[18px] leading-[22px] tracking-[0%] text-white/80 text-center">
+                Your trusted partner in pioneering <br />
+                IT solutions and service
+              </p>
+              <div className="flex justify-start items-center gap-x-[1rem]">
+                <div className="rounded-full bg-white p-[8px]">
+                  <img src="/assets/Footer/phone.svg" alt="phone" />
+                </div>
+                <div className="flex flex-col justify-center items-start gap-[1px] font-inter font-normal text-[14px] md:text-[18px] leading-[24px] tracking-normal text-white/80">
+                  <p>Make a Call</p>
+                  <p>(307) 555-0133</p>
+                </div>
+              </div>
+            </div>
+            {/* 2 */}
+            <div className="flex flex-col justify-center items-center gap-y-8">
+              <div class="font-inter font-bold text-[22px] leading-[24px] tracking-[0] text-white text-center">Quick Link</div>
+              <div className="flex flex-col justify-center items-center gap-y-[1rem]">
+                {[
+                  { name: "Service", link: "/" },
+                  { name: "Contact us", link: "/" },
+                  { name: "Testimonial", link: "/" },
+                  { name: "About Us", link: "/" },
+                ].map((d, index) => {
+                  return (
+                    <Link to={d.link} key={index} className="flex justify-start items-center gap-3">
+                      <img src="/assets/Footer/DoubleArrow.svg" alt="" className="hidden" />
+                      <p class="font-inter font-normal text-[14px] md:text-[18px] leading-[20px] tracking-[0] text-white/80">{d.name}</p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            {/* 3 */}
+            <div className="flex flex-col justify-center items-center gap-y-8">
+              <div class="font-inter font-bold text-[22px] leading-[24px] tracking-[0] text-white text-center">Our Services</div>
+              <div className="flex flex-col justify-center items-center gap-y-[1rem]">
+                {[
+                  { name: "Web Development ", link: "/" },
+                  { name: "IT Consultancy", link: "/" },
+                  { name: "UI/UX Design", link: "/" },
+                  { name: "Cybersecurity", link: "/" },
+                ].map((d, index) => {
+                  return (
+                    <Link to={d.link} key={index} className="flex justify-start items-center gap-3">
+                      <img src="/assets/Footer/DoubleArrow.svg" alt="" className="hidden" />
+                      <p class="font-inter font-normal text-[14px] md:text-[18px] leading-[22px] tracking-[0] text-white/80">{d.name}</p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            {/* 4 */}
+            <div className="flex flex-col justify-center items-center gap-y-[1.5rem]">
+              <div class="font-inter font-bold text-[22px] leading-[24px] tracking-[0] text-white">Follow Us</div>
+              <p class="font-inter font-normal text-[14px] md:text-[18px] leading-[22px] tracking-[0%] text-white/80 text-center">
+                The latest news, articles, sent <br />
+                to your inbox weekly.
+              </p>
+              <div className="flex justify-start items-center gap-x-[0.4rem]">
+                <div className="w-[36px] h-[36px] rounded-[5px] border-[1px] border-white/50 cursor-pointer flex justify-center items-center">
+                  <img src="/assets/Footer/Facebook.svg" alt="" />
+                </div>
+                <div className="w-[36px] h-[36px] rounded-[5px] border-[1px] border-white/50 cursor-pointer flex justify-center items-center">
+                  <img src="/assets/Footer/linkedIn.svg" alt="" />
+                </div>
+                <div className="w-[36px] h-[36px] rounded-[5px] border-[1px] border-white/50 cursor-pointer flex justify-center items-center">
+                  <img src="/assets/Footer/Pintrist.svg" alt="" />
+                </div>
+                <div className="w-[36px] h-[36px] rounded-[5px] border-[1px] border-white/50 cursor-pointer flex justify-center items-center">
+                  <img src="/assets/Footer/Twitter.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Reserve */}
+          <div className="w-[90%] flex flex-col md:flex-row justify-between items-center font-inter font-normal text-[12px] lg:text-[18px] leading-[18px] lg:leading-[28px] tracking-[0] text-white/80 bg-white/5 py-[1rem] lg:py-[2.5rem] md:py-[2rem] px-[2.3rem] rounded-t-[0.7rem] text-center gap-y-[1rem]">
+            <p>
+              Copyright 2024 - All Rights Reserved By{" "}
+              <span className="cursor-pointer underline text-white">
+                <a href="/">Sheraian</a>
+              </span>
+            </p>
+            <div className="flex justify-center items-center gap-5">
+              <Link to="/" className="cursor-pointer">
+                Privacy Policy
+              </Link>
+              <Link to="/" className="cursor-pointer">
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
