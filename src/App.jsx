@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar/Navbar";
 import BlogPage from "./pages/Blog/BlogPage";
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProcessPage from "./pages/Process/Process";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/process" element={<ProcessPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -2,7 +2,7 @@ import BlogCat from "../blog/BlogCat";
 
 function BlogCard() {
   return (
-    <div className="mt-2 md:mt-0 w-[90%] mx-auto h-[280px] md:w-[240px] md:h-[240px]  flex flex-col items-center hover:scale-105">
+    <div className="mt-0 md:mt-0 w-[90%] mx-auto h-[280px] md:w-[290px] md:h-[270px]  flex flex-col items-center hover:scale-105">
       <img className="w-full h-[250px]  xl:h-[270px] rounded-lg object-cover bg-no-repeat" src="/blog.png" />
       <div className="relative -top-10 w-[85%] bg-white shadow-md  mx-auto rounded-lg py-3 md:py-4 px-3 flex flex-col gap-2">
         <div className="flex flex-row items-center gap-4">

@@ -12,6 +12,11 @@
   .portfoliocards:hover .portfoliocard {
     display: flex;
   }
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1px black; /* Adjust thickness and color */
+  }
+  
   @keyframes slide-up {
     from {
       opacity: 0;
