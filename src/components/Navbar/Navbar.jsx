@@ -67,14 +67,14 @@ const DropDownComponent = ({ isVisible }) => {
     >
       <div className="ml-[20px] mb-[-5px] w-[35px] h-[20px] bg-white clip-triangle"></div>
       <div className="w-full bg-white rounded-[7px] px-[18px] py-[30px]">
-        {/* Text Sections */}
         <div className=""></div>
-        {/* Box Section */}
         <div className="flex flex-col gap-[14px]">
           <div className="flex justify-center items-center gap-[13px]">
             {DropDownData.slice(0, 2).map((d, index) => {
               return (
-                <div key={index} className="p-[6px] border border-[#00000061] rounded-[9px] flex flex-col justify-center items-start gap-[7.3px]">
+                <Link key={index} className="p-[6px] border border-[#00000061] rounded-[9px] flex flex-col justify-center items-start gap-[7.3px] cursor-pointer"
+                to={'/process'}
+                >
                   <div className="bg-[#4A2848] rounded-full flex flex-col justify-center items-center w-[28px] h-[28px]">
                     {/* Icone */}
                     <img src="/assets/Navbar/gearIcons.svg" alt="Icon" className="" />
@@ -84,7 +84,7 @@ const DropDownComponent = ({ isVisible }) => {
                     <p className="font-inter font-medium text-[11.13px] leading-[10.91px] tracking-[0%] align-middle w-full">{d.h_text}</p>
                     <p className="font-inter font-medium text-[9.5px] leading-[10.21px] tracking-[0%] align-middle w-full">{d.s_text}</p>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

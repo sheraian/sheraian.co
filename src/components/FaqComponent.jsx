@@ -17,9 +17,9 @@ function FaqComponent() {
     const [faq,setfaq]=useState(Faq)
     const [selected,setselected]=useState(0)
   return (
-    <div className="w-full bg-[#F5F5F5] ">
-    <div className="w-[95%] mx-auto text-center flex flex-col items-center  ">
-      <div className="flex flex-col items-center py-16 md:py-28 gap-2 md:gap-8">
+    <div className="w-full bg-[#F5F5F5] md:py-10 ">
+    <div className="w-[95%] mx-auto text-center flex flex-col gap-10 md:gap-16 items-center  ">
+      <div className="flex flex-col items-center   gap-2 md:gap-8">
         <h1 className="font-poppins font-semibold text-lg md:text-[3rem]">
           Frequently Asked Question
         </h1>
@@ -47,7 +47,7 @@ function FaqComponent() {
         </div>
         ))}
         </div>
-        <div className="inline-flex items-center bg-[#F5F5F5] py-16">
+        <div className="inline-flex items-center bg-[#F5F5F5] ">
       <Btn
         S_BtnText={"Load More"}
         onpress={() => setfaq((previos) => [...previos,   {
