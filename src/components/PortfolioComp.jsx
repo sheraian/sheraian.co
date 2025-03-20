@@ -14,10 +14,10 @@ function PortfolioComp() {
           Our Latest Projects
       </span>
         </div>
-        {/* <div className="w-[100%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:grid-cols-3 2xl:grid-cols-  gap-y-5"> */}
+        <div className="w-[100%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 xl:grid-cols-3 2xl:grid-cols-  gap-y-5">
      
-        <div className="w-[100%] gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
-        {[1,2,3,4,5,6,7].map((e)=>(  <PortfolioCard />))}
+        {/* <div className="w-[100%] gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 "> */}
+        {[1,2,3,4,5,6].map((e)=>(  <PortfolioCard />))}
          
         </div>
       </div>

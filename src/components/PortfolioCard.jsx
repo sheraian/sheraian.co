@@ -2,7 +2,7 @@ import React from "react";
 
 function PortfolioCard() {
   return (
-    <div className="portfoliocards w-[95%] mx-auto lg:w-[405px]  bg-cyan-300 rounded-full relative group">
+    <div className="portfoliocards w-[95%] mx-auto lg:w-[380px]  2xl:w-[450px] bg-cyan-300 rounded-full relative group">
       <img src="/portfolio.png" alt="" className=" rounded-lg" />
       <div className=" absolute opacity-0 rotate-[-5deg]  bg-black w-[100%] text-white rounded-xl bottom-0 md:hover:opacity-100 group-hover:md:opacity-100">
         <div className="w-[90%] mx-auto flex flex-col py-5 gap-5">
