@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import BlogPage from "./pages/Blog/BlogPage";
 import Home from "./pages/Home/Home";
+import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProcessPage from "./pages/Process/Process";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/career" element={<CareerPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

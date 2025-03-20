@@ -297,6 +297,7 @@ const Home = () => {
           <BlogBottomSection data={data} />
         </div>
       </div>
+      {/* footer Section */}
     </div>
   );
 };
