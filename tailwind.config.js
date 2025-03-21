@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        xxl: "1400px",
         customScreen: "850px", // 2XL Screens (Default)
       },
       rotate: {

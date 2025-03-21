@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import BlogBottomSection from "../Blog/BlogBottomSection";
 import PortfolioWidget from "../../components/PortfolioWidget";
 import PriceWidget from "../../components/PriceWidget";
-
+import ServiceCard from "../../components/ServiceCard";
 const testimonials = [
   {
     name: "Chandan Dubey",
@@ -24,7 +24,8 @@ const testimonials = [
   {
     name: "Michael Smith",
     position: "CEO, Tech Corp",
-    feedback: "They delivered the project on time and with exceptional quality. I couldn't have asked for a better development partner!",
+    feedback:
+      "They delivered the project on time and with exceptional quality. I couldn't have asked for a better development partner!",
     image: "/assets/Home/Testimonials/UserIcone.svg",
   },
 ];
@@ -62,8 +63,12 @@ const Card = ({ img, H_main, B_Text }) => {
           <img src={img} alt="" />
         </div>
         <div>
-          <p className="font-inter font-semibold text-[25px] leading-[35px] tracking-[-1px]">{H_main}</p>
-          <p className="font-inter font-normal text-[16px] leading-[26px] tracking-[0px] text-[#7A7A7A]">{B_Text}</p>
+          <p className="font-inter font-semibold text-[25px] leading-[35px] tracking-[-1px]">
+            {H_main}
+          </p>
+          <p className="font-inter font-normal text-[16px] leading-[26px] tracking-[0px] text-[#7A7A7A]">
+            {B_Text}
+          </p>
         </div>
       </div>
     </div>
@@ -98,7 +103,9 @@ const Home = () => {
             IT Consulting Services <br /> For Your Business
           </>
         }
-        M_Text={"Professionally optimize interdependent intellectual introperable connect best practice. Progressivley fabricate done"}
+        M_Text={
+          "Professionally optimize interdependent intellectual introperable connect best practice. Progressivley fabricate done"
+        }
         isSBtnShow={true}
         S_BtnText={"Explore More"}
       />
@@ -116,25 +123,33 @@ const Home = () => {
               We Are Increasing <br /> Business Success <br /> With Technology
             </p>
             <p className="font-inter font-normal text-[18px] leading-[28px] tracking-[0%] align-center">
-              It is a long established fact that a reader will be distracted the readable <br /> content of a page when looking at layout the point.
+              It is a long established fact that a reader will be distracted the
+              readable <br /> content of a page when looking at layout the
+              point.
             </p>
             {/* Info Section */}
             <div className="flex justify-start items-center gap-[50px]">
               {/* qualities */}
               <div className="flex flex-col gap-[15px] font-inter font-medium text-[20px] leading-[28px] tracking-[0%] ">
                 <div className="flex justify-start items-center gap-[10px]">
-                  <img src="/assets/Home/TickIcone.svg" alt="tick" /> Problem Solving
+                  <img src="/assets/Home/TickIcone.svg" alt="tick" /> Problem
+                  Solving
                 </div>
                 <div className="flex justify-start items-center gap-[10px]">
-                  <img src="/assets/Home/TickIcone.svg" alt="tick" /> Mission & Vision
+                  <img src="/assets/Home/TickIcone.svg" alt="tick" /> Mission &
+                  Vision
                 </div>
               </div>
               {/* Founder */}
               <div className="flex justify-start items-center gap-[10px]">
                 <img src="/assets/Home/Founder.svg" alt="tick" />
                 <div>
-                  <p className="font-inter font-semibold text-[20px] leading-[32px] tracking-[0%]">M Sheraz</p>
-                  <p className="font-[Plus Jakarta Sans] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#726B7D]">Founder</p>
+                  <p className="font-inter font-semibold text-[20px] leading-[32px] tracking-[0%]">
+                    M Sheraz
+                  </p>
+                  <p className="font-[Plus Jakarta Sans] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#726B7D]">
+                    Founder
+                  </p>
                 </div>
               </div>
               <div></div>
@@ -145,8 +160,16 @@ const Home = () => {
       </div>
       {/* Third Section */}
       <div className="w-full flex justify-center items-center bg-[#340831] relative overflow-hidden py-[40px]">
-        <img src="/assets/Home/SecondSection/CurlyLines.svg" className=" absolute left-2" alt="curlies" />
-        <img src="/assets/Home/SecondSection/DotsShapes.svg" className=" absolute right-0 bottom-0" alt="dotes" />
+        <img
+          src="/assets/Home/SecondSection/CurlyLines.svg"
+          className=" absolute left-2"
+          alt="curlies"
+        />
+        <img
+          src="/assets/Home/SecondSection/DotsShapes.svg"
+          className=" absolute right-0 bottom-0"
+          alt="dotes"
+        />
         {/* Main Content */}
         <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[75px]">
           {/* Data Section */}
@@ -158,11 +181,14 @@ const Home = () => {
               Our software <br /> development <br /> process
             </p>
             <p className="font-inter font-normal text-[18px] leading-[28px] tracking-[0%] align-center text-white">
-              It is a long established fact that a reader will be distracted <br /> the readable content of a page when looking at layout the <br />{" "}
-              point.
+              It is a long established fact that a reader will be distracted{" "}
+              <br /> the readable content of a page when looking at layout the{" "}
+              <br /> point.
             </p>
             <div className="flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[white] rounded-[35px] cursor-pointer hover:scale-105 group">
-              <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-[#4A2848]">Explore More</p>
+              <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-[#4A2848]">
+                Explore More
+              </p>
               <img
                 className="rotate-[225deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
                 src="/assets/Home/SecondSection/Purple_Icone.svg"
@@ -175,23 +201,75 @@ const Home = () => {
             {/* first */}
             <div className="flex flex-col justify-center items-center gap-[34px]">
               {cardData.slice(0, 2).map((c, index) => {
-                return <Card key={index} img={c.Icone} H_main={c.H_main} B_Text={c.B_Text} />;
+                return (
+                  <Card
+                    key={index}
+                    img={c.Icone}
+                    H_main={c.H_main}
+                    B_Text={c.B_Text}
+                  />
+                );
               })}
             </div>
             {/* second */}
             <div className="flex flex-col justify-center items-center gap-[34px] md:pt-[80px]">
               {cardData.slice(-2).map((c, index) => {
-                return <Card key={index} img={c.Icone} H_main={c.H_main} B_Text={c.B_Text} />;
+                return (
+                  <Card
+                    key={index}
+                    img={c.Icone}
+                    H_main={c.H_main}
+                    B_Text={c.B_Text}
+                  />
+                );
               })}
             </div>
             <div></div>
           </div>
         </div>
       </div>
+      <div class=" flex flex-col items-center  py-10 gap-10 w-[90%] mx-auto ">
+        <div className="w-full flex flex-col justify-center items-center gap-[30px]">
+          <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
+            Our Featured Services
+          </div>
+          <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-semibold text-center leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words capitalize">
+
+            We Provide Exclusive Service For Your Business
+          </span>
+        </div>
+
+        <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2   xl:grid-cols-3 gap-y-5 gap-x-4">
+      
+{[...Array(5)].map((_, index) => (
+ <motion.div 
+ key={index} 
+ initial={{ opacity: 0, x: -50 }} 
+ whileInView={{ opacity: 1, x: 0 }} 
+ transition={{ duration: 0.5, delay: index * 0.2 }}
+ viewport={{ once: true, amount: 0.3 }}  
+>
+ <ServiceCard />
+</motion.div>
+))}
+
+
+        </div>
+<div className="py-10">
+<Btn S_BtnText={"Load More"}  />
+
+</div>
+
+        {/* <x-button
+          title="View All"
+          url="/contact-us"
+          imgsrc="/arrow.png"
+          textColor="text-white"
+        /> */}
+      </div>
       {/* fourth Section */}
-      <div className="w-full flex justify-center items-center py-[70px] md:py-[100px]">
+      <div className="w-full flex justify-center items-center py-10 md:py-10 ">
         <div className="w-[90%] flex flex-col justify-center items-center gap-[40px]">
-          {/* Heading */}
           <div className="w-full flex flex-col justify-center items-center gap-[30px]">
             <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
               Testimonials
@@ -223,13 +301,20 @@ const Home = () => {
                   <div className="w-full flex justify-between items-center">
                     <div className="flex justify-center items-center gap-[5px]">
                       {Array(5)
-                        .fill(0)
+                        .fill(3)
                         .map((_, index) => (
-                          <img key={index} src="/assets/Home/Testimonials/star.svg" alt="Star" />
+                          <img
+                            key={index}
+                            src="/assets/Home/Testimonials/star.svg"
+                            alt="Star"
+                          />
                         ))}
                     </div>
                     <div className="w-[65px] h-[65px] rounded-full bg-[#4A2848] flex justify-center items-center">
-                      <img src="/assets/Home/Testimonials/Quotations.svg" alt="Quotation" />
+                      <img
+                        src="/assets/Home/Testimonials/Quotations.svg"
+                        alt="Quotation"
+                      />
                     </div>
                   </div>
                   {/* Testimonial */}
@@ -238,9 +323,15 @@ const Home = () => {
                   </p>
                   {/* User Details */}
                   <div className="flex justify-start items-center gap-[26px]">
-                    <img src={testimonials[currentIndex].image} alt="User" className="w-[68px] h-[68px]" />
+                    <img
+                      src={testimonials[currentIndex].image}
+                      alt="User"
+                      className="w-[68px] h-[68px]"
+                    />
                     <div>
-                      <p className="font-inter font-semibold text-[20px] leading-[20px] tracking-[0%]">{testimonials[currentIndex].name}</p>
+                      <p className="font-inter font-semibold text-[20px] leading-[20px] tracking-[0%]">
+                        {testimonials[currentIndex].name}
+                      </p>
                       <p className="font-[Plus Jakarta Sans] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#726B7D]">
                         {testimonials[currentIndex].role}
                       </p>
@@ -258,7 +349,11 @@ const Home = () => {
               className={`rounded-full w-[54px] h-[54px] border ${currentIndex > 0 ? "bg-[#4A2848]" : "bg-transparent"} flex justify-center items-center cursor-pointer`}
             >
               <img
-                src={currentIndex > 0 ? "/assets/Home/Testimonials/leftWhiteArrow.svg" : "/assets/Home/Testimonials/leftArrow.svg"}
+                src={
+                  currentIndex > 0
+                    ? "/assets/Home/Testimonials/leftWhiteArrow.svg"
+                    : "/assets/Home/Testimonials/leftArrow.svg"
+                }
                 alt="LeftArrow"
               />
             </div>
