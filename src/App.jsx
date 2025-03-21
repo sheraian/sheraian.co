@@ -7,6 +7,7 @@ import ProcessPage from "./pages/Process/Process";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
 import CareerPage from "./pages/Career/CareerPage";
 import CareerDetailPage from "./pages/Career/CareerDetailPage";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/career/:slug/:id" element={<CareerDetailPage />} />
+          <Route path="/contact-us" element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>

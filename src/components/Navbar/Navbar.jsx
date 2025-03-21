@@ -93,10 +93,8 @@ const DropDownComponent = ({ isVisible }) => {
               return (
                 <div key={index} className="p-[6px] border border-[#00000061] rounded-[9px] flex flex-col justify-center items-start gap-[7.3px]">
                   <div className="bg-[#4A2848] rounded-full flex flex-col justify-center items-center w-[28px] h-[28px]">
-                    {/* Icone */}
                     <img src="/assets/Navbar/gearIcons.svg" alt="Icon" className="" />
                   </div>
-                  {/* Text */}
                   <div className="w-[140px] flex flex-col gap-2 px-2 py-2">
                     <p className="font-inter font-medium text-[11.13px] leading-[10.91px] tracking-[0%] align-middle w-full">{d.h_text}</p>
                     <p className="font-inter font-medium text-[9.5px] leading-[10.21px] tracking-[0%] align-middle w-full">{d.s_text}</p>
@@ -134,8 +132,8 @@ const Navbar = () => {
                 onMouseEnter={() => button.isArrow && setActiveDropdown(index)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <Link
-                  to={button?.link}
+                <a
+                  href={button?.link}
                   className="flex justify-center items-center gap-[6px] cursor-pointer font-inter font-semibold text-[18px] leading-[100px] tracking-[0%] align-middle group"
                 >
                   <p>{button.title}</p>
@@ -146,9 +144,8 @@ const Navbar = () => {
                       alt="Arrow"
                     />
                   ) : null}
-                </Link>
+                </a>
 
-                {/* Dropdown Menu */}
                 {button.isArrow && <DropDownComponent isVisible={activeDropdown === index} />}
               </div>
             );
@@ -156,14 +153,17 @@ const Navbar = () => {
         </div>
 
         {/* Call to Action Button */}
-        <div className="hidden lg:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer hover:scale-105 group">
+        <a className="hidden lg:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer hover:scale-105 group"
+        href="/contact-us"
+        
+        >
           <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-white">Get In Touch</p>
           <img
             className="rotate-[225deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
             src="/assets/Navbar/CallToActionArrow.svg"
             alt="Get In Touch"
           />
-        </div>
+        </a>
       </div>
     </div>
   );

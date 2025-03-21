@@ -32,7 +32,7 @@ function CareerDetailPage() {
         >
           {slug}
         </span>
-        <div className="ql-editor w-full text-base md:text-lg leading-relaxed" 
+        <div className="ql-editor w-full  text-base md:text-lg leading-relaxed" 
      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }} 
 />
 
