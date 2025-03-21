@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProcessPage from "./pages/Process/Process";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
 import CareerPage from "./pages/Career/CareerPage";
+import CareerDetailPage from "./pages/Career/CareerDetailPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/career" element={<CareerPage />} />
+          <Route path="/career/:slug/:id" element={<CareerDetailPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

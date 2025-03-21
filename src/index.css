@@ -6,6 +6,16 @@
   background-size: cover;
   background-position: center;
 }
+.ql-editor ul {
+  list-style-type: disc; /* Bullet points */
+  padding-left: 20px;
+}
+
+.ql-editor ol {
+  list-style-type: decimal; /* Numbered list */
+  padding-left: 20px;
+}
+
 .portfoliocard{
     /* transform: rotate(-5deg); */
   }
