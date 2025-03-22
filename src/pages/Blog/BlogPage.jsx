@@ -17,7 +17,15 @@ function BlogPage() {
 
   return (
     <div className="flex flex-col gap-10 bg-[#F5F5F5]">
-    {searchQuery == null || searchQuery==""?  <HeroBlog />: <div className="flex flex-col items-center bg-gray-100 p-6 rounded-xl w-full max-w-md mx-auto">
+    {searchQuery == null || searchQuery==""?    <HeroBlog
+      P_BtnText={"blogs"}
+      H_Text={<>Our Blogs</>}
+      M_Text={
+        "our company blogs cover a wide range of topics, including new technologies, consumer gadgets, and industry trends"
+      }
+      isSBtnShow={false}
+      S_BtnText={"Explore More"}
+    />: <div className="flex flex-col items-center bg-gray-100 p-6 rounded-xl w-full max-w-md mx-auto">
         <h1 className="text-2xl font-bold text-gray-800 mb-2">Search Result</h1>
         <span className="text-lg text-gray-600 italic">
           Search result for{" "}

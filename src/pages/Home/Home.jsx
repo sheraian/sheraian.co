@@ -6,6 +6,7 @@ import BlogBottomSection from "../Blog/BlogBottomSection";
 import PortfolioWidget from "../../components/PortfolioWidget";
 import PriceWidget from "../../components/PriceWidget";
 import ServiceCard from "../../components/ServiceCard";
+import { useNavigate } from "react-router-dom";
 const testimonials = [
   {
     name: "Chandan Dubey",
@@ -78,6 +79,7 @@ const Card = ({ img, H_main, B_Text }) => {
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 for right, -1 for left
+  let navigate = useNavigate();
 
   const handleNext = () => {
     if (currentIndex < testimonials.length - 1) {
@@ -261,15 +263,11 @@ const Home = () => {
           ))}
         </div>
         <div className="py-10">
-          <Btn S_BtnText={"Load More"} />
+          <Btn
+            S_BtnText={"Load More"}
+            onpress={() => (window.location.href = "/service")}
+          />
         </div>
-
-        {/* <x-button
-          title="View All"
-          url="/contact-us"
-          imgsrc="/arrow.png"
-          textColor="text-white"
-        /> */}
       </div>
       {/* fourth Section */}
       <div className="w-full flex justify-center items-center py-10 md:py-10 ">

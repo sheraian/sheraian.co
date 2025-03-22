@@ -8,6 +8,8 @@ import PortfolioPage from "./pages/Portfolio/PortfolioPage";
 import CareerPage from "./pages/Career/CareerPage";
 import CareerDetailPage from "./pages/Career/CareerDetailPage";
 import Contact from "./pages/Contact/Contact";
+import ServicePage from "./pages/Service/ServicePage";
+import ServiceDetailPage from "./pages/Service/ServiceDetailPage";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/career" element={<CareerPage />} />
           <Route path="/career/:slug/:id" element={<CareerDetailPage />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/service" element={<ServicePage />} />
+          <Route path="/service/:slug/:id" element={<ServiceDetailPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
