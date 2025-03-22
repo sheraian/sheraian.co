@@ -1,7 +1,7 @@
 const PriceCard = ({ imgSrc , flag = 'text-black', features = [] }) => {
     return (
       <div
-        className={`w-[90%] rounded-[2rem] md:rounded-none mx-auto md:mx-0 md:w-[370px]  md:rounded-tl-[3rem] md:rounded-br-[3rem] px-12 py-10 md:py-16 bg-cover bg-center hover:scale-105 transition-transform duration-300 ease-in-out `}
+        className={`w-[100%] rounded-[2rem] lg:rounded-none mx-auto lg:mx-0 lg:w-[370px]  lg:rounded-tl-[3rem] lg:rounded-br-[3rem] px-12 py-10 lg:py-16 bg-cover bg-center hover:scale-105 transition-transform duration-300 ease-in-out `}
         style={{ backgroundImage: `url(${imgSrc ? imgSrc : "frame1.png"})` }}
        
       >

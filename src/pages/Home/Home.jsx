@@ -57,10 +57,10 @@ const data = [1, 2, 3];
 
 const Card = ({ img, H_main, B_Text }) => {
   return (
-    <div className="w-[326px] rounded-[15px] bg-white">
-      <div className="flex flex-col justify-center items-start gap-[50px] px-[30px] pt-[40px] pb-[25px]">
-        <div className="bg-[#4A2848] rounded-[15px] w-[62px] h-[62px] flex justify-center items-center">
-          <img src={img} alt="" />
+    <div className="w-[100%] lg:w-[326px] rounded-[15px] bg-white">
+      <div className="flex flex-col justify-center items-start gap-6 md:gap- px-4 md:px-[30px] py-5">
+        <div className="bg-[#4A2848] rounded-[15px] w-[52px] h-[52px] md:w-[62px] md:h-[62px] flex justify-center items-center">
+          <img src={img} className="w-3/4 h-3/4 inherit" alt="" />
         </div>
         <div>
           <p className="font-inter font-semibold text-[25px] leading-[35px] tracking-[-1px]">
@@ -111,25 +111,21 @@ const Home = () => {
       />
       {/* Second Section */}
       <div className="w-full flex justify-center items-center pt-[100px] lg:pt-[105px] pb-[100px] lg:pb-[105px]">
-        <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[75px]">
-          {/* Image Section */}
+        <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
           <img src="/assets/Home/SecondSec_Image.svg" alt="Section Image" />
-          {/* Data Section */}
-          <div className="flex flex-col justify-center items-start gap-[24px]">
+          <div className="flex flex-col justify-center items-start gap-4 md:gap-7">
             <div className="flex justify-center items-center px-[22px] py-[5px] bg-[#DEDAE5] rounded-[50px]">
               <p className="text-[#4A2848]">Who We Are</p>
             </div>
-            <p className="font-inter font-semibold text-[56px] leading-[60px] tracking-[0%] align-centre">
-              We Are Increasing <br /> Business Success <br /> With Technology
+
+            <p className="font-inter font-semibold text-[1.5rem] md:text-[56px] md:leading-[60px] tracking-[0%] align-centre">
+              We Are Increasing Business Success With Technology
             </p>
-            <p className="font-inter font-normal text-[18px] leading-[28px] tracking-[0%] align-center">
+            <p className="font-inter font-normal text-sm md:text-[18px] md:leading-[28px] tracking-[0%] align-center">
               It is a long established fact that a reader will be distracted the
-              readable <br /> content of a page when looking at layout the
-              point.
+              readable content of a page when looking at layout the point.
             </p>
-            {/* Info Section */}
-            <div className="flex justify-start items-center gap-[50px]">
-              {/* qualities */}
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-[50px]">
               <div className="flex flex-col gap-[15px] font-inter font-medium text-[20px] leading-[28px] tracking-[0%] ">
                 <div className="flex justify-start items-center gap-[10px]">
                   <img src="/assets/Home/TickIcone.svg" alt="tick" /> Problem
@@ -140,14 +136,13 @@ const Home = () => {
                   Vision
                 </div>
               </div>
-              {/* Founder */}
-              <div className="flex justify-start items-center gap-[10px]">
+              <div className="w-full  ml-auto lg:w-auto flex items-center  gap-[10px]">
                 <img src="/assets/Home/Founder.svg" alt="tick" />
                 <div>
-                  <p className="font-inter font-semibold text-[20px] leading-[32px] tracking-[0%]">
+                  <p className="font-inter font-semibold text-[20px]  tracking-[0%] leading-none">
                     M Sheraz
                   </p>
-                  <p className="font-[Plus Jakarta Sans] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#726B7D]">
+                  <p className="font-[Plus Jakarta Sans] font-normal text-sm leading-[26px] tracking-[0%] text-[#726B7D]">
                     Founder
                   </p>
                 </div>
@@ -177,15 +172,14 @@ const Home = () => {
             <div className="flex justify-center items-center px-[22px] py-[5px] bg-[#DEDAE5] rounded-[50px] text-[#4A2848]">
               <p>Work Process</p>
             </div>
-            <p className="font-inter font-semibold text-[56px] leading-[60px] tracking-[0%] align-centre text-white">
-              Our software <br /> development <br /> process
+            <p className="font-inter font-semibold text-[1.9rem] md:text-[3rem] lg:text-[4rem] lg:leading-[60px] tracking-[0%] align-centre text-white">
+              Our software development process
             </p>
             <p className="font-inter font-normal text-[18px] leading-[28px] tracking-[0%] align-center text-white">
-              It is a long established fact that a reader will be distracted{" "}
-              <br /> the readable content of a page when looking at layout the{" "}
-              <br /> point.
+              It is a long established fact that a reader will be distracted the
+              readable content of a page when looking at layout the point.
             </p>
-            <div className="flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[white] rounded-[35px] cursor-pointer hover:scale-105 group">
+            <div className="hidden md:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[white] rounded-[35px] cursor-pointer hover:scale-105 group">
               <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-[#4A2848]">
                 Explore More
               </p>
@@ -197,30 +191,45 @@ const Home = () => {
             </div>
           </div>
           {/* Card Section */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-[34px] z-[1]">
+          <div className="w-full flex flex-col md:flex-row justify-center items-center gap-[2rem] z-[1]">
             {/* first */}
-            <div className="flex flex-col justify-center items-center gap-[34px]">
+            <div className="w-full flex flex-col justify-center items-center gap-[2rem]">
               {cardData.slice(0, 2).map((c, index) => {
                 return (
-                  <Card
+                  <motion.div
                     key={index}
-                    img={c.Icone}
-                    H_main={c.H_main}
-                    B_Text={c.B_Text}
-                  />
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <Card
+                      key={index}
+                      img={c.Icone}
+                      H_main={c.H_main}
+                      B_Text={c.B_Text}
+                    />
+                  </motion.div>
                 );
               })}
             </div>
-            {/* second */}
-            <div className="flex flex-col justify-center items-center gap-[34px] md:pt-[80px]">
+            <div className="w-full flex flex-col justify-center items-center gap-[2rem] md:pt-[80px]">
               {cardData.slice(-2).map((c, index) => {
                 return (
-                  <Card
+                  <motion.div
                     key={index}
-                    img={c.Icone}
-                    H_main={c.H_main}
-                    B_Text={c.B_Text}
-                  />
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <Card
+                      key={index}
+                      img={c.Icone}
+                      H_main={c.H_main}
+                      B_Text={c.B_Text}
+                    />
+                  </motion.div>
                 );
               })}
             </div>
@@ -234,31 +243,26 @@ const Home = () => {
             Our Featured Services
           </div>
           <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-semibold text-center leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words capitalize">
-
             We Provide Exclusive Service For Your Business
           </span>
         </div>
 
         <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2   xl:grid-cols-3 gap-y-5 gap-x-4">
-      
-{[...Array(5)].map((_, index) => (
- <motion.div 
- key={index} 
- initial={{ opacity: 0, x: -50 }} 
- whileInView={{ opacity: 1, x: 0 }} 
- transition={{ duration: 0.5, delay: index * 0.2 }}
- viewport={{ once: true, amount: 0.3 }}  
->
- <ServiceCard />
-</motion.div>
-))}
-
-
+          {[...Array(5)].map((_, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <ServiceCard />
+            </motion.div>
+          ))}
         </div>
-<div className="py-10">
-<Btn S_BtnText={"Load More"}  />
-
-</div>
+        <div className="py-10">
+          <Btn S_BtnText={"Load More"} />
+        </div>
 
         {/* <x-button
           title="View All"
@@ -285,9 +289,10 @@ const Home = () => {
               <motion.div
                 key={currentIndex}
                 initial={{ opacity: 0, x: direction * 50 }}
-                animate={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction * -50 }}
                 transition={{ duration: 0.5 }}
+                viewport={{ once: true, amount: 0.3 }}
                 className="w-full flex flex-col md:flex-row justify-center items-center"
               >
                 {/* User Image */}

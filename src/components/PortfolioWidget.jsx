@@ -1,7 +1,7 @@
 import React from "react";
 import Btn from "./Btn";
 import PortfolioCard from "./PortfolioCard";
-
+import { motion } from "framer-motion";
 function PortfolioWidget() {
   return (
     <div class="w-full">
@@ -12,13 +12,25 @@ function PortfolioWidget() {
           </p>
         </div>
         <div class="w-[100%] flex items-center justify-between">
-          <h1 class="text-black font-bold text-[1.2rem] md:text-[2.5rem]">Top Rated Portfolio</h1>
+          <h1 class="text-black font-bold text-[1.2rem] md:text-[2.5rem]">
+            Top Rated Portfolio
+          </h1>
           <Btn S_BtnText={"View All"} />
         </div>
         <div className="w-[100%] gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
-          <PortfolioCard />
-          <PortfolioCard />
-          <PortfolioCard />
+          {Array(5)
+            .fill()
+            .map((_, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <PortfolioCard />
+              </motion.div>
+            ))}
         </div>
       </div>
     </div>
