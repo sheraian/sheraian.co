@@ -7,10 +7,15 @@ const buttonsData = [
     // link: "/",
     isArrow: true,
   },
+  // {
+  //   title: "Company",
+  //   // link: "/",
+  //   isArrow: true,
+  // },
   {
-    title: "Company",
-    // link: "/",
-    isArrow: true,
+    title: "About Us",
+    link: "/about",
+    isArrow: false,
   },
   {
     title: "Blog",
