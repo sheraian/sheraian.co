@@ -11,6 +11,7 @@ import Contact from "./pages/Contact/Contact";
 import ServicePage from "./pages/Service/ServicePage";
 import ServiceDetailPage from "./pages/Service/ServiceDetailPage";
 import About from "./pages/About/About";
+import BlogDetailsPage from "./pages/Blog/BlogDetailsPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs/:slug/:id" element={<BlogDetailsPage />} />
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/career" element={<CareerPage />} />

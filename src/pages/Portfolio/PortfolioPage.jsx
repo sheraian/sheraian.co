@@ -8,7 +8,7 @@ import FaqComponent from "../../components/FaqComponent";
 import PortfolioWidget from "../../components/PortfolioWidget";
 import PortfolioComp from "../../components/PortfolioComp";
 function PortfolioPage() {
-    let [data,setdata]=useState(proData)
+  let [data, setdata] = useState(proData);
   return (
     <div className=" flex flex-col items-center gap-5 bg-[#F5F5F5]">
       <HeroBlog
@@ -20,14 +20,22 @@ function PortfolioPage() {
         isSBtnShow={false}
         S_BtnText={"Explore More"}
       />
-     <PortfolioComp />
+      <PortfolioComp />
       <div className=" w-full flex items-center justify-center py-10">
         <div className="inline-flex items-center ">
-          <Btn S_BtnText={"Load More"} onpress={() => setdata((previos) => [...previos, ...proData])} />
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ amount: 0.3 }}
+          >
+            <Btn
+              S_BtnText={"Load More"}
+              onpress={() => setdata((previos) => [...previos, ...proData])}
+            />
+          </motion.div>
         </div>
       </div>
       <FaqComponent />
-        
     </div>
   );
 }

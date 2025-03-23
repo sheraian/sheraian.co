@@ -1,6 +1,7 @@
 import React from "react";
 import Btn from "./Btn";
 import PortfolioCard from "./PortfolioCard";
+import { motion } from "framer-motion";
 
 function PortfolioComp() {
   return (
@@ -11,14 +12,21 @@ function PortfolioComp() {
             Recently Work
           </p>
           <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-semibold text-center leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words">
-          Our Latest Projects
-      </span>
+            Our Latest Projects
+          </span>
         </div>
         <div className="w-[100%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 xl:grid-cols-3 2xl:grid-cols-  gap-y-5">
-     
-        {/* <div className="w-[100%] gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 "> */}
-        {[1,2,3,4,5,6].map((e)=>(  <PortfolioCard />))}
-         
+          {/* <div className="w-[100%] gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 "> */}
+          {[1, 2, 3, 4, 5, 6].map((e,index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ amount: 0.3 }}
+            >
+              <PortfolioCard />
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

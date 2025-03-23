@@ -11,17 +11,31 @@ const BlogBottomSection = ({ data, callToBTnAction }) => {
         {data.map((e, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            <BlogCard />
+            <a href={"/blogs/Tackling the Changes of Retail Industry/1"}>
+              <BlogCard />
+            </a>
           </motion.div>
         ))}
       </div>
       <div className=" w-full flex items-center justify-center ">
         <div className="inline-flex items-center bg-[#F5F5F5]">
-          <Btn S_BtnText={"Load More"} onpress={() => callToBTnAction((previos) => [...previos, 1, 3, 4])} />
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ amount: 0.3 }}
+          >
+            <Btn
+              S_BtnText={"Load More"}
+              onpress={() =>
+                callToBTnAction((previos) => [...previos, 1, 3, 4])
+              }
+            />
+          </motion.div>
         </div>
       </div>
       <FaqComponent />

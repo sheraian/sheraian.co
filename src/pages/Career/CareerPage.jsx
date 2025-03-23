@@ -9,7 +9,7 @@ import PortfolioWidget from "../../components/PortfolioWidget";
 import PortfolioComp from "../../components/PortfolioComp";
 import CareerComp from "../../components/CareerComp";
 function CareerPage() {
-    let [data,setdata]=useState(proData)
+  let [data, setdata] = useState(proData);
   return (
     <div className=" flex flex-col items-center gap-16 bg-[#F5F5F5]">
       <HeroBlog
@@ -21,14 +21,16 @@ function CareerPage() {
         isSBtnShow={false}
         S_BtnText={"Explore More"}
       />
-     <CareerComp />
+      <CareerComp />
       <div className=" w-full flex items-center justify-center py-10">
         <div className="inline-flex items-center ">
-          <Btn S_BtnText={"Load More"} onpress={() => setdata((previos) => [...previos, ...proData])} />
+          <Btn
+            S_BtnText={"Load More"}
+            onpress={() => setdata((previos) => [...previos, ...proData])}
+          />
         </div>
       </div>
       <FaqComponent />
-        
     </div>
   );
 }

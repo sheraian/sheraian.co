@@ -24,53 +24,65 @@ function FaqComponent() {
   const [selected, setselected] = useState(0);
   return (
     <motion.div
-    className="w-full bg-[#F5F5F5] md:py-10"
-    initial="hidden"
-    whileInView="visible"
-    // viewport={{ once: true }}
-    variants={fadeIn}
-  >
-    <div className="w-[95%] mx-auto text-center flex flex-col gap-10 md:gap-16 items-center">
-      <motion.div className="flex flex-col items-center gap-2 md:gap-8" variants={fadeIn}>
-        <h1 className="font-poppins font-semibold text-lg md:text-[3rem]">
-          Frequently Asked Questions
-        </h1>
-        <p className="w-[90%] text-xs md:text-sm mx-auto text-center font-serif leading-[20px]">
-          Find answers to common questions about our services, development process, pricing, and support.
-        </p>
-      </motion.div>
-  
-      <div className="w-full flex flex-col gap-4 md:gap-10">
-        {faq.map((e, index) => (
-          <motion.div key={index} initial="hidden" animate="visible" variants={fadeIn}>
-            <FaqCard
-              keyId={index}
-              selected={selected}
-              title={e.question}
-              description={e.answer}
-              onPress={() => setselected(index === selected ? -1 : index)}
-            />
-          </motion.div>
-        ))}
+      className="w-full bg-[#F5F5F5] md:py-10"
+      initial="hidden"
+      whileInView="visible"
+      // viewport={{ once: true }}
+      variants={fadeIn}
+    >
+      <div className="w-[95%] mx-auto text-center flex flex-col gap-10 md:gap-16 items-center">
+        <motion.div
+          className="flex flex-col items-center gap-2 md:gap-8"
+          variants={fadeIn}
+        >
+          <h1 className="font-poppins font-semibold text-lg md:text-[3rem]">
+            Frequently Asked Questions
+          </h1>
+          <p className="w-[90%] text-xs md:text-sm mx-auto text-center font-serif leading-[20px]">
+            Find answers to common questions about our services, development
+            process, pricing, and support.
+          </p>
+        </motion.div>
+
+        <div className="w-full flex flex-col gap-4 md:gap-10">
+          {faq.map((e, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ amount: 0.3 }}
+            >
+              <FaqCard
+                keyId={index}
+                selected={selected}
+                title={e.question}
+                description={e.answer}
+                onPress={() => setselected(index === selected ? -1 : index)}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          className="inline-flex items-center bg-[#F5F5F5]"
+          variants={fadeIn}
+        >
+          <Btn
+            S_BtnText={"Load More"}
+            onpress={() =>
+              setfaq((previos) => [
+                ...previos,
+                {
+                  question: "Do you work with Shopify, Next.js, or Flutter?",
+                  answer:
+                    "Absolutely! We specialize in Shopify for e-commerce, Next.js for web apps, and Flutter for mobile apps.",
+                },
+              ])
+            }
+          />
+        </motion.div>
       </div>
-  
-      <motion.div className="inline-flex items-center bg-[#F5F5F5]" variants={fadeIn}>
-        <Btn
-          S_BtnText={"Load More"}
-          onpress={() =>
-            setfaq((previos) => [
-              ...previos,
-              {
-                question: "Do you work with Shopify, Next.js, or Flutter?",
-                answer:
-                  "Absolutely! We specialize in Shopify for e-commerce, Next.js for web apps, and Flutter for mobile apps.",
-              },
-            ])
-          }
-        />
-      </motion.div>
-    </div>
-  </motion.div>
+    </motion.div>
   );
 }
 
