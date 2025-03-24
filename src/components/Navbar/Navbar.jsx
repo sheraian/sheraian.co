@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const buttonsData = [
   {
     title: "Services",
     // link: "/",
     isArrow: true,
-  },
+    },
   // {
   //   title: "Company",
   //   // link: "/",
@@ -65,6 +65,40 @@ const links = [
   { name: "Services", link: "/service" },
   { name: "Case Studies", link: "/case-study" },
   { name: "Job Section", link: "/jobs" },
+];
+const Drawer = [
+  {
+    title: "Services",
+    link: "/service",
+    isArrow: true,
+    },
+  {
+    title: "About Us",
+    link: "/about",
+    isArrow: false,
+  },
+  {
+    title: "Blog",
+    link: "/blogs",
+    isArrow: false,
+  },
+  {
+    title: "Portfolio",
+    link: "/portfolio",
+    isArrow: false,
+  },
+  {
+    title: "Career",
+    link: "/career",
+    isArrow: false,
+  },
+  { title: "Case Studies", link: "/case-study" },
+
+  {
+    title: "Contact Us",
+    link: "/contact-us",
+    isArrow: false,
+  },
 ];
 // DropDown Component
 const DropDownComponent = ({ isVisible }) => {
@@ -153,11 +187,11 @@ const DropDownComponent = ({ isVisible }) => {
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="w-full bg-[#f5f5f5]">
       <div className="w-[90%] mx-auto py-[10px]  flex justify-between items-center relative">
-        {/* Logo Section */}
         <div>
           <Link to="/">
             <img
@@ -168,7 +202,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Button Section */}
         <div className="hidden justify-center items-center gap-[26px] lg:flex">
           {buttonsData.map((button, index) => {
             return (
@@ -200,9 +233,8 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Call to Action Button */}
         <a
-          className="hidden lg:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer hover:scale-105 group"
+          className="hidden xab:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer hover:scale-105 group"
           href="/contact-us"
         >
           <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-white">
@@ -214,7 +246,44 @@ const Navbar = () => {
             alt="Get In Touch"
           />
         </a>
+        <motion.i
+          className="fas fa-bars text-[1.5rem] flex lg:hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(true)}
+        />
       </div>
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: isOpen ? "0%" : "-100%" }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="fixed top-0 left-0 w-[250px] h-full bg-white shadow-lg p-6 z-50"
+      >
+        <div className="flex items-center justify-between">
+          <img src="/assets/Navbar/Logo.svg" alt="Logo" className="w-[150px]" />
+          <button className="text-3xl" onClick={() => setIsOpen(false)}>
+            &times;
+          </button>
+        </div>
+
+        {/* Drawer Links */}
+        <ul className="mt-10 flex flex-col gap-4">
+          {Drawer.map((button, index) => {
+            return (
+              <li>
+                <a
+                  href={button.title=="Servics"?"/service":button.link}
+                  className="text-lg cursor-pointer"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {button.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </motion.div>
     </div>
   );
 };
