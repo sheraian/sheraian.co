@@ -24,7 +24,9 @@ function PortfolioComp() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ amount: 0.3 }}
             >
+              <a href="/portfolio/Test/1">
               <PortfolioCard />
+              </a>
             </motion.div>
           ))}
         </div>

@@ -54,7 +54,7 @@ const cardData = [
   },
 ];
 
-const data = [1, 2, 3];
+
 
 const Card = ({ img, H_main, B_Text }) => {
   return (
@@ -79,7 +79,8 @@ const Card = ({ img, H_main, B_Text }) => {
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 for right, -1 for left
-  let navigate = useNavigate();
+  const [data, setdata] = useState([1, 2, 3,4]);
+
 
   const handleNext = () => {
     if (currentIndex < testimonials.length - 1) {

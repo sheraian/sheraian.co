@@ -31,9 +31,10 @@ const BlogBottomSection = ({ data, callToBTnAction }) => {
           >
             <Btn
               S_BtnText={"Load More"}
-              onpress={() =>
-                callToBTnAction((previos) => [...previos, 1, 3, 4])
-              }
+              // onpress={() =>
+            onpress={() => (window.location.href = "/blogs")}
+
+         
             />
           </motion.div>
         </div>
