@@ -61,7 +61,11 @@ const DropDownData = [
     s_text: "Lorem ipsun sit dlor gym ",
   },
 ];
-
+const links = [
+  { name: "Services", link: "/service" },
+  { name: "Case Studies", link: "/case-study" },
+  { name: "Job Section", link: "/jobs" },
+];
 // DropDown Component
 const DropDownComponent = ({ isVisible }) => {
   return (
@@ -74,20 +78,42 @@ const DropDownComponent = ({ isVisible }) => {
       <div className="w-full bg-white rounded-[7px] px-[18px] py-[30px]">
         <div className=""></div>
         <div className="flex flex-col gap-[14px]">
+          <div className="flex flex-col gap-2">
+            {links.map((e) => (
+              <a
+                className="w-full m-0 p-0 group block transition-all duration-300 cursor-pointer"
+                href={e.link}
+              >
+                <h1 className="text-sm font-poppins font-medium text-gray-800 group-hover:text-[#F68E50] transform group-hover:scale-105">
+                  {e.name}
+                </h1>
+              </a>
+            ))}
+          </div>
           <div className="flex justify-center items-center gap-[13px]">
             {DropDownData.slice(0, 2).map((d, index) => {
               return (
-                <Link key={index} className="p-[6px] border border-[#00000061] rounded-[9px] flex flex-col justify-center items-start gap-[7.3px] cursor-pointer"
-                to={'/process'}
+                <Link
+                  key={index}
+                  className="p-[6px] border border-[#00000061] rounded-[9px] flex flex-col justify-center items-start gap-[7.3px] cursor-pointer"
+                  to={"/process"}
                 >
                   <div className="bg-[#4A2848] rounded-full flex flex-col justify-center items-center w-[28px] h-[28px]">
                     {/* Icone */}
-                    <img src="/assets/Navbar/gearIcons.svg" alt="Icon" className="" />
+                    <img
+                      src="/assets/Navbar/gearIcons.svg"
+                      alt="Icon"
+                      className=""
+                    />
                   </div>
                   {/* Text */}
                   <div className="w-[140px] flex flex-col gap-2 px-2 py-2">
-                    <p className="font-inter font-medium text-[11.13px] leading-[10.91px] tracking-[0%] align-middle w-full">{d.h_text}</p>
-                    <p className="font-inter font-medium text-[9.5px] leading-[10.21px] tracking-[0%] align-middle w-full">{d.s_text}</p>
+                    <p className="font-inter font-medium text-[11.13px] leading-[10.91px] tracking-[0%] align-middle w-full">
+                      {d.h_text}
+                    </p>
+                    <p className="font-inter font-medium text-[9.5px] leading-[10.21px] tracking-[0%] align-middle w-full">
+                      {d.s_text}
+                    </p>
                   </div>
                 </Link>
               );
@@ -96,13 +122,24 @@ const DropDownComponent = ({ isVisible }) => {
           <div className="flex justify-center items-center gap-[13px]">
             {DropDownData.slice(-2).map((d, index) => {
               return (
-                <div key={index} className="p-[6px] border border-[#00000061] rounded-[9px] flex flex-col justify-center items-start gap-[7.3px]">
+                <div
+                  key={index}
+                  className="p-[6px] border border-[#00000061] rounded-[9px] flex flex-col justify-center items-start gap-[7.3px]"
+                >
                   <div className="bg-[#4A2848] rounded-full flex flex-col justify-center items-center w-[28px] h-[28px]">
-                    <img src="/assets/Navbar/gearIcons.svg" alt="Icon" className="" />
+                    <img
+                      src="/assets/Navbar/gearIcons.svg"
+                      alt="Icon"
+                      className=""
+                    />
                   </div>
                   <div className="w-[140px] flex flex-col gap-2 px-2 py-2">
-                    <p className="font-inter font-medium text-[11.13px] leading-[10.91px] tracking-[0%] align-middle w-full">{d.h_text}</p>
-                    <p className="font-inter font-medium text-[9.5px] leading-[10.21px] tracking-[0%] align-middle w-full">{d.s_text}</p>
+                    <p className="font-inter font-medium text-[11.13px] leading-[10.91px] tracking-[0%] align-middle w-full">
+                      {d.h_text}
+                    </p>
+                    <p className="font-inter font-medium text-[9.5px] leading-[10.21px] tracking-[0%] align-middle w-full">
+                      {d.s_text}
+                    </p>
                   </div>
                 </div>
               );
@@ -123,7 +160,11 @@ const Navbar = () => {
         {/* Logo Section */}
         <div>
           <Link to="/">
-            <img className="cursor-pointer" src="/assets/Navbar/Logo.svg" alt="Shararian" />
+            <img
+              className="cursor-pointer"
+              src="/assets/Navbar/Logo.svg"
+              alt="Shararian"
+            />
           </Link>
         </div>
 
@@ -151,18 +192,22 @@ const Navbar = () => {
                   ) : null}
                 </a>
 
-                {button.isArrow && <DropDownComponent isVisible={activeDropdown === index} />}
+                {button.isArrow && (
+                  <DropDownComponent isVisible={activeDropdown === index} />
+                )}
               </div>
             );
           })}
         </div>
 
         {/* Call to Action Button */}
-        <a className="hidden lg:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer hover:scale-105 group"
-        href="/contact-us"
-        
+        <a
+          className="hidden lg:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[#4A2848] rounded-[35px] cursor-pointer hover:scale-105 group"
+          href="/contact-us"
         >
-          <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-white">Get In Touch</p>
+          <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-white">
+            Get In Touch
+          </p>
           <img
             className="rotate-[225deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
             src="/assets/Navbar/CallToActionArrow.svg"

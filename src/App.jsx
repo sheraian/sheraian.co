@@ -13,6 +13,8 @@ import ServiceDetailPage from "./pages/Service/ServiceDetailPage";
 import About from "./pages/About/About";
 import BlogDetailsPage from "./pages/Blog/BlogDetailsPage";
 import PortfolioDetailPage from "./pages/Portfolio/PortfolioDetailPage";
+import CaseStudy from "./pages/CaseStudy/CaseStudy";
+import CaseStudyDetail from "./pages/CaseStudy/CaseStudyDetail";
 
 function App() {
   return (
@@ -22,16 +24,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/blogs/:slug/:id" element={<BlogDetailsPage />} />
           <Route path="/process" element={<ProcessPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/portfolio/:slug/:id" element={<PortfolioDetailPage />} />
           <Route path="/career" element={<CareerPage />} />
-          <Route path="/career/:slug/:id" element={<CareerDetailPage />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<ServicePage />} />
+          <Route path="/case-study" element={<CaseStudy />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/portfolio/:slug/:id" element={<PortfolioDetailPage />} />
+          <Route path="/career/:slug/:id" element={<CareerDetailPage />} />
+          <Route path="/blogs/:slug/:id" element={<BlogDetailsPage />} />
           <Route path="/service/:slug/:id" element={<ServiceDetailPage />} />
+          <Route path="/case-study/:slug/:id" element={<CaseStudyDetail />} />
         </Routes>
         <Footer />
       </BrowserRouter>

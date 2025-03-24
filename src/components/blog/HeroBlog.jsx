@@ -6,6 +6,7 @@ function HeroBlog({
   M_Text,
   isSBtnShow = false,
   S_BtnText = "",
+  onpress
 }) {
   const formattedText = M_Text.charAt(0).toUpperCase() + M_Text.slice(1).toLowerCase();
 
@@ -25,7 +26,7 @@ function HeroBlog({
         {formattedText}
       </p>
 
-      {isSBtnShow ? <Btn S_BtnText={"Explore More"} /> : null}
+      {isSBtnShow ? <Btn S_BtnText={S_BtnText} onpress={onpress} /> : null}
     </div>
   );
 }
