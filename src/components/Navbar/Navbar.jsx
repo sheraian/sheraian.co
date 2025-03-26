@@ -213,7 +213,7 @@ const Navbar = () => {
     initial={{ y: -100, opacity: 0 }}
       animate={ { y: 0, opacity: 1 } }
       transition={{ type: "spring", stiffness: 100 }}
-      className={`w-full bg-[#eaeaea] shadow-xl `}
+      className={`w-full bg-[#eaeaea]  fixed z-50`}
     >
       <div className="w-[90%] mx-auto py-[10px]  flex justify-between items-center relative">
         <div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SalaryRangeSlider from "../../components/SalaryRangeSlider";
+import Btn from "../../components/Btn";
 
 function Job() {
   const categories = [
@@ -8,12 +9,11 @@ function Job() {
     "Technology",
     "Healthcare",
   ];
-  const [minSalary, setMinSalary] = useState(30000);
-  const [maxSalary, setMaxSalary] = useState(120000);
+
   return (
-    <div className="w-[100%] h-[100%] mx-auto flex flex-row bg-[#F5F5F5] py-10">
-      <div className="w-[90%] mx-auto flex flex-col  lg:flex-row ">
-        <div className="px-5 py-5 w-full lg:max-w-[300px] bg-white  shadow-lg rounded-md flex flex-col gap-5 ">
+    <div className="w-[100%] h-[100%] mx-auto flex flex-row bg-[#F5F5F5] py-20">
+      <div className="w-[90%] mx-auto flex flex-col  lg:flex-row  gap-10">
+        <div className="px-5 h-fit py-5 w-full lg:max-w-[300px] bg-white  shadow-lg rounded-md flex flex-col gap-5 ">
           <InputComponent flag={true} />
           <InputComponent flag={false} />
           <div className="w-full flex flex-col gap-2">
@@ -50,11 +50,17 @@ function Job() {
           </div>
           <SalaryRangeSlider />
         </div>
-        <div>
 
+        <div className="flex flex-col gap-10 overflow-auto">
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
         </div>
-
-        <div className=""></div>
       </div>
     </div>
   );
@@ -108,5 +114,40 @@ const TextInput = ({ flag }) => (
         <option value="option3">Option 3</option>
       </select>
     )}
+  </div>
+);
+const JobCard = () => (
+  <div className="w-full h-fit bg-white shadow-lg flex flex-col p-5 rounded-xl gap-10">
+    <div className="w-full flex items-center  gap-3 flex-col lg:flex-row">
+      <img src="/JobLogo.svg" alt="" />
+      <div className="w-full flex flex-col ">
+        <h1 className="text-[1.5rem] font-poppins font-semibold ">
+          Designer Team Lead
+        </h1>
+        <span>Bauch, Schuppe and Schulist Co</span>
+      </div>
+    </div>
+    <div className="flex flex-col gap-4 lg:flex-row lg:justify-between">
+      <Artributes />
+      <Artributes />
+      <Artributes />
+      <Artributes />
+      <div className=" py-2 px-4 bg-transparent border border-[#4A2848] rounded-lg text-center">
+        <span className="text-[#4A2848] font-poppins font-semibold">
+          Detail
+        </span>
+      </div>
+      <div className=" py-2 px-4 bg-[#4A2848] rounded-lg text-center">
+        <span className="text-white font-poppins font-semibold">Apply</span>
+      </div>
+    </div>
+  </div>
+);
+const Artributes = () => (
+  <div className="flex items-center gap-2">
+    <div className="w-[20px] h-[20px] text-[#4A2848] flex items-center justify-center">
+      <i class="fas fa-hotel text-sm"></i>
+    </div>
+    <span className="text-[#6C757D]">Hotels & Tourism</span>
   </div>
 );

@@ -22,6 +22,8 @@ function App() {
     <div className="flex flex-col overflow-hidden">
       <BrowserRouter>
         <Navbar />
+
+      <div className="mt-16 lg:mt-20">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<BlogPage />} />
@@ -39,6 +41,8 @@ function App() {
           <Route path="/service/:slug/:id" element={<ServiceDetailPage />} />
           <Route path="/case-study/:slug/:id" element={<CaseStudyDetail />} />
         </Routes>
+      </div>
+
         <Footer />
       </BrowserRouter>
     </div>
