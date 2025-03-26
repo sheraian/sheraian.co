@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 const buttonsData = [
@@ -6,7 +6,7 @@ const buttonsData = [
     title: "Services",
     // link: "/",
     isArrow: true,
-    },
+  },
   // {
   //   title: "Company",
   //   // link: "/",
@@ -71,7 +71,7 @@ const Drawer = [
     title: "Services",
     link: "/service",
     isArrow: true,
-    },
+  },
   {
     title: "About Us",
     link: "/about",
@@ -80,6 +80,11 @@ const Drawer = [
   {
     title: "Blog",
     link: "/blogs",
+    isArrow: false,
+  },
+  {
+    title: "Jobs",
+    link: "/jobs",
     isArrow: false,
   },
   {
@@ -188,9 +193,28 @@ const DropDownComponent = ({ isVisible }) => {
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="w-full bg-[#f5f5f5]">
+    <motion.div
+    initial={{ y: -100, opacity: 0 }}
+      animate={ { y: 0, opacity: 1 } }
+      transition={{ type: "spring", stiffness: 100 }}
+      className={`w-full bg-[#eaeaea] shadow-xl `}
+    >
       <div className="w-[90%] mx-auto py-[10px]  flex justify-between items-center relative">
         <div>
           <Link to="/">
@@ -273,7 +297,7 @@ const Navbar = () => {
             return (
               <li>
                 <a
-                  href={button.title=="Servics"?"/service":button.link}
+                  href={button.title == "Servics" ? "/service" : button.link}
                   className="text-lg cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
@@ -284,7 +308,7 @@ const Navbar = () => {
           })}
         </ul>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
