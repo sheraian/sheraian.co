@@ -26,7 +26,34 @@
     color: transparent;
     -webkit-text-stroke: 1px black; /* Adjust thickness and color */
   }
+  .header-info svg ,.message svg{
+    height: 35px;
+    width: 35px;
+    padding: 6px;
+    fill:#4A2848;
+    background: #fff;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+  .message svg{
+    background:#4A2848;
+    fill: #fff;
+    align-self: flex-end;
+    margin-bottom: 2px;
+  }
   
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px; /* Thin width */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #4A2848; /* Thumb color */
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
   @keyframes slide-up {
     from {
       opacity: 0;
