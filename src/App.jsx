@@ -22,24 +22,28 @@ import Chatbot from "./components/Chatbot/Chatbot";
 import { useState } from "react";
 
 function App() {
-  let [showChatbot,setshowChatbot]=useState(false)
+  let [showChatbot, setshowChatbot] = useState(false);
   return (
-    <div className=" flex h-[100vh] flex-col  relative items-center ">
-      <button onClick={()=>setshowChatbot(!showChatbot)} className="fixed border-transparent bottom-10 lg:bottom-8 right-5 lg:right-12 h-[50px] w-[50px] bg-[#4A2848] text-white rounded-full flex items-center justify-center shadow-lg z-50">
+    <div
+      className={`flex w-[100%]  h-[100vh] flex-col  relative items-center ${showChatbot ? "overflow-hidden" : "overflow-visible"} `}
+    >
+      <button
+        onClick={() => setshowChatbot(!showChatbot)}
+        className="fixed  border-transparent bottom-10 lg:bottom-8 right-5 lg:right-12 h-[50px] w-[50px] mr-auto bg-[#4A2848] text-white rounded-full flex items-center justify-center shadow-lg z-50"
+      >
         <i class="material-icons border-transparent"></i>
         <i
-        className={`material-icons border-transparent text-white text-[24px] transition-transform duration-300 ${
-          showChatbot ? "rotate-180" : "rotate-0"
-        }`}
-      >
-        {showChatbot ? "close" : <>&#xe0ca;</>}
-      </i>
-
+          className={`material-icons border-transparent text-white text-[24px] transition-transform duration-300 ${
+            showChatbot ? "rotate-180" : "rotate-0"
+          }`}
+        >
+          {showChatbot ? "close" : <>&#xe0ca;</>}
+        </i>
       </button>
       <BrowserRouter>
         <Navbar />
 
-        <div className="mt-16 lg:mt-20 z-10">
+        <div className="w-full mt-16 lg:mt-20 z-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blogs" element={<BlogPage />} />
@@ -61,7 +65,10 @@ function App() {
             <Route path="/case-study/:slug/:id" element={<CaseStudyDetail />} />
           </Routes>
         </div>
-        <Chatbot showChatbot={showChatbot} />
+        <Chatbot
+          showChatbot={showChatbot}
+          onpress={() => setshowChatbot(false)}
+        />
         <Footer />
       </BrowserRouter>
     </div>

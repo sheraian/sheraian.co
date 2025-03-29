@@ -397,6 +397,8 @@ const Home = () => {
         </div>
       </div>
       {/* footer Section */}
+      <div className="p-5" />
+
     </div>
   );
 };

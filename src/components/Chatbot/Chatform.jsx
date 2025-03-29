@@ -14,13 +14,11 @@ function Chatform({ chatHistory,setChatHistory ,generateBotResponse}) {
       { role: "user", text: userMessage },
     ]);
     setMessage("");
-    setTimeout(() => {
-      setChatHistory((history) => [
+       setChatHistory((history) => [
         ...history,
         { role: "model", text: "thinking..." },
       ]);
-    }, 600);
-    generateBotResponse([...chatHistory, { role: "model", text: userMessage }])
+    generateBotResponse([...chatHistory, { role: "model", text: `using the details provided above, please address this query:${userMessage}` }])
     // Clear input after sending
   };
 

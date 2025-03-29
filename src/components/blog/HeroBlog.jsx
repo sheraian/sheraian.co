@@ -11,7 +11,7 @@ function HeroBlog({
   const formattedText = M_Text.charAt(0).toUpperCase() + M_Text.slice(1).toLowerCase();
 
   return (
-    <div className="w-full h-auto md:h-[500px] bg-[url(/herobg.svg)] bg-cover bg-center flex flex-col items-center justify-center gap-4 py-6 md:py-8 md:gap-5 px-4">
+    <div className="w-[100%] h-auto md:h-[500px] bg-[url(/herobg.svg)] bg-cover bg-center flex flex-col items-center justify-center gap-4 py-6 md:py-8 md:gap-5 px-4">
       <div className="py-2.5 px-8 bg-[#D7D5DF] rounded-full shadow-md hover:bg-[#C5C3CF] transition duration-300 cursor-pointer">
         <h1 className="text-[#4A2848] font-bold text-lg text-center capitalize">
           {P_BtnText}

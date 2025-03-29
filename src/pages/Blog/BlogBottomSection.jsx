@@ -32,7 +32,7 @@ const BlogBottomSection = ({ data, callToBTnAction }) => {
             <Btn
               S_BtnText={"Load More"}
               // onpress={() =>
-            onpress={() => (window.location.href = "/blogs")}
+            onpress={() => (window.location.href = "/service")}
 
          
             />

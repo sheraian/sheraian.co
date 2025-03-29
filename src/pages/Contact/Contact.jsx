@@ -6,7 +6,7 @@ import HeroBlog from "../../components/blog/HeroBlog";
 
 function Contact() {
   return (
-    <>
+    <div className="w-full">
       <HeroBlog
         P_BtnText={"Contact us"}
         H_Text={<>Ready to Get Started ?</>}
@@ -83,7 +83,7 @@ function Contact() {
           </motion.div>
         </motion.div>
       </motion.div>
-    </>
+    </div>
   );
 }
 
