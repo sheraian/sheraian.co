@@ -65,10 +65,10 @@ function App() {
             <Route path="/case-study/:slug/:id" element={<CaseStudyDetail />} />
           </Routes>
         </div>
-        <Chatbot
+        {/* <Chatbot
           showChatbot={showChatbot}
           onpress={() => setshowChatbot(false)}
-        />
+        /> */}
         <Footer />
       </BrowserRouter>
     </div>

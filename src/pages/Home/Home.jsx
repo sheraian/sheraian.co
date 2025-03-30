@@ -389,13 +389,11 @@ const Home = () => {
         </div>
       </div>
       <PortfolioWidget />
-      <div className="w-full flex justify-center items-center pt-[70px] md:pt-[100px]">
+      <div className="w-full flex justify-center items-center pt-[70px] md:pt-[100px] ">
         <PriceWidget />
       </div>
-      {/* fifth Section */}
       <div className="w-full flex flex-col justify-center items-center">
         <div className="w-[90%] flex flex-col justify-center items-center gap-[40px] pt-[70px]">
-          {/* Heading */}
           <div className="w-full flex flex-col justify-center items-center gap-[30px]">
             <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
               News & Article

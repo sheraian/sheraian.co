@@ -4,7 +4,7 @@ import PortfolioCard from "./PortfolioCard";
 import { motion } from "framer-motion";
 function PortfolioWidget() {
   return (
-    <div class="w-full">
+    <div class="w-full overflow-hidden">
       <div class="w-[90%] mx-auto flex flex-col gap-5">
         <div class="">
           <p class="inline-block bg-[#D7D5DF] p-2 px-5 rounded-full text-sm font-semibold md:font-semibold md:text-[1rem] text-[#4A2848]">

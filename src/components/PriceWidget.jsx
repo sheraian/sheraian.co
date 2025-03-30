@@ -18,14 +18,14 @@ const features2 = [
 ];
 function PriceWidget() {
   return (
-    <div className="w-full bg-[url('frame.png')]   flex flex-col items-center py-10 gap-8 md:gap-12 bg-cover bg-cyan-500">
+    <div className="w-[100%] bg-[url('frame.png')]   flex flex-col items-center py-10 gap-8 md:gap-12 bg-cover ">
       <p className="inline-block bg-[#D7D5DF] p-2 px-5 rounded-full font-semibold text-[16px] text-[#4A2848]">
         Our pricing
       </p>
-      <span className="text-[1.5rem] md:text-[3rem] text-white font-semibold font-poppins leading-none">
+      <span className="text-[1.5rem] md:text-[3rem] md:text-center text-white font-semibold font-poppins leading-none">
         Our popular pricing package
       </span>
-      <div className="w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div className="w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 overflow-hidden">
       {Array(3)
           .fill()
           .map((_, index) => (
