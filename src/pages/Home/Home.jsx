@@ -11,6 +11,7 @@ import PriceWidget from "../../components/PriceWidget";
 import ServiceCard from "../../components/ServiceCard";
 import { useNavigate } from "react-router-dom";
 import { useGetServicesQuery } from "../../apiSlice";
+import Loader from "../../components/Loader";
 const testimonials = [
   {
     name: "Chandan Dubey",
@@ -58,8 +59,6 @@ const cardData = [
   },
 ];
 
-
-
 const Card = ({ img, H_main, B_Text }) => {
   return (
     <div className="w-[100%] lg:w-[326px] rounded-[15px] bg-white">
@@ -83,9 +82,13 @@ const Card = ({ img, H_main, B_Text }) => {
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 for right, -1 for left
-  const [data, setdata] = useState([1, 2, 3,4]);
-  // const { data: ServiceData, isError, isLoading, error } ;
-  const {data:ServiceData,isLoading}=useGetServicesQuery();
+  const [data, setdata] = useState([1, 2, 3, 4]);
+  const {
+    data: ServiceData,
+    isLoading,
+    isError,
+    error,
+  } = useGetServicesQuery();
   const handleNext = () => {
     if (currentIndex < testimonials.length - 1) {
       setDirection(1); // Moving Right
@@ -172,9 +175,7 @@ const Home = () => {
           className=" absolute right-0 bottom-0"
           alt="dotes"
         />
-        {/* Main Content */}
         <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[75px]">
-          {/* Data Section */}
           <div className="flex flex-col justify-center items-start gap-[24px]">
             <div className="flex justify-center items-center px-[22px] py-[5px] bg-[#DEDAE5] rounded-[50px] text-[#4A2848]">
               <p>Work Process</p>
@@ -255,24 +256,24 @@ const Home = () => {
         </div>
 
         <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-5 gap-x-4">
-  {isLoading ? (
-    <p className="text-black">Loading...</p>
-  ) : ServiceData?.data.length > 0 ? (
-    ServiceData?.data.map((_, index) => (
-      <motion.div
-        key={index}
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.2 }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <ServiceCard key={index.toString()} item={_} />
-      </motion.div>
-    ))
-  ) : (
-    <p className="text-black">No data available</p>
-  )}
-</div>
+          {isLoading ? (
+            <Loader />
+          ) : ServiceData?.data.length > 0 ? (
+            ServiceData?.data.map((_, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <ServiceCard key={index.toString()} item={_} />
+              </motion.div>
+            ))
+          ) : (
+            <p className="text-black">No data available</p>
+          )}
+        </div>
 
         <div className="py-10">
           <Btn
@@ -407,7 +408,6 @@ const Home = () => {
       </div>
       {/* footer Section */}
       <div className="p-5" />
-
     </div>
   );
 };
