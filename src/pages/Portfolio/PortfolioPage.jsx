@@ -21,20 +21,7 @@ function PortfolioPage() {
         S_BtnText={"Explore More"}
       />
       <PortfolioComp />
-      <div className=" w-full flex items-center justify-center py-10">
-        <div className="inline-flex items-center ">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ amount: 0.3 }}
-          >
-            <Btn
-              S_BtnText={"Load More"}
-              onpress={() => setdata((previos) => [...previos, ...proData])}
-            />
-          </motion.div>
-        </div>
-      </div>
+   
       <FaqComponent />
     </div>
   );

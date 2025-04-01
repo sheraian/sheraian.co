@@ -10,7 +10,7 @@ import PortfolioWidget from "../../components/PortfolioWidget";
 import PriceWidget from "../../components/PriceWidget";
 import ServiceCard from "../../components/ServiceCard";
 import { useNavigate } from "react-router-dom";
-import { useGetReviewsQuery, useGetServicesQuery } from "../../apiSlice";
+import { useGetPortfolioQuery, useGetReviewsQuery, useGetServicesQuery } from "../../apiSlice";
 import Loader from "../../components/Loader";
 const testimonials = [
   {
@@ -89,6 +89,7 @@ const Home = () => {
     isError,
     error,
   } = useGetServicesQuery();
+ 
   const {
     data: ReviewsData,
     isLoading: rw_loader,
@@ -408,7 +409,10 @@ const Home = () => {
           {/* Navigation Buttons */}
         </div>
       </div>
+      <div className="overflow-hidden">
       <PortfolioWidget />
+
+      </div>
       <div className="w-full flex justify-center items-center pt-[70px] md:pt-[100px] ">
         <PriceWidget />
       </div>
