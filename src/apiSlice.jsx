@@ -11,8 +11,11 @@ export const api=createApi({
         }),
         getPortfolio: builder.query({
             query: ({ page = 1, limit = 3 } = {}) => `/api/projects?page=${page}&limit=${limit}`
+        }),
+        getPrices: builder.query({
+            query: ({ page = 1, limit = 3 } = {}) => `/api/prices?page=${page}&limit=${limit}`
         })
     })
 })
 
-export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery}=api;
+export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery,useGetPricesQuery}=api;
