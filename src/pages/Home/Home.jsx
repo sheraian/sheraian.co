@@ -409,7 +409,7 @@ const Home = () => {
           {/* Navigation Buttons */}
         </div>
       </div>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden lg:overflow-visible">
       <PortfolioWidget />
 
       </div>

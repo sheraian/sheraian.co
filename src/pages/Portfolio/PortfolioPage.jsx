@@ -20,7 +20,10 @@ function PortfolioPage() {
         isSBtnShow={false}
         S_BtnText={"Explore More"}
       />
+      <div className="w-full overflow-hidden">
       <PortfolioComp />
+
+      </div>
    
       <FaqComponent />
     </div>
