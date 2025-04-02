@@ -14,8 +14,11 @@ export const api=createApi({
         }),
         getPrices: builder.query({
             query: ({ page = 1, limit = 3 } = {}) => `/api/prices?page=${page}&limit=${limit}`
+        }),
+        getBlogs: builder.query({
+            query: ({ page = 1, limit = 4 } = {}) => `/api/blogs?page=${page}&limit=${limit}`
         })
     })
 })
 
-export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery,useGetPricesQuery}=api;
+export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery,useGetPricesQuery,useGetBlogsQuery}=api;

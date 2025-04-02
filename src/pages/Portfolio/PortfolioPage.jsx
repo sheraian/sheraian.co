@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
-import ProcessCard from "../../components/ProcessCard";
-import { proData } from "../../../data";
-import { motion } from "framer-motion";
-import Btn from "../../components/Btn";
+
 import FaqComponent from "../../components/FaqComponent";
-import PortfolioWidget from "../../components/PortfolioWidget";
 import PortfolioComp from "../../components/PortfolioComp";
 function PortfolioPage() {
-  let [data, setdata] = useState(proData);
   return (
     <div className=" flex flex-col items-center gap-5 bg-[#F5F5F5]">
       <HeroBlog

@@ -33,6 +33,7 @@ function PriceWidget() {
       <span className="text-[1.5rem] md:text-[3rem] md:text-center text-white font-semibold font-poppins leading-none">
         Our popular pricing package
       </span>
+   
       {isLoading?(
         <div className="p-10">
           <Loader />

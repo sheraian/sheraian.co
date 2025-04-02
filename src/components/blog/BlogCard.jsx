@@ -1,32 +1,38 @@
 import BlogCat from "../blog/BlogCat";
 
-function BlogCard() {
+function BlogCard({item}) {
+  const createdAt = new Date(item?.created_at); 
+  const month = createdAt.toLocaleString("en-US", { month: "short" });
+  const date = createdAt.getDate();
   return (
     <div className="mt-0 md:mt-0 w-[90%] mx-auto h-[280px] md:w-[290px] md:h-[270px]  flex flex-col items-center hover:scale-105 relative">
       <img
-        className="w-full h-[250px]  xl:h-[270px] rounded-lg object-cover bg-no-repeat"
-        src="/blog.png"
-      />
+        className="w-full max-h-[200px]  xl:h-[250px] rounded-lg object-cover bg-no-repeat"
+        src={item?.img}      />
+
+
       <div className="absolute right-0 rounded-lg w-[3rem] h-[3.5rem] bg-white flex flex-col items-center justify-center">
-        <span className="font-poppins font-bold text-lg">28</span>
-        <p className="text-sm font-normal">June</p>
+        <span className="font-poppins font-bold text-lg">{date}</span>
+        <p className="text-sm font-normal">{month}</p>
       </div>
       <div className="relative -top-10 w-[85%] bg-white shadow-md  mx-auto rounded-lg py-3 md:py-4 px-3 flex flex-col gap-2">
         <div className="flex flex-row items-center gap-4">
           <BlogCat
+          flag={true}
             icon={<i className="fas fa-user-shield text-xs text-[#4A2848]"></i>}
-            text={"By Admin"}
+            text={"By "+item?.user?.name}
           />
           <BlogCat
-            icon={<i class="fas fa-microchip text-xs text-[#4A2848]"></i>}
-            text={"Technology"}
+            icon={item?.category?.icon}
+            text={""+item?.category?.name}
           />
         </div>
         <h1 className=" md:hidden font-poppins text-sm font-semibold cursor-pointer">
-          Tackling the Changes of Retail Industry Changes of Retail Industry
+          {item?.title}
         </h1>
         <h1 className="hidden md:flex font-poppins text-sm font-semibold cursor-pointer">
-          Tackling the Changes of Retail Industry
+          {item?.title}
+
         </h1>
         <div className="flex items-center gap-1.5">
           <span className="text-xs text-[#051634]  ">Read More</span>

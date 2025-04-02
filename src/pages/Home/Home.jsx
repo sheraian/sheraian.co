@@ -1,7 +1,5 @@
-/* eslint-disable max-len */
 
 import { useState } from "react";
-/* eslint-disable-next-line unused-imports/no-unused-imports */
 import HeroBlog from "../../components/blog/HeroBlog";
 import Btn from "../../components/Btn";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,55 +7,14 @@ import BlogBottomSection from "../Blog/BlogBottomSection";
 import PortfolioWidget from "../../components/PortfolioWidget";
 import PriceWidget from "../../components/PriceWidget";
 import ServiceCard from "../../components/ServiceCard";
-import { useNavigate } from "react-router-dom";
-import { useGetPortfolioQuery, useGetReviewsQuery, useGetServicesQuery } from "../../apiSlice";
+import {
+  useGetBlogsQuery,
+  useGetReviewsQuery,
+  useGetServicesQuery,
+} from "../../apiSlice";
 import Loader from "../../components/Loader";
-const testimonials = [
-  {
-    name: "Chandan Dubey",
-    position: "Project Manager",
-    feedback:
-      "Sheraian has completely transformed our mobile app process. Here is a review from one of our clients: 'Very polite, understanding, and flexible.' We are grateful for such positive feedback and look forward to continuing our excellent service.",
-    image: "/assets/Home/Testimonials/UserIcone.svg",
-  },
-  {
-    name: "Sarah Johnson",
-    position: "Software Engineer",
-    feedback:
-      "Working with this team has been a seamless experience. The communication and quality of work exceeded our expectations. Highly recommended!",
-    image: "/assets/Home/Testimonials/UserIcone.svg",
-  },
-  {
-    name: "Michael Smith",
-    position: "CEO, Tech Corp",
-    feedback:
-      "They delivered the project on time and with exceptional quality. I couldn't have asked for a better development partner!",
-    image: "/assets/Home/Testimonials/UserIcone.svg",
-  },
-];
-
-const cardData = [
-  {
-    Icone: "/assets/Home/Third/requirement.svg",
-    H_main: "Requirement",
-    B_Text: "Requirements are the features, functions",
-  },
-  {
-    Icone: "/assets/Home/Third/design.svg",
-    H_main: "UI/UX Design",
-    B_Text: "Focuses on the look and feel of the product",
-  },
-  {
-    Icone: "/assets/Home/Third/development.svg",
-    H_main: "Development",
-    B_Text: "Development is the process of building the actual",
-  },
-  {
-    Icone: "/assets/Home/Third/development.svg",
-    H_main: "Testing",
-    B_Text: "Development is the process of building the actual",
-  },
-];
+import FaqComponent from "../../components/FaqComponent";
+import { cardData, testimonials } from "../../../data";
 
 const Card = ({ img, H_main, B_Text }) => {
   return (
@@ -81,15 +38,19 @@ const Card = ({ img, H_main, B_Text }) => {
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 for right, -1 for left
-  const [data, setdata] = useState([1, 2, 3, 4]);
+  const [direction, setDirection] = useState(1);
   const {
     data: ServiceData,
     isLoading,
     isError,
     error,
   } = useGetServicesQuery();
- 
+  const {
+    data: BlogData,
+    isLoading: isBlogsLoading,
+    isError: isBlogsError,
+    error: blogsError,
+  } = useGetBlogsQuery();
   const {
     data: ReviewsData,
     isLoading: rw_loader,
@@ -97,7 +58,7 @@ const Home = () => {
     error: rw_error,
   } = useGetReviewsQuery();
   const handleNext = () => {
-    alert(ReviewsData?.data?.length)
+    alert(ReviewsData?.data?.length);
     if (currentIndex < ReviewsData?.data?.length - 1) {
       setDirection(1); // Moving Right
       setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -410,8 +371,7 @@ const Home = () => {
         </div>
       </div>
       <div className="overflow-hidden lg:overflow-visible">
-      <PortfolioWidget />
-
+        <PortfolioWidget />
       </div>
       <div className="w-full flex justify-center items-center pt-[70px] md:pt-[100px] ">
         <PriceWidget />
@@ -426,7 +386,40 @@ const Home = () => {
               Read our latest insights
             </p>
           </div>
-          <BlogBottomSection data={data} />
+          {isBlogsLoading?(
+  <div className="p-10">
+    <Loader />
+  </div>
+):BlogData?.data?.length>0?(
+  <BlogBottomSection data={BlogData?.data} />
+
+):(
+  <p className="text-gray-500 text-lg font-semibold text-center py-5">
+  No Data Available
+</p>
+)
+
+}
+
+
+          <div className=" w-full flex items-center justify-center ">
+        <div className="inline-flex items-center bg-[#F5F5F5]">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ amount: 0.3 }}
+          >
+            <Btn
+              S_BtnText={"Load More"}
+              // onpress={() =>
+            onpress={() => (window.location.href = "/blogs")}
+
+         
+            />
+          </motion.div>
+        </div>
+      </div>
+      <FaqComponent />
         </div>
       </div>
       {/* footer Section */}
