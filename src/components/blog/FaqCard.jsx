@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 const FaqCard = ({ keyId, title, description,selected,onPress }) => {
   return (

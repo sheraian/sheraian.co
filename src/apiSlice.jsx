@@ -17,8 +17,11 @@ export const api=createApi({
         }),
         getBlogs: builder.query({
             query: ({ page = 1, limit = 4 } = {}) => `/api/blogs?page=${page}&limit=${limit}`
+        }),
+        getFaqs: builder.query({
+            query: ({ page = 1, limit = 4 } = {}) => `/api/faq?page=${page}&limit=${limit}`
         })
     })
 })
 
-export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery,useGetPricesQuery,useGetBlogsQuery}=api;
+export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery,useGetPricesQuery,useGetBlogsQuery,useGetFaqsQuery}=api;

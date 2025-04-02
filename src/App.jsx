@@ -16,10 +16,9 @@ import PortfolioDetailPage from "./pages/Portfolio/PortfolioDetailPage";
 import CaseStudy from "./pages/CaseStudy/CaseStudy";
 import CaseStudyDetail from "./pages/CaseStudy/CaseStudyDetail";
 import Job from "./pages/Job/Job";
-import ChatbotIcon from "./components/Chatbot/ChatbotIcon";
-import Chatform from "./components/Chatbot/Chatform";
-import Chatbot from "./components/Chatbot/Chatbot";
+
 import { useState } from "react";
+import Chatbot from "./components/Chatbot/Chatbot";
 
 function App() {
   let [showChatbot, setshowChatbot] = useState(false);
@@ -65,10 +64,10 @@ function App() {
             <Route path="/case-study/:slug/:id" element={<CaseStudyDetail />} />
           </Routes>
         </div>
-        {/* <Chatbot
+        <Chatbot
           showChatbot={showChatbot}
           onpress={() => setshowChatbot(false)}
-        /> */}
+        />
         <Footer />
       </BrowserRouter>
     </div>

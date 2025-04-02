@@ -76,7 +76,7 @@ const Home = () => {
     <div className="w-full bg-[#F5F5F5] ">
       {/* Hero Section */}
       <HeroBlog
-        P_BtnText={"Best IT Solution Provder"}
+        P_BtnText={"Best IT Solution Provider"}
         H_Text={
           <>
             IT Consulting Services <br /> For Your Business
