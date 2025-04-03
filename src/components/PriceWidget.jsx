@@ -26,7 +26,7 @@ function PriceWidget() {
       error,
     } = useGetPricesQuery();
   return (
-    <div className="w-[100%] bg-[url('frame.png')]   flex flex-col items-center py-10 gap-8 md:gap-12 bg-cover ">
+    <div className="w-[100%] bg-[url('/frame.png')]   flex flex-col items-center py-10 gap-8 md:gap-12 bg-cover ">
       <p className="inline-block bg-[#D7D5DF] p-2 px-5 rounded-full font-semibold text-[16px] text-[#4A2848]">
         Our pricing
       </p>
