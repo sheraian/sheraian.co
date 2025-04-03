@@ -8,7 +8,9 @@ function BlogCard({item}) {
     <div className="mt-0 md:mt-0 w-[90%] mx-auto h-[280px] md:w-[290px] md:h-[270px]  flex flex-col items-center hover:scale-105 relative">
       <img
         className="w-full max-h-[200px]  xl:h-[250px] rounded-lg object-cover bg-no-repeat"
-        src={item?.img}      />
+        // className="w-full max-h-[200px] object-cover rounded-lg bg-no-repeat"
+   
+   src={item?.img}      />
 
 
       <div className="absolute right-0 rounded-lg w-[3rem] h-[3.5rem] bg-white flex flex-col items-center justify-center">
