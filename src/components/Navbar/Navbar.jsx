@@ -210,8 +210,8 @@ const Navbar = () => {
 
   return (
     <motion.div
-    initial={{ y: -100, opacity: 0 }}
-      animate={ { y: 0, opacity: 1 } }
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100 }}
       className={`w-full bg-[#eaeaea]  fixed z-50`}
     >
@@ -219,8 +219,8 @@ const Navbar = () => {
         <div>
           <Link to="/">
             <img
-              className="cursor-pointer"
-              src="/assets/Navbar/Logo.svg"
+              className="w-[190px] lg:w-[250px] cursor-pointer"
+              src="/logo.svg"
               alt="Shararian"
             />
           </Link>

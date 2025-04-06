@@ -73,7 +73,7 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full bg-[#F5F5F5] ">
+    <div className="w-full bg-[#F5F5F5] overflow-hidden">
       {/* Hero Section */}
       <HeroBlog
         P_BtnText={"Best IT Solution Provider"}

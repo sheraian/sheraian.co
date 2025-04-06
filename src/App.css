@@ -20,6 +20,14 @@ body,
   list-style-type: decimal; /* Numbered list */
   padding-left: 20px;
 }
+.logo {
+  width: 100%;
+  max-width: 200px; /* Adjust to your preferred max width */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+}
 
 
 
