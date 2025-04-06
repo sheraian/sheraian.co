@@ -26,7 +26,7 @@ function App() {
     <div
       className={`flex w-[100%]  h-[100vh] flex-col  relative items-center ${showChatbot ? "overflow-hidden" : "overflow-visible"} `}
     >
-      <button
+      {/* <button
         onClick={() => setshowChatbot(!showChatbot)}
         className="fixed  border-transparent bottom-10 lg:bottom-8 right-5 lg:right-12 h-[50px] w-[50px] mr-auto bg-[#4A2848] text-white rounded-full flex items-center justify-center shadow-lg z-50"
       >
@@ -38,7 +38,7 @@ function App() {
         >
           {showChatbot ? "close" : <>&#xe0ca;</>}
         </i>
-      </button>
+      </button> */}
       <BrowserRouter>
         <Navbar />
 
