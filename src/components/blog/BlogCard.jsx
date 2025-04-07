@@ -29,13 +29,13 @@ function BlogCard({item}) {
             text={""+item?.category?.name}
           />
         </div>
-        <h1 className=" md:hidden font-poppins text-sm font-semibold cursor-pointer">
-          {item?.title}
-        </h1>
-        <h1 className="hidden md:flex font-poppins text-sm font-semibold cursor-pointer">
-          {item?.title}
+        <h1 className="block md:hidden w-full md:w-[90%] font-poppins text-sm font-semibold cursor-pointer truncate overflow-hidden whitespace-nowrap">
+  {item?.title}
+</h1>
+        <h1 className="hidden md:block w-full md:w-[90%] font-poppins text-sm font-semibold cursor-pointer truncate overflow-hidden whitespace-nowrap">
+  {item?.title}
+</h1>
 
-        </h1>
         <div className="flex items-center gap-1.5">
           <span className="text-xs text-[#051634]  ">Read More</span>
           <i className="fas fa-chevron-right text-xs  text-[#051634]   "></i>

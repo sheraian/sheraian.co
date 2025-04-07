@@ -20,7 +20,9 @@ const PriceCard = ({ imgSrc , flag = 'text-black', features ,icon }) => {
           ))}
         </ul>
         <h1 className={`pt-6 text-3xl font-bold ${flag} hover:scale-105 transition-transform duration-300 ease-in-out`}>
-          $299.00<sub className="text-sm">/Month</sub>
+          {features?.currency_type}
+          {features?.price}
+          {/* <sub className="text-sm">/Month</sub> */}
         </h1>
       </div>
     );
