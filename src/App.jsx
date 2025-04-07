@@ -39,6 +39,15 @@ function App() {
           {showChatbot ? "close" : <>&#xe0ca;</>}
         </i>
       </button> */}
+      <a
+        href="https://wa.me/+923149694668"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-10 lg:bottom-8 right-5 lg:right-12 h-[50px] w-[50px] bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg z-50"
+      >
+        <i className="fab fa-whatsapp text-[24px]"></i>
+      </a>
+
       <BrowserRouter>
         <Navbar />
 

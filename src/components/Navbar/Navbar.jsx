@@ -285,7 +285,7 @@ const Navbar = () => {
         className="fixed top-0 left-0 w-[250px] h-full bg-white shadow-lg p-6 z-50"
       >
         <div className="flex items-center justify-between">
-          <img src="/assets/Navbar/Logo.svg" alt="Logo" className="w-[150px]" />
+          <img src="/logo.svg" alt="Logo" className="w-[150px]" />
           <button className="text-3xl" onClick={() => setIsOpen(false)}>
             &times;
           </button>

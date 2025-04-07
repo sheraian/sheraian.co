@@ -166,7 +166,7 @@ const Home = () => {
               window.location.href='/service'
             }}
             >
-              <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-[#4A2848] cursor-pointer">
+              <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-[#4A2848] cursor-pointergi">
                 Explore More
               </p>
               <img

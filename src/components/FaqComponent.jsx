@@ -74,7 +74,7 @@ function FaqComponent() {
 
        {FaqData?.next_page&&(
          <motion.div
-         className="inline-flex items-center bg-[#F5F5F5]"
+         className="inline-flex items-center bg-[#F5F5F5] pb-10 md:p-0"
          variants={fadeIn}
        >
          <Btn

@@ -9,7 +9,7 @@ function PortfolioCard({ item }) {
       <LazyLoadImage
         src={item?.proj_img || "/fallback.jpg"}
         alt={item?.title || "Project Image"}
-        effect="blur" 
+        effect="blur"
         className="h-[24rem] lg:h-[27rem] rounded-lg object-cover"
       />
 
@@ -78,47 +78,58 @@ function PortfolioCard({ item }) {
         <div className="w-[90%] mx-auto flex flex-col py-5 gap-5">
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col">
-              <h1 className="font-medium text-[1.8rem] text-white">Aaron</h1>
-              <p className="text-sm">Stack Software Engineer</p>
+              <h1 className="font-medium text-[1.8rem] text-white leading-none">
+    
+                {item?.user?.name}
+              </h1>
+              <p className="text-sm">{item?.user?.role}</p>
             </div>
-            <img
-              src="/portfolio.png"
-              alt=""
-              className="w-[40px] h-[40px] rounded-lg"
-            />
+            {item?.user?.user_img && (
+              <img
+                src={item?.user?.user_img}
+                alt=""
+                className="w-[40px] h-[40px] rounded-lg"
+              />
+            )}
           </div>
           <h1 className="text-white font-semibold">
-            Python and JS full-stack software engineer with 3 years experience
+          {item?.title}
           </h1>
           <span className="w-full flex items-center gap-2 text-white">
             <i className="fa-solid fa-location-dot text-red-500 text-xl md:text-2xl"></i>
-            New York, NY
+            {item?.location}
+
           </span>
           <div className="w-full flex items-center gap-3 flex-wrap">
             <span className="text-white font-bold text-sm">Skills:</span>
-            <span className="flex items-center gap-1.5">
-              <i className="fa-brands fa-python text-blue-500 text-2xl"></i>
-              Python
-            </span>
-            <span className="flex items-center gap-1.5">
-              <i className="fa-brands fa-js text-yellow-500 text-2xl"></i>
-              JavaScript
-            </span>
-            <span className="flex items-center gap-1.5">
-              <i className="fa-brands fa-c text-blue-500 text-2xl"></i>C
-            </span>
+            {item?.skills?.map((skill) => (
+              <div key={skill.id} className="flex items-center ">
+                <div
+                  dangerouslySetInnerHTML={{ __html: skill.icon }}
+                  className="flex items-center"
+                  style={{ width: "28px", height: "28px" }} // Forces icon size
+                />
+                <span className="text-sm font-medium">{skill.name}</span>
+              </div>
+            ))}
+     
           </div>
           <div className="w-full flex items-center gap-5 flex-wrap">
-            <div className="flex items-center gap-2">
-              <img
-                src="/portfolio.png"
-                className="w-[30px] h-[30px] rounded-full"
-              />
-              <div className="flex flex-col flex-wrap">
-                <h1 className="text-white font-semibold">Web Developer</h1>
-                <p className="text-sm">OGM Digital, Remote, US</p>
-              </div>
-            </div>
+            {item?.recommended?.length > 0 &&
+              item.recommended?.slice(0, 1)?.map((project, index) => (
+                <div className="flex items-center gap-2">
+                  <img
+                    src={project?.proj_img}
+                    className="w-[30px] h-[30px] rounded-full "
+                  />
+                  <div className="flex  flex-col flex-wrap ">
+                    <h1 className="text-white font-semibold ">
+                      {project?.title}
+                    </h1>
+                    <p className="text-sm"> Remote, {project?.location}</p>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>
