@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const BlogBottomSection = ({ data }) => {
   return (
     <>
-      <div className="w-[100%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-5">
+      <div className="w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-5">
         {data.map((e, index) => (
           <motion.div
             key={index}

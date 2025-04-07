@@ -181,37 +181,55 @@ const About = () => {
         </div>
       </motion.div>
       <motion.div
-        className="w-full flex justify-center items-center pt-[100px] lg:pt-[105px] pb-[50px] lg:pb-[105px]"
+        className="w-full flex justify-center items-center  pt-[20px] lg:pt-[20px] pb-[50px] lg:pb-[105px]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeIn}
       >
-        <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
-          <motion.img
-            src="/assets/Home/SecondSec_Image.svg"
-            alt="Section Image"
-            variants={fadeIn}
-          />
+        <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-10">
+     
           <motion.div
             className="flex flex-col justify-center items-start gap-4 md:gap-7"
             variants={fadeIn}
           >
             <div className="flex justify-center items-center px-[22px] py-[5px] bg-[#DEDAE5] rounded-[50px]">
-              <p className="text-[#4A2848]">Who We Are</p>
+              <p className="text-[#4A2848]">Mission & Values</p>
             </div>
             <p className="font-inter font-semibold text-[1.5rem] md:text-[56px] md:leading-[60px] tracking-[0%]">
-              We Are Increasing Business Success With Technology
+            Mission And Vision
             </p>
             <p className="font-inter font-normal text-sm md:text-[18px] md:leading-[28px] tracking-[0%]">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page.
+            Our mission is typically to provide innovative and reliable technology solutions to clients, enabling them to achieve their business goals through efficient and effective IT systems, while its vision is to be a leading provider of cutting-edge technology solutions, shaping the future of the industry and empowering clients to reach their full potential through digital transformation
             </p>
+            <motion.div
+              className="flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-[50px]"
+              variants={fadeIn}
+            >
+              <div className="flex flex-col gap-[15px] font-inter font-medium text-[20px] leading-[28px] tracking-[0%]">
+                <div className="flex justify-start items-center gap-[10px]">
+                  <img src="/assets/Home/TickIcone.svg" alt="tick" /> Focus on customer value
+                </div>
+                <div className="flex justify-start items-center gap-[10px]">
+                  <img src="/assets/Home/TickIcone.svg" alt="tick" /> Innovation and adaptation
+                </div>
+                <div className="flex justify-start items-center gap-[10px]">
+                  <img src="/assets/Home/TickIcone.svg" alt="tick" /> Quality and reliability
+                </div>
+              </div>
+
+              
+            </motion.div>
             <Btn
               S_BtnText={"Get In Touch"}
               onpress={() => (window.location.href = "/contact-us")}
             />
           </motion.div>
+          <motion.img
+            src="/assets/Home/SecondSec_Image.svg"
+            alt="Section Image"
+            variants={fadeIn}
+          />
         </div>
       </motion.div>
       <div className="w-full flex justify-center items-center bg-[#340831] relative overflow-hidden py-[40px]">

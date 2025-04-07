@@ -30,7 +30,7 @@ const Footer = () => {
             <Link to="/">
               <img
                 className="w-[190px] lg:w-[250px] cursor-pointer"
-                src="/logo.svg"
+                src="/footer.svg"
                 alt="Shararian"
               />
             </Link>

@@ -87,6 +87,9 @@ const Home = () => {
         }
         isSBtnShow={true}
         S_BtnText={"Explore More"}
+        onpress={()=>{
+          window.location.href='/about'
+        }}
       />
       {/* Second Section */}
       <div className="w-full flex justify-center items-center pt-[100px] lg:pt-[105px] pb-[100px] lg:pb-[105px]">
@@ -128,7 +131,9 @@ const Home = () => {
               </div>
               <div></div>
             </div>
-            <Btn S_BtnText={"Explore More"} />
+            <Btn S_BtnText={"Explore More"} 
+            onpress={()=>window.location.href='/about'}
+            />
           </div>
         </div>
       </div>
@@ -156,8 +161,12 @@ const Home = () => {
               It is a long established fact that a reader will be distracted the
               readable content of a page when looking at layout the point.
             </p>
-            <div className="hidden md:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[white] rounded-[35px] cursor-pointer hover:scale-105 group">
-              <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-[#4A2848]">
+            <div className="hidden md:flex justify-center items-center gap-[11px] pl-[23px] py-[1px] pr-[1px] bg-[white] rounded-[35px] cursor-pointer hover:scale-105 group"
+            onClick={()=>{
+              window.location.href='/service'
+            }}
+            >
+              <p className="font-inter font-semibold text-[18px] leading-[18px] tracking-[0%] align-middle text-[#4A2848] cursor-pointer">
                 Explore More
               </p>
               <img
