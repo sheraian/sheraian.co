@@ -14,15 +14,26 @@ import FloatingLabelInput from "../../components/FloatingLabelInput";
 import { motion } from "framer-motion";
 import Btn from "../../components/Btn";
 import { useGetBlogDetailQuery } from "../../apiSlice";
+import Loader from "../../components/Loader";
+import NotFound from "../404/NotFound";
 
 function BlogDetailsPage() {
   const { slug, id } = useParams();
-  const {isLoading,data,error,isError}=useGetBlogDetailQuery()
-  return (
+  const { isLoading, data, error, isError } = useGetBlogDetailQuery({
+    blogId: id,
+  });
+
+  return isLoading ? (
+    <div className="w-full h-screen flex flex-col items-center gap-16 bg-[#F5F5F5] items-center justify-center">
+      <Loader />
+    </div>
+  ) : isError ? (
+    <NotFound />
+  ) : (
     <div className=" flex flex-col items-center gap-16 bg-[#F5F5F5]">
       <HeroBlog
         P_BtnText={"Blogs"}
-        H_Text={<>{slug}</>}
+        H_Text={<>{data?.data?.title || slug}</>}
         M_Text={
           "our company blogs cover a wide range of topics, including new technologies, consumer gadgets, and industry trends"
         }
@@ -32,33 +43,35 @@ function BlogDetailsPage() {
       <div className="w-[90%] mx-auto flex flex-col  lg:flex-row justify-between gap-10">
         <div className="w-[100%]  lg:w-auto  flex flex-col items-start justify-center text-start gap-10">
           <img
-            src="/frontend.png"
-            alt="Blog Image"
+            src={data?.data?.img}
+            alt={data?.data?.title}
             className="w-full h-auto max-h-[500px] object-cover rounded-xl"
           />
           <span
             className="w-full text-[1.5rem] sm:text-[2.0rem] md:text-[2.5rem] lg:text-[3.0rem] text-start font-semibold 
   leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words capitalize"
           >
-            {slug}
+            {data?.data?.title || slug}
           </span>
           <div
             className="ql-editor w-full v text-base md:text-lg leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(data?.data?.content),
+            }}
           />
           <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[1.2rem] font-bold">Tags:</span>
-              <div className="flex flex-wrap gap-2">
-                {Array(5)
-                  .fill()
-                  .map((e) => (
+            {data?.data?.hashtags?.length > 0 && (
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-[1.2rem] font-bold">Tags:</span>
+                <div className="flex flex-wrap gap-2">
+                  {data?.data?.hashtags.map((e) => (
                     <div className="p-2 bg-white border rounded border-gray-300">
-                      <span>Newss</span>
+                      <span className="flex font-bold">{e?.name}</span>
                     </div>
                   ))}
+                </div>
               </div>
-            </div>
+            )}
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-[1.2rem] font-bold">Share:</span>
               <div className="flex flex-wrap gap-2">
@@ -82,44 +95,43 @@ function BlogDetailsPage() {
               <CommentCard />
             </div>
             <span className="text-[1rem] lg:text-[2rem] font-poppins font-semibold flex pb-10">
-            Leave a Comments
+              Leave a Comments
             </span>
             <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="w-[100%]  mx-auto bg-white rounded-[30px] shadow-lg  flex flex-col gap-3 md:gap-10 px-5 py-5 mb-10"
-      >
-    
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="w-full  md:px-5 md:py-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 rounded-lg"
-        >
-          <FloatingLabelInput id="firstName" label="First Name" />
-          <FloatingLabelInput id="email" label="Email" type="email" />
-
-          <div className="col-span-1 md:col-span-2 lg:col-span-2 flex flex-col gap-2">
-            <label
-              htmlFor="writeMessage"
-              className="block text-sm font-medium text-gray-700 ml-1"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="w-[100%]  mx-auto bg-white rounded-[30px] shadow-lg  flex flex-col gap-3 md:gap-10 px-5 py-5 mb-10"
             >
-              Write a Message
-            </label>
-            <textarea
-              id="writeMessage"
-              className="block w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:border-none"
-              rows="4"
-              placeholder="Type your message here..."
-            />
-          </div>
-          <div className="inline-flex">
-            <Btn S_BtnText={"Post A Comment"} />
-          </div>
-        </motion.div>
-      </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="w-full  md:px-5 md:py-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 rounded-lg"
+              >
+                <FloatingLabelInput id="firstName" label="First Name" />
+                <FloatingLabelInput id="email" label="Email" type="email" />
+
+                <div className="col-span-1 md:col-span-2 lg:col-span-2 flex flex-col gap-2">
+                  <label
+                    htmlFor="writeMessage"
+                    className="block text-sm font-medium text-gray-700 ml-1"
+                  >
+                    Write a Message
+                  </label>
+                  <textarea
+                    id="writeMessage"
+                    className="block w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:border-none"
+                    rows="4"
+                    placeholder="Type your message here..."
+                  />
+                </div>
+                <div className="inline-flex">
+                  <Btn S_BtnText={"Post A Comment"} />
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
         <div className="hidden lg:flex flex-col gap-5">
@@ -146,31 +158,30 @@ function BlogDetailsPage() {
               </span>
               Post
             </span>
-            <BlogCardSub />
-            <BlogCardSub />
-            <BlogCardSub />
-            <BlogCardSub />
-          </div>
-          <div className="w-full lg:w-[300px] flex flex-col  bg-white px-5 py-4 rounded-lg items-start justify-center gap-4">
-            <span className="text-[#17012C] text-[1.2rem] underline underline-offset-8">
-              Tags
-            </span>
 
-            <div className="flex flex-wrap gap-2">
-              {Array(5)
-                .fill()
-                .map((e) => (
+            {data?.recent_posts.map((e) => (
+              <BlogCardSub item={e} />
+            ))}
+          </div>
+          {data?.data?.hashtags.length > 0 && (
+            <div className="w-full lg:w-[300px] flex flex-col  bg-white px-5 py-4 rounded-lg items-start justify-center gap-4">
+              <span className="text-[#17012C] text-[1.2rem] underline underline-offset-8">
+                Tags
+              </span>
+
+              <div className="flex flex-wrap gap-2">
+                {data?.data?.hashtags.map((e) => (
                   <div className="bg-[#D7D5DF] py-2 px-3 text-[#17012C] rounded-lg">
                     <span className="text-sm font-poppins font-normal">
-                      Security
+                      {e?.name}
                     </span>
                   </div>
                 ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
-        
     </div>
   );
 }

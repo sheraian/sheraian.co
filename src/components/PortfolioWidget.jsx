@@ -38,9 +38,9 @@ function PortfolioWidget() {
           <div className="py-10">
           <Loader />
         </div>
-      ):portfolio.data.length>=0?(
+      ):portfolio?.data?.length>=0?(
         <div className="w-[100%] gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
-        {portfolio.data
+        {portfolio?.data
           .map((_, index) => (
             <motion.div
               key={index}

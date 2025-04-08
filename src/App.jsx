@@ -19,6 +19,7 @@ import Job from "./pages/Job/Job";
 
 import { useState } from "react";
 import Chatbot from "./components/Chatbot/Chatbot";
+import NotFound from "./pages/404/NotFound";
 
 function App() {
   let [showChatbot, setshowChatbot] = useState(false);
@@ -63,6 +64,7 @@ function App() {
             <Route path="/case-study" element={<CaseStudy />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/jobs" element={<Job />} />
+            <Route path="*" element={<NotFound />} />
             <Route
               path="/portfolio/:slug/:id"
               element={<PortfolioDetailPage />}
