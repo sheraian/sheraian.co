@@ -13,9 +13,11 @@ import Contact from "../Contact/Contact";
 import FloatingLabelInput from "../../components/FloatingLabelInput";
 import { motion } from "framer-motion";
 import Btn from "../../components/Btn";
+import { useGetBlogDetailQuery } from "../../apiSlice";
 
 function BlogDetailsPage() {
   const { slug, id } = useParams();
+  const {isLoading,data,error,isError}=useGetBlogDetailQuery()
   return (
     <div className=" flex flex-col items-center gap-16 bg-[#F5F5F5]">
       <HeroBlog

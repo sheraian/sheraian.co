@@ -4,10 +4,12 @@ function BlogCard({item}) {
   const createdAt = new Date(item?.created_at); 
   const month = createdAt.toLocaleString("en-US", { month: "short" });
   const date = createdAt.getDate();
+  
+  
   return (
     <div className="mt-0 md:mt-0 w-[90%] mx-auto h-[280px] md:w-[290px] md:h-[270px]  flex flex-col items-center hover:scale-105 relative">
       <img
-        className="w-full max-h-[200px]  xl:h-[250px] rounded-lg object-cover bg-no-repeat"
+        className="w-full h-[200px] min-h-[200px] max-h-[200px] xl:h-[250px] rounded-lg object-cover bg-no-repeat"
         // className="w-full max-h-[200px] object-cover rounded-lg bg-no-repeat"
    
    src={item?.img}      />
