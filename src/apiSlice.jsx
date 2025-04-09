@@ -25,10 +25,17 @@ export const api=createApi({
         getComments: builder.query({
             query: ({ blogId,page=1,limit=2 } = {}) => `/api/comments/${blogId}?page=${page}&limit=${limit}`
         }),
+        postComments: builder.mutation({
+            query: (commentData) => ({
+                url: "/api/comments",
+                method: "POST",
+                body: commentData,
+            }),
+        }),
         getFaqs: builder.query({
             query: ({ page = 1, limit = 4 } = {}) => `/api/faq?page=${page}&limit=${limit}`
         })
     })
 })
 
-export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery,useGetPricesQuery,useGetBlogsQuery,useGetFaqsQuery,useGetBlogDetailQuery,useGetCommentsQuery}=api;
+export const {useGetServicesQuery,useGetReviewsQuery,useGetPortfolioQuery,useGetPricesQuery,useGetBlogsQuery,useGetFaqsQuery,useGetBlogDetailQuery,useGetCommentsQuery,usePostCommentsMutation}=api;

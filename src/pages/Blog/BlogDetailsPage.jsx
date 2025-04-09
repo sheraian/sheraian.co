@@ -13,15 +13,27 @@ import Contact from "../Contact/Contact";
 import FloatingLabelInput from "../../components/FloatingLabelInput";
 import { motion } from "framer-motion";
 import Btn from "../../components/Btn";
-import { useGetBlogDetailQuery, useGetCommentsQuery } from "../../apiSlice";
+import {
+  useGetBlogDetailQuery,
+  useGetCommentsQuery,
+  usePostCommentsMutation,
+} from "../../apiSlice";
 import Loader from "../../components/Loader";
 import NotFound from "../404/NotFound";
+import SubmitBtn from "../../components/SubmitBtn";
 
 function BlogDetailsPage() {
   const { slug, id } = useParams();
   const [page, setpage] = useState(1);
   const [commentsarray, setComments] = useState([]);
   const [moreLoading, setmoreLoading] = useState(false);
+  const [postLoading, setpostLoading] = useState(false);
+  const [input, setInput] = useState({
+    blog_id: id,
+    name: "",
+    comment: "",
+    email: "",
+  });
   let limit = 1;
   const { isLoading, data, error, isError } = useGetBlogDetailQuery({
     blogId: id,
@@ -31,15 +43,14 @@ function BlogDetailsPage() {
     data: comments,
     isError: isCommentError,
   } = useGetCommentsQuery({ blogId: id, page, limit });
+  const [postComments, { loader, isSuccess, commenterror }] =
+    usePostCommentsMutation();
   useEffect(() => {
     if (comments?.data) {
-   
       setComments((prev) => [
         ...prev,
         ...comments?.data?.filter((d) => !prev.some((p) => p.id === d.id)),
       ]);
-
-      // setmoreLoading(false);
     }
   }, [comments, page]);
   useEffect(() => {
@@ -47,6 +58,39 @@ function BlogDetailsPage() {
       setmoreLoading(false);
     }
   }, [commentsarray]);
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setInput((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    // console.log(input);
+
+    if (!input.name || !input.email || !input.comment) {
+      alert("All fields are required!");
+      return;
+    }
+    setpostLoading(true);
+    try {
+      const res = await postComments(input);
+// console.log(res);[]
+
+      if (res?.error?.data?.message) {
+        alert(res.error.data.message);
+      } else if (res?.data?.status) {
+        alert("Your Comment is posted successfully");
+      } else {
+        alert("Something went wrong");
+      }
+      setpostLoading(false);
+    } catch (err) {
+      console.error("Error:", err);
+      setpostLoading(false);
+    }
+  };
   return isLoading ? (
     <div className="w-full h-screen flex flex-col items-center gap-16 bg-[#F5F5F5] items-center justify-center">
       <Loader />
@@ -163,21 +207,34 @@ function BlogDetailsPage() {
             <span className="text-[1rem] lg:text-[2rem] font-poppins font-semibold flex pb-10">
               Leave a Comments
             </span>
-            <motion.div
+            <motion.form
+              onSubmit={handleSubmit}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="w-[100%]  mx-auto bg-white rounded-[30px] shadow-lg  flex flex-col gap-3 md:gap-10 px-5 py-5 mb-10"
+              className="w-full mx-auto bg-white rounded-[30px] shadow-lg flex flex-col gap-3 md:gap-10 px-5 py-5 mb-10"
             >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="w-full  md:px-5 md:py-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 rounded-lg"
+                className="w-full md:px-5 md:py-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 rounded-lg"
               >
-                <FloatingLabelInput id="firstName" label="First Name" />
-                <FloatingLabelInput id="email" label="Email" type="email" />
+                <FloatingLabelInput
+                  // value={input.name}
+                  id="name"
+                  onchange={handleChange}
+                  label="First Name"
+                />
+                <FloatingLabelInput
+                  // value={input.email}
+                  id="email"
+                  label="Email"
+                  onchange={handleChange}
+
+                  type="email"
+                />
 
                 <div className="col-span-1 md:col-span-2 lg:col-span-2 flex flex-col gap-2">
                   <label
@@ -187,17 +244,27 @@ function BlogDetailsPage() {
                     Write a Message
                   </label>
                   <textarea
-                    id="writeMessage"
+                    required
+                    id="comment"
                     className="block w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:border-none"
                     rows="4"
+                    // value={input.comment}
                     placeholder="Type your message here..."
+                    onChange={handleChange}
                   />
                 </div>
-                <div className="inline-flex">
-                  <Btn S_BtnText={"Post A Comment"} />
+              
+                {postLoading ? (
+                  <div className="inline-flex">
+                  <Loader />
                 </div>
+                ) : (
+                  <div className="inline-flex">
+                    <SubmitBtn S_BtnText={"Post A Comment"} />
+                  </div>
+                )}
               </motion.div>
-            </motion.div>
+            </motion.form>
           </div>
         </div>
         <div className=" hidden lg:flex flex-col gap-5">
