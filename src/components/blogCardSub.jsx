@@ -4,7 +4,7 @@ const BlogCardSub = ({ item }) => (
       <img
         src={item?.img}
         alt="Blog Image"
-        className="w-[5.5rem]  h-[4rem] rounded-lg object-cover "
+        className="w-[5.5rem] min-w-[5.5rem]  h-[4rem] rounded-lg object-cover "
       />
       <div className="flex items-start flex-col gap-1.5 ">
         <div className="flex items-center gap-1.5">

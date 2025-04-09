@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
 import { useParams } from "react-router-dom";
 import FaqComponent from "../../components/FaqComponent";
@@ -13,16 +13,40 @@ import Contact from "../Contact/Contact";
 import FloatingLabelInput from "../../components/FloatingLabelInput";
 import { motion } from "framer-motion";
 import Btn from "../../components/Btn";
-import { useGetBlogDetailQuery } from "../../apiSlice";
+import { useGetBlogDetailQuery, useGetCommentsQuery } from "../../apiSlice";
 import Loader from "../../components/Loader";
 import NotFound from "../404/NotFound";
 
 function BlogDetailsPage() {
   const { slug, id } = useParams();
+  const [page, setpage] = useState(1);
+  const [commentsarray, setComments] = useState([]);
+  const [moreLoading, setmoreLoading] = useState(false);
+  let limit = 1;
   const { isLoading, data, error, isError } = useGetBlogDetailQuery({
     blogId: id,
   });
+  const {
+    isLoading: commentLoading,
+    data: comments,
+    isError: isCommentError,
+  } = useGetCommentsQuery({ blogId: id, page, limit });
+  useEffect(() => {
+    if (comments?.data) {
+   
+      setComments((prev) => [
+        ...prev,
+        ...comments?.data?.filter((d) => !prev.some((p) => p.id === d.id)),
+      ]);
 
+      // setmoreLoading(false);
+    }
+  }, [comments, page]);
+  useEffect(() => {
+    if (comments?.data) {
+      setmoreLoading(false);
+    }
+  }, [commentsarray]);
   return isLoading ? (
     <div className="w-full h-screen flex flex-col items-center gap-16 bg-[#F5F5F5] items-center justify-center">
       <Loader />
@@ -30,7 +54,7 @@ function BlogDetailsPage() {
   ) : isError ? (
     <NotFound />
   ) : (
-    <div className=" flex flex-col items-center gap-16 bg-[#F5F5F5]">
+    <div className="w-full flex flex-col items-center gap-16 bg-[#F5F5F5]">
       <HeroBlog
         P_BtnText={"Blogs"}
         H_Text={<>{data?.data?.title || slug}</>}
@@ -41,20 +65,19 @@ function BlogDetailsPage() {
         S_BtnText={"Explore More"}
       />
       <div className="w-[90%] mx-auto flex flex-col  lg:flex-row justify-between gap-10">
-        <div className="w-[100%]  lg:w-auto  flex flex-col items-start justify-center text-start gap-10">
+        <div className=" w-[100%]  lg:w-auto  flex flex-col items-start justify-center text-start gap-10">
           <img
             src={data?.data?.img}
-            alt={data?.data?.title}
-            className="w-full h-auto max-h-[500px] object-cover rounded-xl"
+            className="w-full  object-cover rounded-xl"
           />
           <span
             className="w-full text-[1.5rem] sm:text-[2.0rem] md:text-[2.5rem] lg:text-[3.0rem] text-start font-semibold 
-  leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words capitalize"
+            leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words capitalize"
           >
             {data?.data?.title || slug}
           </span>
           <div
-            className="ql-editor w-full v text-base md:text-lg leading-relaxed"
+            className="ql-editor w-full h-auto text-base md:text-lg leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(data?.data?.content),
             }}
@@ -85,15 +108,58 @@ function BlogDetailsPage() {
               </div>
             </div>
           </div>
-          <div className="w-full">
-            <span className="text-[1rem] lg:text-[2rem] font-poppins font-semibold flex pb-10">
-              02 Comments
-            </span>
-            <div className="flex flex-col gap-5 pb-10">
-              <CommentCard />
-              <CommentCard />
-              <CommentCard />
+
+          {commentLoading ? (
+            <div className="w-full py-10 ">
+              <Loader />
             </div>
+          ) : isCommentError ? (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl shadow-md max-w-md mx-auto mt-4">
+              <p className="font-semibold">
+                Something went wrong while fetching comments.
+              </p>
+            </div>
+          ) : comments?.data?.length > 0 ? (
+            <div className="w-full">
+              <span className="text-[1rem] lg:text-[2rem] font-poppins font-semibold flex pb-10">
+                {comments?.data?.length?.toString()?.padStart(2, "0")} Comments
+              </span>
+              <div className="flex flex-col gap-5 pb-10">
+                {commentsarray?.map((e) => (
+                  <CommentCard item={e} />
+                ))}
+              </div>
+
+              {moreLoading ? (
+                <div className="w-full py-10 ">
+                  <Loader />
+                </div>
+              ) : (
+                comments?.next_page && (
+                  <div className="w-full  flex items-center justify-center py-4">
+                    <div
+                      className="w-fit flex justify-center items-center py-3 px-10 bg-[#4A2848] rounded-[35px] cursor-pointer "
+                      onClick={() => {
+                        setmoreLoading(true);
+                        setpage(page + 1);
+                      }}
+                    >
+                      <p
+                        className={`font-inter  text-xs font-semibold md:text-[18px] lmd:eading-[18px] tracking-[0%] cursor-pointer  text-white `}
+                      >
+                        Load More
+                      </p>
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          ) : (
+            <div className="bg-gray-100 border border-gray-300 text-gray-700 px-4 py-3 rounded-xl shadow-sm text-center max-w-md mx-auto mt-4">
+              <p className="font-medium">No Comment Available</p>
+            </div>
+          )}
+          <div className="w-full">
             <span className="text-[1rem] lg:text-[2rem] font-poppins font-semibold flex pb-10">
               Leave a Comments
             </span>
@@ -134,7 +200,7 @@ function BlogDetailsPage() {
             </motion.div>
           </div>
         </div>
-        <div className="hidden lg:flex flex-col gap-5">
+        <div className=" hidden lg:flex flex-col gap-5">
           <div className="w-[100%]  lg:w-[300px] flex flex-col  bg-white px-5 py-4 rounded-lg items-start justify-center gap-4">
             <span className="text-[#17012C] text-[1.2rem] underline underline-offset-8">
               Search
