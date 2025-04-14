@@ -2,10 +2,14 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { Link } from "react-router-dom";
 function PortfolioCard({ item }) {
   return (
     // eslint-disable-next-line max-len
-    <div className="portfoliocards w-[95%] mx-auto lg:w-[380px]  2xl:w-[450px] rounded-full relative group overflow-visible">
+    <a 
+    href={`/portfolio/${item?.title}/${item?.id}`}
+    
+    className="portfoliocards w-[95%] mx-auto lg:w-[380px]  2xl:w-[450px] rounded-full relative group overflow-visible cursor-pointer">
       <LazyLoadImage
         src={item?.proj_img || "/fallback.jpg"}
         alt={item?.title || "Project Image"}
@@ -30,7 +34,7 @@ function PortfolioCard({ item }) {
               />
             )}
           </div>
-          <h1 className="text-white font-semibold">{item?.title}</h1>
+          <h1 className="w-full text-white font-semibold truncate">{item?.title}</h1>
           <span className="w-full flex items-center gap-2 text-white">
             {/* <img src="/location.png" className="w-[15px] h-[15px] " /> */}
             <i class="fa-solid fa-location-dot text-red-500 text-xl md:text-2xl"></i>
@@ -52,13 +56,13 @@ function PortfolioCard({ item }) {
           <div className="w-full flex items-center gap-5 flex-wrap">
             {item?.recommended?.length > 0 &&
               item.recommended.map((project, index) => (
-                <div className="flex items-center gap-2">
+                <div className="w-full flex items-center gap-2">
                   <img
                     src={project?.proj_img}
                     className="w-[30px] h-[30px] rounded-full "
                   />
-                  <div className="flex  flex-col flex-wrap ">
-                    <h1 className="text-white font-semibold ">
+                  <div className="w-[90%] flex  flex-col">
+                    <h1 className="w-[100%] text-white font-semibold truncate ">
                       {project?.title}
                     </h1>
                     <p className="text-sm"> Remote, {project?.location}</p>
@@ -133,7 +137,7 @@ function PortfolioCard({ item }) {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 

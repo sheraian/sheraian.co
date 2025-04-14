@@ -66,7 +66,7 @@ function BlogDetailsPage() {
     }));
   };
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // console.log(input);
 
     if (!input.name || !input.email || !input.comment) {
@@ -76,8 +76,6 @@ function BlogDetailsPage() {
     setpostLoading(true);
     try {
       const res = await postComments(input);
-// console.log(res);[]
-
       if (res?.error?.data?.message) {
         alert(res.error.data.message);
       } else if (res?.data?.status) {
@@ -103,7 +101,7 @@ function BlogDetailsPage() {
         P_BtnText={"Blogs"}
         H_Text={<>{data?.data?.title || slug}</>}
         M_Text={
-          "our company blogs cover a wide range of topics, including new technologies, consumer gadgets, and industry trends"
+          "Our company blogs cover a wide range of topics, including new technologies, consumer gadgets, and industry trends"
         }
         isSBtnShow={false}
         S_BtnText={"Explore More"}
@@ -232,7 +230,6 @@ function BlogDetailsPage() {
                   id="email"
                   label="Email"
                   onchange={handleChange}
-
                   type="email"
                 />
 
@@ -253,11 +250,11 @@ function BlogDetailsPage() {
                     onChange={handleChange}
                   />
                 </div>
-              
+
                 {postLoading ? (
                   <div className="inline-flex">
-                  <Loader />
-                </div>
+                    <Loader />
+                  </div>
                 ) : (
                   <div className="inline-flex">
                     <SubmitBtn S_BtnText={"Post A Comment"} />

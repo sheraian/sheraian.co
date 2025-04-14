@@ -7,7 +7,7 @@ import Loader from "./Loader";
 
 function PortfolioComp() {
   const [page, setPage] = useState(1);
-  const limit = 2;
+  const limit = 10;
   const [portfolio, setPortfolio] = useState([]);
   const [loadingMore, setLoadingMore] = useState(false); // New state to track "Load More" loading state
   

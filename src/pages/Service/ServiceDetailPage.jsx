@@ -8,14 +8,27 @@ import ReactQuill from "react-quill-new";
 import "react-quill/dist/quill.snow.css";
 import BenefitsCard from "../../components/BenefitsCard";
 import Btn from "../../components/Btn";
+import { useGetServicesDetailsQuery } from "../../apiSlice";
+import Loader from "../../components/Loader";
+import NotFound from "../404/NotFound";
 
 function ServiceDetailPage() {
   const { slug, id } = useParams();
-  return (
+  const {data,isLoading,isError,error}=useGetServicesDetailsQuery({id})
+  console.log(error);
+  
+  return isLoading?(
+    <div className="w-full h-screen flex items-center justify-center">
+    <Loader />
+  </div>
+  ):isError ? (
+    <NotFound />
+  ):(
     <div className=" flex flex-col items-start gap-10 lg:gap-20 bg-[#F5F5F5]">
+     
       <HeroBlog
         P_BtnText={"Careers"}
-        H_Text={<>{slug}</>}
+        H_Text={<>{data?.name || slug}</>}
         M_Text={
           "We build careers by connecting talent with opportunities, fostering growth, and shaping future leaders"
         }
@@ -24,7 +37,7 @@ function ServiceDetailPage() {
       />
       <div className="w-[90%] mx-auto flex flex-col items-start justify-center text-start gap-5">
         <img
-          src="/frontend.png"
+          src={data?.img}
           alt="Blog Image"
           className="w-full h-auto max-h-[500px] object-cover rounded-xl"
         />
@@ -32,11 +45,11 @@ function ServiceDetailPage() {
           className="w-full text-[1.5rem] sm:text-[2.0rem] md:text-[2.5rem] lg:text-[3.0rem] text-start font-semibold 
   leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words capitalize"
         >
-          {slug}
+         {data?.name || slug}
         </span>
         <div
           className="ql-editor w-full v text-base md:text-lg leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data?.content) }}
         />
       </div>
       <div className="mx-auto flex flex-col items-center gap-5 pb-5">

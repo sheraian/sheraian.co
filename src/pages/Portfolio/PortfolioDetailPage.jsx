@@ -6,15 +6,28 @@ import "react-quill/dist/quill.snow.css";
 
 import PortfolioHero from "../../components/blog/PortfolioHero";
 import { motion } from "framer-motion";
+import { useGetProjectDetailQuery } from "../../apiSlice";
+import Loader from "../../components/Loader";
+import NotFound from "../404/NotFound";
 function PortfolioDetailPage() {
   const { slug, id } = useParams();
-  return (
+    const { isLoading, data, error, isError } = useGetProjectDetailQuery({
+      projectId: id,
+    });
+  return isLoading?(
+        <div className="w-full h-screen flex flex-col items-center gap-16 bg-[#F5F5F5] items-center justify-center">
+          <Loader />
+        </div>
+  ):isError ? (
+    <NotFound />
+  ):(
     <div className=" flex flex-col items-start gap-10 lg:gap-20 bg-[#F5F5F5]">
       <PortfolioHero
         P_BtnText={"Project"}
-        H_Text={<>{slug}</>}
+        H_Text={<>{data?.data?.title || slug}</>}
+        img={data?.data?.mb_img}
         M_Text={
-          "We build careers by connecting talent with opportunities, fostering growth, and shaping future leaders"
+          data?.data?.description|| "We build careers by connecting talent with opportunities, fostering growth, and shaping future leaders"
         }
         isSBtnShow={false}
         S_BtnText={"Explore More"}
@@ -27,7 +40,7 @@ function PortfolioDetailPage() {
         viewport={{ once: true }}
       >
         <motion.img
-          src="/frontend.png"
+          src={data?.data?.proj_img}
           alt="Blog Image"
           className="w-full h-auto max-h-[500px] object-cover rounded-xl"
           initial={{ scale: 0.9, opacity: 0 }}
@@ -49,14 +62,15 @@ function PortfolioDetailPage() {
 
         {/* Blog Content */}
         <motion.div
-          className="ql-editor w-full text-base md:text-lg leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
+          className="ql-editor w-full text-base md:text-lg leading-relaxed mb-10"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data?.data?.content) }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
           viewport={{ once: true }}
         />
       </motion.div>
+      
     </div>
   );
 }

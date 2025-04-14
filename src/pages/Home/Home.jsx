@@ -58,7 +58,7 @@ const Home = () => {
     error: rw_error,
   } = useGetReviewsQuery();
   const handleNext = () => {
-    alert(ReviewsData?.data?.length);
+    // alert(ReviewsData?.data?.length);
     if (currentIndex < ReviewsData?.data?.length - 1) {
       setDirection(1); // Moving Right
       setCurrentIndex((prevIndex) => prevIndex + 1);
