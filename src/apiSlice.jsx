@@ -52,6 +52,13 @@ export const api = createApi({
       query: ({id, page = 1, limit = 4 } = {}) =>
         `/api/benefits/${id}?page=${page}&limit=${limit}`,
     }),
+    postNewLetters: builder.mutation({
+      query: (newsData) => ({
+        url: "/api/newsletters",
+        method: "POST",
+        body: newsData,
+      }),
+    }),
   }),
 });
 
@@ -67,5 +74,6 @@ export const {
   usePostCommentsMutation,
   useGetProjectDetailQuery,
   useGetServicesDetailsQuery,
-  useGetBenefitsQuery
+  useGetBenefitsQuery,
+  usePostNewLettersMutation
 } = api;

@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import FloatingLabelInput from "../../components/FloatingLabelInput";
-import Btn from "../../components/Btn";
 import HeroBlog from "../../components/blog/HeroBlog";
 import BtnSubmit from "../../components/BtnSubmit";
 import Loader from "../../components/Loader";
