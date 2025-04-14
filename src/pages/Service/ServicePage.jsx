@@ -9,7 +9,7 @@ import Loader from "../../components/Loader";
 
 function ServicePage() {
   const [page, setPage] = useState(1);
-  const limit = 3;
+  const limit = 10;
   const [services, setServices] = useState([]);
 
   const { data: ServiceData, isLoading, isFetching, isError, error } = useGetServicesQuery({ page, limit });

@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 const buttonsData = [
   {
     title: "Services",
-    // link: "/",
-    isArrow: true,
+    link: "/service",
+    isArrow: false,
   },
   // {
   //   title: "Company",
@@ -27,11 +27,11 @@ const buttonsData = [
     link: "/portfolio",
     isArrow: false,
   },
-  {
-    title: "Career",
-    link: "/career",
-    isArrow: false,
-  },
+  // {
+  //   title: "Career",
+  //   link: "/career",
+  //   isArrow: false,
+  // },
   {
     title: "Contact Us",
     link: "/contact-us",
@@ -82,22 +82,22 @@ const Drawer = [
     link: "/blogs",
     isArrow: false,
   },
-  {
-    title: "Jobs",
-    link: "/jobs",
-    isArrow: false,
-  },
+  // {
+  //   title: "Jobs",
+  //   link: "/jobs",
+  //   isArrow: false,
+  // },
   {
     title: "Portfolio",
     link: "/portfolio",
     isArrow: false,
   },
-  {
-    title: "Career",
-    link: "/career",
-    isArrow: false,
-  },
-  { title: "Case Studies", link: "/case-study" },
+  // {
+  //   title: "Career",
+  //   link: "/career",
+  //   isArrow: false,
+  // },
+  // { title: "Case Studies", link: "/case-study" },
 
   {
     title: "Contact Us",

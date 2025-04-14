@@ -233,9 +233,13 @@ const Home = () => {
           </span>
         </div>
 
+      
         <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-5 gap-x-4">
           {isLoading ? (
-            <Loader />
+            <div className="w-full flex items-center justify-center">
+              <Loader />
+
+            </div>
           ) : ServiceData?.data.length > 0 ? (
             ServiceData?.data.map((_, index) => (
               <motion.div

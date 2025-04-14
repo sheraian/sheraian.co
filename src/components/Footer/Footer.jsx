@@ -87,14 +87,14 @@ const Footer = () => {
             </div>
             <div className="flex flex-col justify-center items-center lg:items-start gap-y-[1rem]">
               {[
-                { name: "Web Development ", link: "/" },
+                { name: "Web Development ", link: "/service/Web Developement/5" },
                 { name: "IT Consultancy", link: "/" },
                 { name: "UI/UX Design", link: "/" },
                 { name: "Cybersecurity", link: "/" },
               ].map((d, index) => {
                 return (
-                  <Link
-                    to={d.link}
+                  <a
+                    href={d.link}
                     key={index}
                     className="flex justify-start items-center gap-3"
                   >
@@ -106,7 +106,7 @@ const Footer = () => {
                     <p class="font-inter font-normal text-[14px] lg:text-[18px] leading-[22px] tracking-[0] text-white/80">
                       {d.name}
                     </p>
-                  </Link>
+                  </a>
                 );
               })}
             </div>

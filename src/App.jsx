@@ -56,14 +56,15 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blogs" element={<BlogPage />} />
-            <Route path="/process" element={<ProcessPage />} />
-            <Route path="/career" element={<CareerPage />} />
+            {/* <Route path="/process" element={<ProcessPage />} /> */}
+            {/* <Route path="/career" element={<CareerPage />} /> */}
             <Route path="/contact-us" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/service" element={<ServicePage />} />
-            <Route path="/case-study" element={<CaseStudy />} />
+            {/* <Route path="/case-study" element={<CaseStudy />} /> */}
             <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/jobs" element={<Job />} />
+            {/* <Route path="/jobs" element={<Job />} /> */}
             <Route path="*" element={<NotFound />} />
             <Route
               path="/portfolio/:slug/:id"
@@ -72,7 +73,7 @@ function App() {
             <Route path="/career/:slug/:id" element={<CareerDetailPage />} />
             <Route path="/blogs/:slug/:id" element={<BlogDetailsPage />} />
             <Route path="/service/:slug/:id" element={<ServiceDetailPage />} />
-            <Route path="/case-study/:slug/:id" element={<CaseStudyDetail />} />
+            {/* <Route path="/case-study/:slug/:id" element={<CaseStudyDetail />} /> */}
           </Routes>
         </div>
         <Chatbot

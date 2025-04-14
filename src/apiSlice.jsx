@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const api = createApi({
   // baseQuery:fetchBaseQuery({baseUrl:"https://api.sheraian.co.uk"}),
-  baseQuery: fetchBaseQuery({ baseUrl: "http://192.168.1.3:8000" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://192.168.1.4:8000" }),
   endpoints: (builder) => ({
     getServices: builder.query({
       query: ({ page = 1, limit = 3 } = {}) =>
@@ -48,6 +48,10 @@ export const api = createApi({
       query: ({ page = 1, limit = 4 } = {}) =>
         `/api/faq?page=${page}&limit=${limit}`,
     }),
+    getBenefits: builder.query({
+      query: ({id, page = 1, limit = 4 } = {}) =>
+        `/api/benefits/${id}?page=${page}&limit=${limit}`,
+    }),
   }),
 });
 
@@ -63,4 +67,5 @@ export const {
   usePostCommentsMutation,
   useGetProjectDetailQuery,
   useGetServicesDetailsQuery,
+  useGetBenefitsQuery
 } = api;

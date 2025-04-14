@@ -1,6 +1,6 @@
 import React from "react";
 
-const FloatingLabelInput = ({ id, label, type = "text",onchange }) => {
+const FloatingLabelInput = ({ id, label, type = "text",onchange,name }) => {
   return (
     <div className="w-full relative mt-4">
       <input
@@ -9,6 +9,7 @@ const FloatingLabelInput = ({ id, label, type = "text",onchange }) => {
         required
         className="block px-2.5 pb-2.5 md:pb-6 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
+        name={name}
 
         onChange={(e)=>onchange(e)}
       />

@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 import FloatingLabelInput from "../../components/FloatingLabelInput";
 import Btn from "../../components/Btn";
 import HeroBlog from "../../components/blog/HeroBlog";
+import BtnSubmit from "../../components/BtnSubmit";
+import Loader from "../../components/Loader";
 
 function Contact() {
+  const form = useRef();
+  const [loader, setloader] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setloader(true);
+    console.log(form.current);
+
+    emailjs
+      .sendForm(
+        "service_j2f0qfq",
+        "template_5n8ucgu",
+        form.current,
+        "mGEmODTYwOU__wSu-"
+      )
+      .then(() => {
+        alert("Message sent successfully!");
+        form.current.reset();
+        setloader(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error.text);
+        setloader(false);
+
+        alert("Failed to send message.");
+      });
+  };
+
   return (
     <div className="w-full">
       <HeroBlog
@@ -19,12 +50,13 @@ function Contact() {
           window.location.href = "/about";
         }}
       />
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="w-full py-10  bg-gray-50 bg-opacity-50"
+        className="w-full py-10 bg-gray-50 bg-opacity-50"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -52,18 +84,35 @@ function Contact() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="w-full md:border md:border-gray-200 md:px-5 md:py-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 rounded-lg"
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="w-full md:border md:border-gray-200 md:px-5 md:py-5 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-5 rounded-lg"
           >
-            <FloatingLabelInput id="firstName" label="First Name" />
-            <FloatingLabelInput id="lastName" label="Last Name" />
-            <FloatingLabelInput id="email" label="Email" type="email" />
-            <FloatingLabelInput id="phone" label="Phone" type="tel" />
+            <FloatingLabelInput
+              name="firstName"
+              id="firstName"
+              label="First Name"
+            />
+            <FloatingLabelInput
+              name="lastName"
+              id="lastName"
+              label="Last Name"
+            />
+            <FloatingLabelInput
+              name="email"
+              id="email"
+              label="Email"
+              type="email"
+            />
+            <FloatingLabelInput
+              name="phone"
+              id="phone"
+              label="Phone"
+              type="tel"
+            />
 
-            <div className="col-span-1 md:col-span-2 lg:col-span-2 flex flex-col gap-2">
+            <div className="col-span-1 md:col-span-2 flex flex-col gap-2">
               <label
                 htmlFor="writeMessage"
                 className="block text-sm font-medium text-gray-700 ml-1"
@@ -71,16 +120,24 @@ function Contact() {
                 Write a Message
               </label>
               <textarea
+                name="message"
                 id="writeMessage"
                 className="block w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:border-none"
                 rows="4"
                 placeholder="Type your message here..."
+                required
               />
             </div>
-            <div className="inline-flex">
-              <Btn S_BtnText={"Submit"} />
-            </div>
-          </motion.div>
+            {loader ? (
+              <div className="w-fit">
+                <Loader />
+              </div>
+            ) : (
+              <div className="inline-flex">
+                <BtnSubmit S_BtnText="Submit" type="submit" />
+              </div>
+            )}
+          </form>
         </motion.div>
       </motion.div>
     </div>
