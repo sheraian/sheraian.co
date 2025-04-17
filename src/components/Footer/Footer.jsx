@@ -77,7 +77,7 @@ const Footer = () => {
               <div className="flex flex-col justify-center items-start gap-[1px] font-inter font-normal text-[14px] lg:text-[18px] leading-[24px] tracking-normal text-white/80">
                 <p>Make a Call</p>
                 <p>(+92) 3149 694668</p>
-                <p>(+44) 7830 740511</p>
+                {/* <p>(+44) 7830 740511</p> */}
               </div>
             </div>
           </div>
