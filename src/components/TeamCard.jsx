@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-function TeamCard() {
+function TeamCard({item}) {
   return (
     <div
       className="relative w-full lg:w-[380px] bg-white rounded-lg shadow-lg border 
@@ -12,12 +12,12 @@ function TeamCard() {
       {/* Profile Image */}
       <div className="relative">
         <img
-          src="https://avatars.githubusercontent.com/u/90733116"
-          alt="Muhammad Shiraz"
+          src={item?.link}
+          alt={item?.name}
           className="w-full h-auto lg:h-[400px] object-cover rounded-lg"
         />
       </div>
-      <motion.div
+      {/* <motion.div
     className="absolute right-5 bottom-10 hidden group-hover:flex flex-col gap-2"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -36,10 +36,10 @@ function TeamCard() {
   <button class="bg-[#320a28] p-2 rounded-[100px] text-white">
     <i class="fa-brands fa-instagram"></i>
   </button>
-  </motion.div>
+  </motion.div> */}
       <div className="absolute bottom-[-2rem] left-1/2 transform -translate-x-1/2 bg-[#320a28] text-white px-4 py-2 rounded-lg text-center w-[90%]">
-        <h3 className="font-bold text-lg">Muhammad Shiraz</h3>
-        <p className="text-sm">Founder</p>
+        <h3 className="font-bold text-lg">{item?.name}</h3>
+        <p className="text-sm">{item?.role}</p>
       </div>
     </div>
   );
