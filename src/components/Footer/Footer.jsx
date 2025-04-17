@@ -123,9 +123,9 @@ const Footer = () => {
                   name: "Web Development ",
                   link: "/service/Web Developement/5",
                 },
-                { name: "IT Consultancy", link: "/" },
-                { name: "UI/UX Design", link: "/" },
-                { name: "Cybersecurity", link: "/" },
+                { name: "IT Consultancy", link: "/service/Tech Support/14" },
+                { name: "UI/UX Design", link: "/service/Design Services/11"  },
+                { name: "Bug Fixing", link: "/service/Bug Fixing/10" },
               ].map((d, index) => {
                 return (
                   <a

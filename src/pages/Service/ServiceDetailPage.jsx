@@ -36,7 +36,7 @@ function ServiceDetailPage() {
         <img
           src={data?.img}
           alt="Blog Image"
-          className="w-full h-auto max-h-[500px] object-cover rounded-xl"
+          className="w-full h-auto  object-cover rounded-xl"
         />
         <span
           className="w-full text-[1.5rem] sm:text-[2.0rem] md:text-[2.5rem] lg:text-[3.0rem] text-start font-semibold 
