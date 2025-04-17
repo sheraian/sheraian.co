@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const api = createApi({
-  // baseQuery:fetchBaseQuery({baseUrl:"https://api.sheraian.co.uk"}),
-  baseQuery: fetchBaseQuery({ baseUrl: "http://192.168.1.4:8000" }),
+  // baseQuery: fetchBaseQuery({ baseUrl: "http://192.168.1.4:8000" }),
+  baseQuery:fetchBaseQuery({baseUrl:"https://api.sheraian.co.uk"}),
   endpoints: (builder) => ({
     getServices: builder.query({
       query: ({ page = 1, limit = 3 } = {}) =>

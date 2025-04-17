@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
 import { useParams } from "react-router-dom";
 import FaqComponent from "../../components/FaqComponent";
-import DOMPurify from "dompurify";
-import { content } from "../../../data";
+import { content, sanitizeAndConvertVideo } from "../../../data";
 import ReactQuill from "react-quill-new";
 import "react-quill/dist/quill.snow.css";
 import BlogCard from "../../components/blog/BlogCard";
@@ -121,9 +120,10 @@ function BlogDetailsPage() {
           <div
             className="ql-editor w-full h-auto text-base md:text-lg leading-relaxed"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(data?.data?.content),
+              __html: sanitizeAndConvertVideo(data?.data?.content || ""),
             }}
           />
+
           <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
             {data?.data?.hashtags?.length > 0 && (
               <div className="flex items-center gap-2 flex-wrap">
@@ -317,3 +317,4 @@ function BlogDetailsPage() {
 }
 
 export default BlogDetailsPage;
+

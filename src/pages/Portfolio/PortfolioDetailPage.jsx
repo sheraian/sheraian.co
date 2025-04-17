@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
-import { content } from "../../../data";
+import { content, sanitizeAndConvertVideo } from "../../../data";
 import "react-quill/dist/quill.snow.css";
 
 import PortfolioHero from "../../components/blog/PortfolioHero";
@@ -42,7 +42,7 @@ function PortfolioDetailPage() {
         <motion.img
           src={data?.data?.proj_img}
           alt="Blog Image"
-          className="w-full h-auto max-h-[500px] object-cover rounded-xl"
+          className="w-full h-auto object-cover rounded-xl"
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -63,7 +63,7 @@ function PortfolioDetailPage() {
         {/* Blog Content */}
         <motion.div
           className="ql-editor w-full text-base md:text-lg leading-relaxed mb-10"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data?.data?.content) }}
+          dangerouslySetInnerHTML={{ __html: sanitizeAndConvertVideo(data?.data?.content) }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
