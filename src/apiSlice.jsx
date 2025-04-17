@@ -12,7 +12,7 @@ export const api = createApi({
       query: ({ id } = {}) => `/api/services/${id}`,
     }),
     getReviews: builder.query({
-      query: ({ page = 1, limit = 3 } = {}) =>
+      query: ({ page = 1, limit = 10 } = {}) =>
         `/api/reviews?page=${page}&limit=${limit}`,
     }),
     getPortfolio: builder.query({

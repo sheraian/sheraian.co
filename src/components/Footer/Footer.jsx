@@ -177,6 +177,9 @@ href="https://www.instagram.com/sheraian_limited/"
                 <img src="/assets/Footer/instagram.svg" alt="" />
               </a> */}
             </div>
+            <p class="font-inter font-normal text-[14px] lg:text-[18px] leading-[22px] tracking-[0%] text-white/80 text-center lg:text-start">
+              info@sheraian.co.uk
+            </p>
           </div>
         </div>
         {/* Reserve */}
@@ -188,10 +191,10 @@ href="https://www.instagram.com/sheraian_limited/"
             </span>
           </p>
           <div className="flex justify-center items-center gap-5">
-            <Link to="/" className="cursor-pointer">
+            {/* <Link to="/" className="cursor-pointer">
               Privacy Policy
-            </Link>
-            <Link to="/" className="cursor-pointer">
+            </Link> */}
+            <Link to="/contact" className="cursor-pointer">
               Contact Us
             </Link>
           </div>

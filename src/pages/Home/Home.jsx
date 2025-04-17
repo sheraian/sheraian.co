@@ -299,14 +299,14 @@ const Home = () => {
                     className="w-full flex flex-col md:flex-row justify-center items-center"
                   >
                     <img
-                      src={testimonials[currentIndex].image}
+                      src={ReviewsData?.data[currentIndex].img}
                       className="md:mr-[-40px] mb-[-40px] md:mb-0 z-[1] w-[200px] h-[200px] md:w-[332px] md:h-[332px]"
                       alt="User"
                     />
                     <div className="w-full md:w-[971px] py-[45px] pl-[20px] sm:pl-[110px] pr-[20px] sm:pr-[62px] bg-white rounded-tl-[50px] rounded-br-[50px] flex flex-col justify-center items-start gap-5">
                       <div className="w-full flex justify-between items-center">
                         <div className="flex justify-center items-center gap-[5px]">
-                          {Array(5)
+                          {Array(ReviewsData?.data[currentIndex].star||3)
                             .fill(3)
                             .map((_, index) => (
                               <img
@@ -324,20 +324,20 @@ const Home = () => {
                         </div>
                       </div>
                       <p className="font-inter font-medium text-[18px] leading-[27px] tracking-[0%] customScreen:text-[24px] customScreen:leading-[34px]">
-                        {ReviewsData.data[currentIndex].text}
+                        {ReviewsData?.data[currentIndex].text}
                       </p>
                       <div className="flex justify-start items-center gap-[26px]">
                         <img
-                          src={testimonials[currentIndex].image}
+                          src={ReviewsData?.data[currentIndex].img}
                           alt="User"
                           className="w-[68px] h-[68px]"
                         />
                         <div>
                           <p className="font-inter font-semibold text-[20px] leading-[20px] tracking-[0%]">
-                            {testimonials[currentIndex].name}
+                            {ReviewsData?.data[currentIndex].name}
                           </p>
                           <p className="font-[Plus Jakarta Sans] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#726B7D]">
-                            {testimonials[currentIndex].role}
+                            {ReviewsData?.data[currentIndex].role}
                           </p>
                         </div>
                       </div>
@@ -346,7 +346,7 @@ const Home = () => {
                 </AnimatePresence>
               </div>
               <div className="w-full flex justify-end items-center gap-[20px] mt-[-30px] 2xl:mr-[100px]">
-                <div
+               {currentIndex>0&& (<div
                   onClick={handlePrev}
                   className={`rounded-full w-[54px] h-[54px] border ${currentIndex > 0 ? "bg-[#4A2848]" : "bg-transparent"} flex justify-center items-center cursor-pointer`}
                 >
@@ -358,8 +358,8 @@ const Home = () => {
                     }
                     alt="LeftArrow"
                   />
-                </div>
-                <div
+                </div>)}
+             {currentIndex < ReviewsData?.data?.length - 1&&  ( <div
                   onClick={handleNext}
                   className={`rounded-full w-[54px] h-[54px] border border-black flex justify-center items-center ${currentIndex < ReviewsData?.data.length - 1 ? "bg-[#4A2848]" : "bg-transparent"} cursor-pointer`}
                 >
@@ -371,7 +371,7 @@ const Home = () => {
                     }
                     alt="RightArrow"
                   />
-                </div>
+                </div>)}
               </div>
             </>
           ) : (
@@ -390,7 +390,7 @@ const Home = () => {
         <PriceWidget />
       </div>
       <div className="w-full flex flex-col justify-center items-center">
-        <div className="w-[90%] flex flex-col justify-center items-center gap-[40px] pt-[70px]">
+        <div className="w-[100%] flex flex-col justify-center items-center gap-[40px] pt-[70px]">
           <div className="w-full flex flex-col justify-center items-center gap-[30px]">
             <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
               News & Article
