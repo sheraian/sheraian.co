@@ -16,14 +16,15 @@ import PortfolioDetailPage from "./pages/Portfolio/PortfolioDetailPage";
 import CaseStudy from "./pages/CaseStudy/CaseStudy";
 import CaseStudyDetail from "./pages/CaseStudy/CaseStudyDetail";
 import Job from "./pages/Job/Job";
-
 import { useState } from "react";
 import Chatbot from "./components/Chatbot/Chatbot";
 import NotFound from "./pages/404/NotFound";
-
+import SEO from "./components/SEO";
+import { Helmet } from "react-helmet";
 function App() {
   let [showChatbot, setshowChatbot] = useState(false);
   return (
+    // <HelmetProvider>
     <div
       className={`flex w-[100%]  h-[100vh] flex-col  relative items-center ${showChatbot ? "overflow-hidden" : "overflow-visible"} `}
     >
@@ -54,8 +55,23 @@ function App() {
 
         <div className="w-full mt-16 lg:mt-20 z-10">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blogs" element={<BlogPage />} />
+            <Route
+              path="/"
+              element={
+                
+                  <Home />
+
+              }
+            />
+            <Route
+              path="/blogs"
+              element={
+             
+
+                  <BlogPage />
+          
+              }
+            />
             {/* <Route path="/process" element={<ProcessPage />} /> */}
             {/* <Route path="/career" element={<CareerPage />} /> */}
             <Route path="/contact-us" element={<Contact />} />
@@ -83,6 +99,7 @@ function App() {
         <Footer />
       </BrowserRouter>
     </div>
+    // </HelmetProvider>
   );
 }
 

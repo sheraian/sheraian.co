@@ -163,7 +163,8 @@ const Footer = () => {
                 <img src="/assets/Footer/Facebook.svg" alt="" />
               </a>
               <a
-                href="/https://pk.linkedin.com/company/sheraian-limited?trk=public_post_feed-actor-name"
+                href="https://pk.linkedin.com/company/sheraian-limited?trk=public_post_feed-actor-name"
+                black
                 className="w-[36px] h-[36px] rounded-[5px] border-[1px] border-white/50 cursor-pointer flex justify-center items-center"
               >
                 <img src="/assets/Footer/linkedIn.svg" alt="" />

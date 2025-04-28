@@ -301,7 +301,7 @@ const About = () => {
       </div>
 
       {/* fourth Section */}
-      <div className="w-full flex justify-center items-center py-10 md:py-10 ">
+      {/* <div className="w-full flex justify-center items-center py-10 md:py-10 ">
         <div className="w-[90%] flex flex-col justify-center items-center gap-[40px]">
           <div className="w-full flex flex-col justify-center items-center gap-[30px]">
             <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
@@ -312,7 +312,6 @@ const About = () => {
             </p>
           </div>
 
-          {/* Slider */}
           <div className="w-full h-[700px] md:h-[500px] lg:h-[400px] flex flex-col md:flex-row justify-center items-center relative overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
@@ -324,14 +323,12 @@ const About = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 className="w-full flex flex-col md:flex-row justify-center items-center"
               >
-                {/* User Image */}
                 <img
                   src={testimonials[currentIndex].image}
                   className="md:mr-[-40px] mb-[-40px] md:mb-0 z-[1] w-[200px] h-[200px] md:w-[332px] md:h-[332px]"
                   alt="User"
                 />
                 <div className="w-full md:w-[971px] py-[45px] pl-[20px] sm:pl-[110px] pr-[20px] sm:pr-[62px] bg-white rounded-tl-[50px] rounded-br-[50px] flex flex-col justify-center items-start gap-5">
-                  {/* Stars & Quote */}
                   <div className="w-full flex justify-between items-center">
                     <div className="flex justify-center items-center gap-[5px]">
                       {Array(5)
@@ -351,11 +348,9 @@ const About = () => {
                       />
                     </div>
                   </div>
-                  {/* Testimonial */}
                   <p className="font-inter font-medium text-[18px] leading-[27px] tracking-[0%] customScreen:text-[24px] customScreen:leading-[34px]">
                     {testimonials[currentIndex].feedback}
                   </p>
-                  {/* User Details */}
                   <div className="flex justify-start items-center gap-[26px]">
                     <img
                       src={testimonials[currentIndex].image}
@@ -376,7 +371,6 @@ const About = () => {
             </AnimatePresence>
           </div>
 
-          {/* Navigation Buttons */}
           <div className="w-full flex justify-end items-center gap-[20px] mt-[-30px] 2xl:mr-[100px]">
             <div
               onClick={handlePrev}
@@ -406,7 +400,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <FaqComponent />
     </div>
   );
