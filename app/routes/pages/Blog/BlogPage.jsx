@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
 import BlogBottomSection from "./BlogBottomSection";
-import { useLocation } from "react-router-dom";
+import pkg from 'react-router-dom';
+const {useLocation} = pkg;
 import Btn from "../../components/Btn";
 import FaqComponent from "../../components/FaqComponent";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGetBlogsQuery } from "../../apiSlice";
 import Loader from "../../components/Loader";
-import { Helmet } from "react-helmet-async";
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
@@ -42,18 +42,7 @@ function BlogPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Sheraian Blog</title>
-        <meta
-          name="description"
-          content="We provide IT consulting services for your business. Increasing success with technology solutions."
-        />
-        <meta
-          name="keywords"
-          content="IT, consulting, business, technology, solutions, software development, full stack development"
-        />
-        <link rel="canonical" href="https://sheraian.co.uk/blogs" />
-      </Helmet>
+
       <div className="flex flex-col gap-10 bg-[#F5F5F5]">
         {searchQuery == null || searchQuery == "" ? (
           <HeroBlog

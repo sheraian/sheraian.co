@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import pkg from 'react-router-dom';
+const { Link } = pkg;
 import { motion } from "framer-motion";
 const buttonsData = [
   {

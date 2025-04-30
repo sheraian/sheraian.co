@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import pkg from 'react-router-dom';
+const { Link } = pkg;
 import { usePostNewLettersMutation } from "../../apiSlice";
 import Loader from "../Loader";
 

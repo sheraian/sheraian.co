@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
-import { useParams } from "react-router-dom";
+import pkg from 'react-router-dom';
+const {useParams} = pkg;
 import FaqComponent from "../../components/FaqComponent";
 import { content, sanitizeAndConvertVideo } from "../../../data";
 import ReactQuill from "react-quill-new";

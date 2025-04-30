@@ -8,7 +8,7 @@ import {
 import type { LinksFunction } from "@remix-run/node";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import "./tailwind.css";
-import { api } from "./apiSlice";
+import { api } from "./routes/apiSlice";
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {

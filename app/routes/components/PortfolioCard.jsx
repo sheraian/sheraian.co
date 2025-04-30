@@ -1,8 +1,7 @@
 /* eslint-disable max-len */
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Link } from "react-router-dom";
 function PortfolioCard({ item }) {
   return (
     // eslint-disable-next-line max-len
@@ -10,12 +9,12 @@ function PortfolioCard({ item }) {
     href={`/portfolio/${item?.title}/${item?.id}`}
     
     className="portfoliocards w-[95%] mx-auto lg:w-[380px]  2xl:w-[450px] rounded-full relative group overflow-visible cursor-pointer">
-      <LazyLoadImage
+      {/* <LazyLoadImage
         src={item?.proj_img || "/fallback.jpg"}
         alt={item?.title || "Project Image"}
         effect="blur"
         className="h-[24rem] lg:h-[27rem] rounded-lg object-cover"
-      />
+      /> */}
 
       <div className=" absolute opacity-0 rotate-[-5deg]  bg-black w-[100%] text-white rounded-xl bottom-0 md:hover:opacity-100 group-hover:md:opacity-100 z-50">
         <div className="w-[90%] mx-auto flex flex-col py-5 gap-5">
