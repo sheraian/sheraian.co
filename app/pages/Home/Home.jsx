@@ -1,20 +1,20 @@
 
 import { useState } from "react";
-import HeroBlog from "../../../components/blog/HeroBlog";
-import Btn from "../../../components/Btn";
+import HeroBlog from "../../components/blog/HeroBlog";
+import Btn from "../../components/Btn";
 import { motion, AnimatePresence } from "framer-motion";
-import BlogBottomSection from "../../../components/Blog/BlogBottomSection";
-import PortfolioWidget from "../../../components/PortfolioWidget";
-import PriceWidget from "../../../components/PriceWidget";
-import ServiceCard from "../../../components/ServiceCard";
+import BlogBottomSection from "../../components/Blog/BlogBottomSection";
+import PortfolioWidget from "../../components/PortfolioWidget";
+import PriceWidget from "../../components/PriceWidget";
+import ServiceCard from "../../components/ServiceCard";
 import {
   useGetBlogsQuery,
   useGetReviewsQuery,
   useGetServicesQuery,
-} from "../../../apiSlice";
-import Loader from "../../../components/Loader";
-import FaqComponent from "../../../components/FaqComponent";
-import { cardData, testimonials } from "../../../data";
+} from "../../apiSlice";
+import Loader from "../../components/Loader";
+import FaqComponent from "../../components/FaqComponent";
+import { cardData, testimonials } from "../../data";
 
 const Card = ({ img, H_main, B_Text }) => {
   return (

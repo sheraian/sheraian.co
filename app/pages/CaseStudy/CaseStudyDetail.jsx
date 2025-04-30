@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import pkg from 'react-router-dom';
 const {useParams} = pkg;
 import DOMPurify from "dompurify";
-import { content } from "../../../data";
+import { content } from "../../data";
 
-import PortfolioHero from "../../../components/blog/PortfolioHero";
+import PortfolioHero from "../../components/blog/PortfolioHero";
 import { motion } from "framer-motion";
 function CaseStudyDetail() {
   const { slug, id } = useParams();

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import pkg from 'react-router-dom';
 const {useParams} = pkg;
 import DOMPurify from "dompurify";
-import { content, sanitizeAndConvertVideo } from "../../../data";
+import { content, sanitizeAndConvertVideo } from "../../data";
 
-import PortfolioHero from "../../../components/blog/PortfolioHero";
+import PortfolioHero from "../../components/blog/PortfolioHero";
 import { motion } from "framer-motion";
-import { useGetProjectDetailQuery } from "../../../apiSlice";
-import Loader from "../../../components/Loader";
+import { useGetProjectDetailQuery } from "../../apiSlice";
+import Loader from "../../components/Loader";
 import NotFound from "../404/NotFound";
 function PortfolioDetailPage() {
   const { slug, id } = useParams();

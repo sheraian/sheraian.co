@@ -1,15 +1,24 @@
 "use client";
 import type { MetaFunction } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/node";
+
+export const links: LinksFunction = () => [
+  { rel: "canonical", href: "https://sheraian.co.uk/" },
+];
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Sheraian Limited | Web & App Development, UI/UX, IT Solutions" },
+    {
+      name: "description",
+      content:
+        "Sheraian Limited is a UK-based tech startup providing web & app development, UI/UX design, bug fixing, and IT solutions to help your business grow.",
+    },
   ];
 };
 
 import { useState } from "react";
-
+import Navbar from "~/components/Navbar/Navbar";
 import HeroBlog from "../components/blog/HeroBlog";
 import Btn from "../components/Btn";
 import { motion, AnimatePresence } from "framer-motion";

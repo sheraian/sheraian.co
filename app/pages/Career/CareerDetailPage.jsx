@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import HeroBlog from "../../../components/blog/HeroBlog";
+import HeroBlog from "../../components/blog/HeroBlog";
 import pkg from 'react-router-dom';
 const {useParams} = pkg;
-import FaqComponent from "../../../components/FaqComponent";
+import FaqComponent from "../../components/FaqComponent";
 import DOMPurify from "dompurify";
-import { content } from "../../../data";
+import { content } from "../../data";
 
 
 function CareerDetailPage() {

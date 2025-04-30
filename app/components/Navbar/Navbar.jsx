@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import pkg from 'react-router-dom';
-const { Link } = pkg;
+import { Link } from "@remix-run/react"; 
 import { motion } from "framer-motion";
 const buttonsData = [
   {

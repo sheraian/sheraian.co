@@ -1,9 +1,9 @@
 import { useState } from "react";
-import HeroBlog from "../../../components/blog/HeroBlog";
-import Btn from "../../../components/Btn";
+import HeroBlog from "../../components/blog/HeroBlog";
+import Btn from "../../components/Btn";
 import { motion, AnimatePresence } from "framer-motion";
-import TeamSection from "../../../components/TeamSection";
-import FaqComponent from "../../../components/FaqComponent";
+import TeamSection from "../../components/TeamSection";
+import FaqComponent from "../../components/FaqComponent";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
