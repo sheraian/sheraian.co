@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from "react";
-import HeroBlog from "../../components/blog/HeroBlog";
+import HeroBlog from "../blog/HeroBlog";
 import pkg from 'react-router-dom';
 const {useParams} = pkg;
-import FaqComponent from "../../components/FaqComponent";
-import { content, sanitizeAndConvertVideo } from "../../../data";
-import ReactQuill from "react-quill-new";
-import "react-quill/dist/quill.snow.css";
-import BlogCard from "../../components/blog/BlogCard";
-import BlogCardSub from "../../components/blogCardSub";
-import CommentCard from "../../components/CommentCard";
-import Contact from "../Contact/Contact";
-import FloatingLabelInput from "../../components/FloatingLabelInput";
+import FaqComponent from "../FaqComponent";
+import { content, sanitizeAndConvertVideo } from "../../data";
+import BlogCardSub from "../blogCardSub";
+import CommentCard from "../CommentCard";
+import Contact from "../../routes/pages/Contact/Contact";
+import FloatingLabelInput from "../FloatingLabelInput";
 import { motion } from "framer-motion";
-import Btn from "../../components/Btn";
+import Btn from "../Btn";
 import {
   useGetBlogDetailQuery,
   useGetCommentsQuery,
   usePostCommentsMutation,
-} from "../../apiSlice";
-import Loader from "../../components/Loader";
-import NotFound from "../404/NotFound";
-import SubmitBtn from "../../components/SubmitBtn";
+} from "../../routes/apiSlice";
+import Loader from "../Loader";
+import NotFound from "../../routes/pages/404/NotFound";
+import SubmitBtn from "../SubmitBtn";
 
 function BlogDetailsPage() {
   const { slug, id } = useParams();

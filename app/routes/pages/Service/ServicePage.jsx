@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import HeroBlog from "../../components/blog/HeroBlog";
-import Btn from "../../components/Btn";
+import HeroBlog from "../../../components/blog/HeroBlog";
+import Btn from "../../../components/Btn";
 import { motion } from "framer-motion";
-import ServiceCard from "../../components/ServiceCard";
-import FaqComponent from "../../components/FaqComponent";
-import { useGetServicesQuery } from "../../apiSlice";
-import Loader from "../../components/Loader";
-import { Helmet } from "react-helmet-async";
+import ServiceCard from "../../../components/ServiceCard";
+import FaqComponent from "../../../components/FaqComponent";
+import { useGetServicesQuery } from "../../../apiSlice";
+import Loader from "../../../components/Loader";
 
 function ServicePage() {
   const [page, setPage] = useState(1);
@@ -29,20 +28,6 @@ function ServicePage() {
 
   return (
     <>
-    <Helmet>
-  <title>Sheralan Limited | Software Development</title>
-  <meta
-    name="description"
-    content="We provide IT consulting services for your business. Increasing success with technology solutions"
-  />
-  <meta
-    name="keywords"
-    content="IT, consulting, business, technology, solutions, software development, service"
-  />
-  <meta name="author" content="Muhammad Sheraz" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="https://sheralan.co.uk/" />
-</Helmet>
       <div className="flex flex-col items-center gap-16 bg-[#F5F5F5]">
         <HeroBlog
           P_BtnText={"Services"}

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import HeroBlog from "../../components/blog/HeroBlog";
+import HeroBlog from "../../../components/blog/HeroBlog";
 import pkg from 'react-router-dom';
 const {useParams} = pkg;
-import FaqComponent from "../../components/FaqComponent";
+import FaqComponent from "../../../components/FaqComponent";
 import DOMPurify from "dompurify";
-import "react-quill/dist/quill.snow.css";
-import { useGetServicesDetailsQuery } from "../../apiSlice";
-import Loader from "../../components/Loader";
+import { useGetServicesDetailsQuery } from "../../../apiSlice";
+import Loader from "../../../components/Loader";
 import NotFound from "../404/NotFound";
-import BenefitsComp from "../../components/BenefitsComp";
+import BenefitsComp from "../../../components/BenefitsComp";
 
 function ServiceDetailPage() {
   const { slug, id } = useParams();

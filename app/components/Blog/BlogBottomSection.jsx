@@ -1,7 +1,7 @@
 import React from "react";
-import BlogCard from "../../components/blog/BlogCard";
-import Btn from "../../components/Btn";
-import FaqComponent from "../../components/FaqComponent";
+import BlogCard from "../blog/BlogCard";
+import Btn from "../Btn";
+import FaqComponent from "../FaqComponent";
 import { motion } from "framer-motion";
 
 const BlogBottomSection = ({ data }) => {

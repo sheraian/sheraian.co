@@ -81,28 +81,28 @@ const testimonials = [
 const content = `<p>Fronted to assume a fake or false personality to conceal one's true identity and character. Don't front, don't put something out there that you feel isn't realistic and doesn't portray who you are. "Fronted" means&nbsp;to place a word or phrase that usually appears later in a sentence at the beginning, often to emphasize its importance, like in the sentence "On the table was a steaming cup of coffee," where "on the table" is "fronted" to highlight the location.&nbsp;</p><p><strong>Key points about "fronted”</strong></p><ul><li>Grammer usage</li><li>Software Testing</li><li>Empgasis</li><li>Example Scetnce</li></ul><p><br></p><h3>The front end of a website or application is&nbsp;the part that users see and interact with.&nbsp;It includes all the visual elements, such as buttons, text, and graphics.&nbsp;</h3><p><br></p><h2><strong>What does the front end include?&nbsp;</strong></h2><ul><li>Visual elements:&nbsp;Buttons, checkboxes, graphics, text, images, and pagination</li><li><br></li></ul><p><br></p>`;
 const sanitizeAndConvertVideo = (html) => {
     
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = html;
+//   const tempDiv = document.createElement("div");
+//   tempDiv.innerHTML = html;
 
-  const iframes = tempDiv.querySelectorAll("iframe.ql-video");
-  iframes.forEach((iframe) => {
-    const src = iframe.getAttribute("src");
-    if (src && src.endsWith(".mp4")) {
-      const video = document.createElement("video");
-      video.setAttribute("controls", "true");
-      video.setAttribute("class", "ql-video");
-      const source = document.createElement("source");
-      source.setAttribute("src", src);
-      source.setAttribute("type", "video/mp4");
-      video.appendChild(source);
-      iframe.replaceWith(video);
-    }
-  });
+//   const iframes = tempDiv.querySelectorAll("iframe.ql-video");
+//   iframes.forEach((iframe) => {
+//     const src = iframe.getAttribute("src");
+//     if (src && src.endsWith(".mp4")) {
+//       const video = document.createElement("video");
+//       video.setAttribute("controls", "true");
+//       video.setAttribute("class", "ql-video");
+//       const source = document.createElement("source");
+//       source.setAttribute("src", src);
+//       source.setAttribute("type", "video/mp4");
+//       video.appendChild(source);
+//       iframe.replaceWith(video);
+//     }
+//   });
 
-  return DOMPurify.sanitize(tempDiv.innerHTML, {
-    ADD_TAGS: ["video", "source"],
-    ADD_ATTR: ["controls", "src", "type", "class"],
-  });
+//   return DOMPurify.sanitize(tempDiv.innerHTML, {
+//     ADD_TAGS: ["video", "source"],
+//     ADD_ATTR: ["controls", "src", "type", "class"],
+//   });
 };
 
 export { proData, content, cardData, testimonials, sanitizeAndConvertVideo };

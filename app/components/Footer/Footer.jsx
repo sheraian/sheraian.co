@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import pkg from 'react-router-dom';
 const { Link } = pkg;
-import { usePostNewLettersMutation } from "../../apiSlice";
+import { usePostNewLettersMutation } from "../../routes/apiSlice";
 import Loader from "../Loader";
 
 const Footer = () => {

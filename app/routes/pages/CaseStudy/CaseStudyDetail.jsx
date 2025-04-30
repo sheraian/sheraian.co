@@ -3,9 +3,8 @@ import pkg from 'react-router-dom';
 const {useParams} = pkg;
 import DOMPurify from "dompurify";
 import { content } from "../../../data";
-import "react-quill/dist/quill.snow.css";
 
-import PortfolioHero from "../../components/blog/PortfolioHero";
+import PortfolioHero from "../../../components/blog/PortfolioHero";
 import { motion } from "framer-motion";
 function CaseStudyDetail() {
   const { slug, id } = useParams();

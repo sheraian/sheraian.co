@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import HeroBlog from "../../components/blog/HeroBlog";
+import HeroBlog from "../blog/HeroBlog";
 import BlogBottomSection from "./BlogBottomSection";
 import pkg from 'react-router-dom';
 const {useLocation} = pkg;
-import Btn from "../../components/Btn";
-import FaqComponent from "../../components/FaqComponent";
+import Btn from "../Btn";
+import FaqComponent from "../FaqComponent";
 import { motion, AnimatePresence } from "framer-motion";
-import { useGetBlogsQuery } from "../../apiSlice";
-import Loader from "../../components/Loader";
+import { useGetBlogsQuery } from "../../routes/apiSlice";
+import Loader from "../Loader";
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
