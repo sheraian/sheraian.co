@@ -18,7 +18,6 @@ export const meta: MetaFunction = () => {
 };
 
 import { useState } from "react";
-import Navbar from "~/components/Navbar/Navbar";
 import HeroBlog from "../components/blog/HeroBlog";
 import Btn from "../components/Btn";
 import { motion, AnimatePresence } from "framer-motion";
@@ -35,7 +34,7 @@ import Loader from "../components/Loader";
 import FaqComponent from "../components/FaqComponent";
 import { cardData, testimonials } from "../data";
 
-const Card = ({ img, H_main, B_Text }) => {
+const Card = ({ img, H_main, B_Text }: any) => {
   return (
     <div className="w-[100%] lg:w-[326px] rounded-[15px] bg-white">
       <div className="flex flex-col justify-center items-start gap-6 md:gap- px-4 md:px-[30px] py-5">
@@ -77,16 +76,15 @@ const Index = () => {
     error: rw_error,
   } = useGetReviewsQuery();
   const handleNext = () => {
-    // alert(ReviewsData?.data?.length);
     if (currentIndex < ReviewsData?.data?.length - 1) {
-      setDirection(1); // Moving Right
+      setDirection(1);
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setDirection(-1); // Moving Left
+      setDirection(-1);
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
@@ -110,7 +108,6 @@ const Index = () => {
             window.location.href = "/about";
           }}
         />
-        {/* Second Section */}
         <div className="w-full flex justify-center items-center pt-[100px] lg:pt-[105px] pb-[100px] lg:pb-[105px]">
           <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
             <img src="/assets/Home/SecondSec_Image.svg" alt="Section Image" />
@@ -157,7 +154,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-        {/* Third Section */}
         <div className="w-full flex justify-center items-center bg-[#340831] relative overflow-hidden py-[40px]">
           <img
             src="/assets/Home/SecondSection/CurlyLines.svg"
@@ -197,9 +193,7 @@ const Index = () => {
                 />
               </div>
             </div>
-            {/* Card Section */}
             <div className="w-full flex flex-col md:flex-row justify-center items-center gap-[2rem] z-[1]">
-              {/* first */}
               <div className="w-full flex flex-col justify-center items-center gap-[2rem]">
                 {cardData.slice(0, 2).map((c, index) => {
                   return (
@@ -244,7 +238,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div class=" flex flex-col items-center  py-10 gap-10 w-[90%] mx-auto ">
+        <div className=" flex flex-col items-center  py-10 gap-10 w-[90%] mx-auto ">
           <div className="w-full flex flex-col justify-center items-center gap-[30px]">
             <div className="text-[#4A2848] flex justify-center items-center font-inter font-medium text-[16px] leading-[26px] tracking-[0px] py-[12px] px-[24px] bg-[#DEDAE5] rounded-[50px]">
               Our Featured Services
