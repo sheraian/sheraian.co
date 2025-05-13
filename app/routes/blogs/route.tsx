@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import HeroBlog from "../blog/HeroBlog";
-import BlogBottomSection from "./BlogBottomSection";
-import pkg from 'react-router-dom';
-const {useLocation} = pkg;
-import Btn from "../Btn";
-import FaqComponent from "../FaqComponent";
+import HeroBlog from "../../components/blog/HeroBlog";
+import BlogBottomSection from "../../components/Blog/BlogBottomSection";
+import { useLocation } from "@remix-run/react";
+
+import Btn from "../../components/Btn";
+import FaqComponent from "../../components/FaqComponent";
 import { motion, AnimatePresence } from "framer-motion";
-import { useGetBlogsQuery } from "../../routes/apiSlice";
-import Loader from "../Loader";
+import { useGetBlogsQuery } from "../../redux/apiSlice";
+import Loader from "../../components/Loader";
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
@@ -42,7 +42,6 @@ function BlogPage() {
 
   return (
     <>
-
       <div className="flex flex-col gap-10 bg-[#F5F5F5]">
         {searchQuery == null || searchQuery == "" ? (
           <HeroBlog

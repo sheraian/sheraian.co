@@ -6,10 +6,13 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import "./tailwind.css";
-import { api } from "./apiSlice";
+
+import { api } from "./redux/apiSlice";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -34,8 +37,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Navbar />
-        {children}
+        <div className="w-full pt-16 lg:pt-28 z-10">{children}</div>
 
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -45,8 +49,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <ApiProvider api={api}>
+    <Provider store={store}>
       <Outlet />
-    </ApiProvider>
+    </Provider>
   );
 }

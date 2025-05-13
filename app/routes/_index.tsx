@@ -29,7 +29,7 @@ import {
   useGetBlogsQuery,
   useGetReviewsQuery,
   useGetServicesQuery,
-} from "../apiSlice";
+} from "../redux/apiSlice";
 import Loader from "../components/Loader";
 import FaqComponent from "../components/FaqComponent";
 import { cardData, testimonials } from "../data";

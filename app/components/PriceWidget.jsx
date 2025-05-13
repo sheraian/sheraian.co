@@ -1,7 +1,7 @@
 import React from "react";
 import PriceCard from "./PriceCard";
 import { motion } from "framer-motion";
-import { useGetPricesQuery } from "../apiSlice";
+import { useGetPricesQuery } from "../redux/apiSlice";
 import Loader from "./Loader";
 
 const features = [

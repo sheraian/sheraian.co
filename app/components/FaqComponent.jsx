@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Btn from "./Btn";
 import FaqCard from "./blog/FaqCard";
 import { motion } from "framer-motion";
-import { useGetFaqsQuery } from "../apiSlice";
+import { useGetFaqsQuery } from "../redux/apiSlice";
 import Loader from "./Loader";
 
 const fadeIn = {
