@@ -8,7 +8,6 @@ function Chatform({ chatHistory,setChatHistory ,generateBotResponse}) {
     e.preventDefault();
     const userMessage = message.trim();
     if (!userMessage) return;
-    console.log(userMessage);
     setChatHistory((history) => [
       ...history,
       { role: "user", text: userMessage },

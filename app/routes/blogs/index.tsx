@@ -8,6 +8,7 @@ import FaqComponent from "../../components/FaqComponent";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGetBlogsQuery } from "../../redux/apiSlice";
 import Loader from "../../components/Loader";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
 export const links: LinksFunction = () => [
   { rel: "canonical", href: "https://sheraian.co.uk/services" },
 ];
@@ -36,9 +37,7 @@ function BlogPage() {
   const [loadingMore, setLoadingMore] = useState(false);
   const query = useQuery();
   const searchQuery = query.get("search") || "";
-  useEffect(() => {
-    console.log(searchQuery);
-  }, [searchQuery]);
+  useEffect(() => {}, [searchQuery]);
 
   const {
     data: BlogData,

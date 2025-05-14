@@ -19,7 +19,7 @@ function ServiceCard({item}) {
       <Btn S_BtnText={"Learn More"}
       extra="bg-transparent border text-black border-[#4A2848]"
       textstyle="text-black"
-      onpress={()=>window.location.href=`/service/${item?.name}/${item?.id}`}
+      onpress={()=>window.location.href=`/services/${item?.id}`}
       />
     </div>
   );

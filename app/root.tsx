@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import "./tailwind.css";
@@ -14,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import globalStyles from "./styles/global.css";
+import NotFound from "./components/NotFound";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/app/styles/global.css" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -55,4 +57,9 @@ export default function App() {
       <Outlet />
     </Provider>
   );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return <NotFound />;
 }

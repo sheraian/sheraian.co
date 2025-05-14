@@ -13,7 +13,6 @@ function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
     setloader(true);
-    console.log(form.current);
 
     emailjs
       .sendForm(
