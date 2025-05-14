@@ -2,8 +2,7 @@ import React from "react";
 import Btn from "./Btn";
 import PortfolioCard from "./PortfolioCard";
 import { motion } from "framer-motion";
-import { useGetPortfolioQuery } from "../apiSlice";
-import { div } from "framer-motion/client";
+import { useGetPortfolioQuery } from "../redux/apiSlice";
 import Loader from "./Loader";
 function PortfolioWidget() {
  const {

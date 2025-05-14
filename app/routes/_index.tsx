@@ -22,7 +22,7 @@ import HeroBlog from "../components/blog/HeroBlog";
 import Btn from "../components/Btn";
 import { motion, AnimatePresence } from "framer-motion";
 import BlogBottomSection from "../components/Blog/BlogBottomSection";
-import PortfolioWidget from "../components/PortfolioCard";
+import PortfolioWidget from "../components/PortfolioWidget";
 import PriceWidget from "../components/PriceWidget";
 import ServiceCard from "../components/ServiceCard";
 import {
