@@ -109,7 +109,7 @@ const Drawer = [
 const DropDownComponent = ({ isVisible }) => {
   return (
     <div
-      className={`absolute top-full left-[-38px] mt-[-45px] bg-transparent p-4 transition-opacity duration-300 ease-in-out ${
+      className={`absolute top-full left-[-38px] mt-[-45px] bg-transparent p-4 z-50 transition-opacity duration-300 ease-in-out ${
         isVisible ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >

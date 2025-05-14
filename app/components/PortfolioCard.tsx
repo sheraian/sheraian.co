@@ -1,22 +1,22 @@
-/* eslint-disable max-len */
-import React from "react";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import type { LinksFunction } from "@remix-run/node";
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: "/app/styles/global.css" },
+];
 function PortfolioCard({ item }) {
   return (
     // eslint-disable-next-line max-len
-    <a 
-    href={`/portfolio/${item?.title}/${item?.id}`}
-    
-    className="portfoliocards w-[95%] mx-auto lg:w-[380px]  2xl:w-[450px] rounded-full relative group overflow-visible cursor-pointer">
-      {/* <LazyLoadImage
+    <a
+      href={`/portfolio/${item?.title}/${item?.id}`}
+      className="portfoliocards w-[95%] mx-auto lg:w-[380px]  2xl:w-[450px] rounded-full relative group overflow-visible cursor-pointer"
+    >
+      <img
         src={item?.proj_img || "/fallback.jpg"}
         alt={item?.title || "Project Image"}
-        effect="blur"
+        loading="lazy"
         className="h-[24rem] lg:h-[27rem] rounded-lg object-cover"
-      /> */}
+      />
 
-      <div className=" absolute opacity-0 rotate-[-5deg]  bg-black w-[100%] text-white rounded-xl bottom-0 md:hover:opacity-100 group-hover:md:opacity-100 z-50">
+      <div className=" absolute opacity-0 rotate-[-5deg]  bg-black w-[100%] text-white rounded-xl bottom-0 md:hover:opacity-100 group-hover:md:opacity-100 z-10">
         <div className="w-[90%] mx-auto flex flex-col py-5 gap-5">
           <div className="w-full flex items-center justify-between ">
             <div className="flex flex-col ">
@@ -33,7 +33,9 @@ function PortfolioCard({ item }) {
               />
             )}
           </div>
-          <h1 className="w-full text-white font-semibold truncate">{item?.title}</h1>
+          <h1 className="w-full text-white font-semibold truncate">
+            {item?.title}
+          </h1>
           <span className="w-full flex items-center gap-2 text-white">
             {/* <img src="/location.png" className="w-[15px] h-[15px] " /> */}
             <i class="fa-solid fa-location-dot text-red-500 text-xl md:text-2xl"></i>
@@ -82,7 +84,6 @@ function PortfolioCard({ item }) {
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col">
               <h1 className="font-medium text-[1.8rem] text-white leading-none">
-    
                 {item?.user?.name}
               </h1>
               <p className="text-sm">{item?.user?.role}</p>
@@ -95,13 +96,10 @@ function PortfolioCard({ item }) {
               />
             )}
           </div>
-          <h1 className="text-white font-semibold">
-          {item?.title}
-          </h1>
+          <h1 className="text-white font-semibold">{item?.title}</h1>
           <span className="w-full flex items-center gap-2 text-white">
             <i className="fa-solid fa-location-dot text-red-500 text-xl md:text-2xl"></i>
             {item?.location}
-
           </span>
           <div className="w-full flex items-center gap-3 flex-wrap">
             <span className="text-white font-bold text-sm">Skills:</span>
@@ -115,7 +113,6 @@ function PortfolioCard({ item }) {
                 <span className="text-sm font-medium">{skill.name}</span>
               </div>
             ))}
-     
           </div>
           <div className="w-full flex items-center gap-5 flex-wrap">
             {item?.recommended?.length > 0 &&

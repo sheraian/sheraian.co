@@ -13,7 +13,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import globalStyles from "./styles/global.css";
 export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: "/app/styles/global.css" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Btn from "./Btn";
 import PortfolioCard from "./PortfolioCard";
 import { motion } from "framer-motion";
-import { useGetPortfolioQuery } from "../apiSlice";
+import { useGetPortfolioQuery } from "../redux/apiSlice";
 import Loader from "./Loader";
 
 function PortfolioComp() {
@@ -10,14 +10,13 @@ function PortfolioComp() {
   const limit = 3;
   const [portfolio, setPortfolio] = useState([]);
   const [loadingMore, setLoadingMore] = useState(false); // New state to track "Load More" loading state
-  
+
   const {
-      data: PortfolioData,
-      isLoading: isPortfolioLoading,
-      isError: isPortfolioError,
-      error: portfolioError,
-    } = useGetPortfolioQuery({ page, limit });
-   
+    data: PortfolioData,
+    isLoading: isPortfolioLoading,
+    isError: isPortfolioError,
+    error: portfolioError,
+  } = useGetPortfolioQuery({ page, limit });
 
   useEffect(() => {
     if (PortfolioData?.data) {
@@ -49,7 +48,7 @@ function PortfolioComp() {
             <Loader />
           </div>
         ) : portfolio?.length > 0 ? (
-          <div className="w-[100%] items-center gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 place-items-center">
+          <div className="w-[100%]  items-center gap-10 md:gap-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 place-items-center">
             {portfolio?.map((_, index) => (
               <motion.div
                 key={index}
@@ -57,7 +56,6 @@ function PortfolioComp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true, amount: 0.3 }}
-                
               >
                 <PortfolioCard item={_} />
               </motion.div>
@@ -75,23 +73,25 @@ function PortfolioComp() {
 
       {/* Load More Button */}
       <div className="w-full flex items-center justify-center py-10">
-        {isPortfolioLoading ?null:loadingMore ? (
-            <div className="py-10">
-              <Loader />
-            </div>
-          ) :PortfolioData?.next_page&& (
-          <div className="inline-flex items-center ">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ amount: 0.3 }}
-            >
-              <Btn
-                S_BtnText={"Load More"}
-                onpress={handleLoadMore} // Use the handler to load more data
-              />
-            </motion.div>
+        {isPortfolioLoading ? null : loadingMore ? (
+          <div className="py-10">
+            <Loader />
           </div>
+        ) : (
+          PortfolioData?.next_page && (
+            <div className="inline-flex items-center ">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ amount: 0.3 }}
+              >
+                <Btn
+                  S_BtnText={"Load More"}
+                  onpress={handleLoadMore} // Use the handler to load more data
+                />
+              </motion.div>
+            </div>
+          )
         )}
       </div>
     </div>

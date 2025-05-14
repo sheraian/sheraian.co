@@ -35,6 +35,7 @@ function ServicePage() {
           M_Text={"Take your company to new heights with our solutions."}
           isSBtnShow={false}
           S_BtnText={"Explore More"}
+          onpress={undefined}
         />
         <div className="flex flex-col items-center py-5 gap-10 w-[90%] mx-auto">
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-5 gap-x-4">
