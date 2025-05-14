@@ -6,6 +6,26 @@ import ServiceCard from "../../components/ServiceCard";
 import FaqComponent from "../../components/FaqComponent";
 import { useGetServicesQuery } from "../../redux/apiSlice";
 import Loader from "../../components/Loader";
+import type { MetaFunction } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/node";
+
+export const links: LinksFunction = () => [
+  { rel: "canonical", href: "https://sheraian.co.uk/services" },
+];
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title:
+        "Sheraian Services: Web Development, UI/UX, Problem Solving, IT Consulting",
+    },
+    {
+      name: "description",
+      content:
+        "Sheraian offers Full Stack Development solutions including Mobile Apps, UI, E-Commerce, Website Development, API integration, Performance Tuning and Maintenance Support.",
+    },
+  ];
+};
 
 function ServicePage() {
   const [page, setPage] = useState(1);

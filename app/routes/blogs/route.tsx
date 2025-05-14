@@ -8,6 +8,23 @@ import FaqComponent from "../../components/FaqComponent";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGetBlogsQuery } from "../../redux/apiSlice";
 import Loader from "../../components/Loader";
+export const links: LinksFunction = () => [
+  { rel: "canonical", href: "https://sheraian.co.uk/services" },
+];
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title:
+        "Sheraian Services: Web Development, UI/UX, Problem Solving, IT Consulting",
+    },
+    {
+      name: "description",
+      content:
+        "Sheraian offers Full Stack Development solutions including Mobile Apps, UI, E-Commerce, Website Development, API integration, Performance Tuning and Maintenance Support.",
+    },
+  ];
+};
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };

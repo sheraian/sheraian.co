@@ -6,6 +6,23 @@ import FloatingLabelInput from "../components/FloatingLabelInput";
 import HeroBlog from "../components/blog/HeroBlog";
 import BtnSubmit from "../components/BtnSubmit";
 import Loader from "../components/Loader";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
+export const links: LinksFunction = () => [
+  { rel: "canonical", href: "https://sheraian.co.uk/contact-us" },
+];
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Get in Touch with Sheraian, an IT Consulting Software House.",
+    },
+    {
+      name: "description",
+      content:
+        "Reach out to the Sweet Team of Sheraian. For IT projects interfacing Web Development, UI/UX and Consulting with Productivity and Business development.",
+    },
+  ];
+};
 
 function Contact() {
   const form = useRef();

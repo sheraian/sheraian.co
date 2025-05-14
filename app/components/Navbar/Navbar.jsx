@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const buttonsData = [
   {
     title: "Services",
-    link: "/service",
+    link: "/services",
     isArrow: false,
   },
   // {
@@ -62,14 +62,14 @@ const DropDownData = [
   },
 ];
 const links = [
-  { name: "Services", link: "/service" },
+  { name: "Services", link: "/services" },
   { name: "Case Studies", link: "/case-study" },
   { name: "Job Section", link: "/jobs" },
 ];
 const Drawer = [
   {
     title: "Services",
-    link: "/service",
+    link: "/services",
     isArrow: true,
   },
   {
