@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import HeroBlog from "../../components/blog/HeroBlog";
 import BlogBottomSection from "../../components/Blog/BlogBottomSection";
 import { useLocation } from "@remix-run/react";
-
 import Btn from "../../components/Btn";
 import FaqComponent from "../../components/FaqComponent";
 import { motion, AnimatePresence } from "framer-motion";

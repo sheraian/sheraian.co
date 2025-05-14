@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import HeroBlog from "../../components/blog/HeroBlog";
-import Btn from "../../components/Btn";
+import HeroBlog from "../components/blog/HeroBlog";
+import Btn from "../components/Btn";
 import { motion } from "framer-motion";
-import ServiceCard from "../../components/ServiceCard";
-import FaqComponent from "../../components/FaqComponent";
-import { useGetServicesQuery } from "../../redux/apiSlice";
-import Loader from "../../components/Loader";
+import ServiceCard from "../components/ServiceCard";
+import FaqComponent from "../components/FaqComponent";
+import { useGetServicesQuery } from "../redux/apiSlice";
+import Loader from "../components/Loader";
 import type { MetaFunction } from "@remix-run/node";
 import type { LinksFunction } from "@remix-run/node";
 

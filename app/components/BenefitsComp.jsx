@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BenefitsCard from "./BenefitsCard";
 import Btn from "./Btn";
 import { motion } from "framer-motion";
-import { useGetBenefitsQuery } from "../apiSlice";
+import { useGetBenefitsQuery } from "../redux/apiSlice";
 import Loader from "./Loader";
 
 function BenefitsComp({ serviceId }) {
