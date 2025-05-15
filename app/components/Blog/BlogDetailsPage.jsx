@@ -64,7 +64,6 @@ function BlogDetailsPage() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(input);
 
     if (!input.name || !input.email || !input.comment) {
       alert("All fields are required!");

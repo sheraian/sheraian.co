@@ -6,7 +6,7 @@ function BenefitsCard({ item,flag }) {
     <img
       src={item?.img}
       alt="Service"
-      className="w-full md:w-[500px] xl:w-[650px] max-h-[400px] object-cover rounded-xl z-50 shrink-0"
+      className="w-full md:w-[500px] xl:w-[650px] max-h-[400px] object-cover rounded-xl z-10 shrink-0"
     />
     <Card item={item} />
   </div>
@@ -18,7 +18,7 @@ function BenefitsCard({ item,flag }) {
        <img
       src={item?.img}
       alt="Service"
-      className="w-full md:w-[500px] xl:w-[650px] max-h-[400px] object-cover rounded-xl z-50 shrink-0"
+      className="w-full md:w-[500px] xl:w-[650px] max-h-[400px] object-cover rounded-xl z-10 shrink-0"
     />
     </div>
   );

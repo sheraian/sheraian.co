@@ -121,11 +121,11 @@ const Footer = () => {
               {[
                 {
                   name: "Web Development ",
-                  link: "/service/Web Developement/5",
+                  link: "/services/5",
                 },
-                { name: "IT Consultancy", link: "/service/Tech Support/14" },
-                { name: "UI/UX Design", link: "/service/Design Services/11"  },
-                { name: "Bug Fixing", link: "/service/Bug Fixing/10" },
+                { name: "IT Consultancy", link: "/services/14" },
+                { name: "UI/UX Design", link: "/services/11"  },
+                { name: "Bug Fixing", link: "/services/10" },
               ].map((d, index) => {
                 return (
                   <a
