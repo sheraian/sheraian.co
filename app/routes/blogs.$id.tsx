@@ -86,15 +86,17 @@ function BlogDetailsPage() {
   useEffect(() => {
     if (data?.data?.title) {
       document.title = data.data.title;
-      // const metaDescription = document.querySelector("meta[name='description']");
-      // if (metaDescription) {
-      //   metaDescription.setAttribute("content", data.data.meta_description || "");
-      // } else {
-      //   const newMeta = document.createElement("meta");
-      //   newMeta.name = "description";
-      //   newMeta.content = data.data.meta_description || "";
-      //   document.head.appendChild(newMeta);
-      // }
+      const metaDescription = document.querySelector(
+        "meta[name='description']"
+      );
+      if (metaDescription) {
+        metaDescription.setAttribute("content", data?.data?.short_des || "");
+      } else {
+        const newMeta = document.createElement("meta");
+        newMeta.name = "description";
+        newMeta.content = data?.data?.short_des || "";
+        document.head.appendChild(newMeta);
+      }
       let canonicalLink = document.querySelector("link[rel='canonical']");
       const canonicalURL = `https://sheraian.co.uk/blog/${id}`;
       if (canonicalLink) {
@@ -120,6 +122,7 @@ function BlogDetailsPage() {
         P_BtnText={"Blogs"}
         H_Text={<>{data?.data?.title}</>}
         M_Text={
+          data?.data?.short_des ||
           "Our company blogs cover a wide range of topics, including new technologies, consumer gadgets, and industry trends"
         }
         isSBtnShow={false}
