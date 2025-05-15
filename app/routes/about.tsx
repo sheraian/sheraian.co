@@ -236,9 +236,9 @@ const About = () => {
             whileInView="visible"
             variants={fadeIn}
           >
-            <h1 className="text-[#4A2848] font-bold text-lg text-center capitalize">
+            <span className="text-[#4A2848] font-bold text-lg text-center capitalize">
               Our Offers
-            </h1>
+            </span>
           </motion.div>
 
           <div className="w-full flex flex-col justify-center items-center gap-14">
@@ -275,9 +275,9 @@ const About = () => {
       <div className="w-[90%] mx-auto flex flex-col items-center justify-center py-10 gap-10">
         <div className="flex flex-col items-center gap-3">
           <div className="w-fit py-2.5 px-8 bg-[#D7D5DF] rounded-full shadow-md hover:bg-[#C5C3CF] transition duration-300 cursor-pointer">
-            <h1 className="text-[#4A2848] font-bold text-lg text-center capitalize">
+            <span className="text-[#4A2848] font-bold text-lg text-center capitalize">
               Our Team
-            </h1>
+            </span>
           </div>
           <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-semibold text-center leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem] break-words capitalize">
             Our Expert Team

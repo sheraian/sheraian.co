@@ -13,7 +13,7 @@ function PortfolioDetailPage() {
     projectId: id,
   });
   return isLoading ? (
-    <div className="w-full h-screen flex flex-col items-center gap-16 bg-[#F5F5F5] items-center justify-center">
+    <div className="w-full h-screen flex flex-col gap-16 bg-[#F5F5F5] items-center justify-center">
       <Loader />
     </div>
   ) : isError ? (

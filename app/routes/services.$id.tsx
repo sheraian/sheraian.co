@@ -7,12 +7,40 @@ import { useGetServicesDetailsQuery } from "../redux/apiSlice";
 import Loader from "../components/Loader";
 import NotFound from "../components/NotFound";
 import BenefitsComp from "../components/BenefitsComp";
+import { useEffect } from "react";
 
 function ServiceDetailPage() {
   const { slug, id } = useParams();
   const { data, isLoading, isError, error } = useGetServicesDetailsQuery({
     id,
   });
+  useEffect(() => {
+    if (data?.name) {
+      document.title = data?.name;
+      const metaDescription = document.querySelector(
+        "meta[name='description']"
+      );
+      if (metaDescription) {
+        metaDescription.setAttribute("content", data?.description || "");
+      } else {
+        const newMeta = document.createElement("meta");
+        newMeta.name = "description";
+        newMeta.content = data?.description || "";
+        document.head.appendChild(newMeta);
+      }
+      let canonicalLink = document.querySelector("link[rel='canonical']");
+      const canonicalURL = `https://sheraian.co.uk/services/${id}`;
+      if (canonicalLink) {
+        canonicalLink.setAttribute("href", canonicalURL);
+      } else {
+        canonicalLink = document.createElement("link");
+        canonicalLink.setAttribute("rel", "canonical");
+        canonicalLink.setAttribute("href", canonicalURL);
+        document.head.appendChild(canonicalLink);
+      }
+    }
+  }, [data]);
+  console.log(data);
 
   return isLoading ? (
     <div className="w-full h-screen flex items-center justify-center">
@@ -25,9 +53,7 @@ function ServiceDetailPage() {
       <HeroBlog
         P_BtnText={"Careers"}
         H_Text={<>{data?.name || slug}</>}
-        M_Text={
-          "We build careers by connecting talent with opportunities, fostering growth, and shaping future leaders"
-        }
+        M_Text={data?.description}
         isSBtnShow={false}
         S_BtnText={"Explore More"}
         onpress={undefined}

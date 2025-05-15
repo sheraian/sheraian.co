@@ -83,6 +83,31 @@ function BlogDetailsPage() {
       setpostLoading(false);
     }
   };
+  useEffect(() => {
+    if (data?.data?.title) {
+      document.title = data.data.title;
+      // const metaDescription = document.querySelector("meta[name='description']");
+      // if (metaDescription) {
+      //   metaDescription.setAttribute("content", data.data.meta_description || "");
+      // } else {
+      //   const newMeta = document.createElement("meta");
+      //   newMeta.name = "description";
+      //   newMeta.content = data.data.meta_description || "";
+      //   document.head.appendChild(newMeta);
+      // }
+      let canonicalLink = document.querySelector("link[rel='canonical']");
+      const canonicalURL = `https://sheraian.co.uk/blog/${id}`;
+      if (canonicalLink) {
+        canonicalLink.setAttribute("href", canonicalURL);
+      } else {
+        canonicalLink = document.createElement("link");
+        canonicalLink.setAttribute("rel", "canonical");
+        canonicalLink.setAttribute("href", canonicalURL);
+        document.head.appendChild(canonicalLink);
+      }
+    }
+  }, [data]);
+
   return isLoading ? (
     <div className="w-full h-screen flex flex-col gap-16 bg-[#F5F5F5] items-center justify-center">
       <Loader />

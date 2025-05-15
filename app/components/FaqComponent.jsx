@@ -34,9 +34,9 @@ function FaqComponent() {
           className="flex flex-col items-center gap-2 md:gap-8"
           variants={fadeIn}
         >
-          <h1 className="font-poppins font-semibold text-lg md:text-[3rem]">
+          <span className="font-poppins font-semibold text-lg md:text-[3rem]">
             Frequently Asked Questions
-          </h1>
+          </span>
           <p className="w-[90%] text-xs md:text-sm mx-auto text-center font-serif leading-[20px]">
             Find answers to common questions about our services, development
             process, pricing, and support.

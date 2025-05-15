@@ -9,19 +9,19 @@ import { useGetBlogsQuery } from "../redux/apiSlice";
 import Loader from "../components/Loader";
 import { LinksFunction, MetaFunction } from "@remix-run/node";
 export const links: LinksFunction = () => [
-  { rel: "canonical", href: "https://sheraian.co.uk/services" },
+  { rel: "canonical", href: "https://sheraian.co.uk/blogs" },
 ];
 
 export const meta: MetaFunction = () => {
   return [
     {
       title:
-        "Sheraian Services: Web Development, UI/UX, Problem Solving, IT Consulting",
+        "Web and App Development, Designing, and New Things about the IT World",
     },
     {
       name: "description",
       content:
-        "Sheraian offers Full Stack Development solutions including Mobile Apps, UI, E-Commerce, Website Development, API integration, Performance Tuning and Maintenance Support.",
+        "Feel free to learn about Sheraian's latest blogs in Digital Trends, IT consulting, web & app development and problem solving. Here you will find industry knowledge, helpful advice, and project experiences.",
     },
   ];
 };

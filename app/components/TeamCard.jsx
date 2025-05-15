@@ -38,7 +38,7 @@ function TeamCard({item}) {
   </button>
   </motion.div> */}
       <div className="absolute bottom-[-2rem] left-1/2 transform -translate-x-1/2 bg-[#320a28] text-white px-4 py-2 rounded-lg text-center w-[90%]">
-        <h3 className="font-bold text-lg">{item?.name}</h3>
+        <span className="font-bold text-lg">{item?.name}</span>
         <p className="text-sm">{item?.role}</p>
       </div>
     </div>
