@@ -2,11 +2,10 @@ import type { LinksFunction } from "@remix-run/node";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/app/styles/global.css" },
 ];
-function PortfolioCard({ item }) {
+function PortfolioCard({ item }: any) {
   return (
-    // eslint-disable-next-line max-len
     <a
-      href={`/portfolio/${item?.title}/${item?.id}`}
+      href={`/portfolio/${item?.id}`}
       className="portfoliocards w-[95%] mx-auto lg:w-[380px]  2xl:w-[450px] rounded-full relative group overflow-visible cursor-pointer"
     >
       <img

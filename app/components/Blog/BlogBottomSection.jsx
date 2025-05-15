@@ -16,7 +16,7 @@ const BlogBottomSection = ({ data }) => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <a  href={`/blogs/${e?.title}/${e?.id}`}>
+            <a  href={`/blogs/${e?.id}`}>
               <BlogCard key={index} item={e} />
             </a>
           </motion.div>

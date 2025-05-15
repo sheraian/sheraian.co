@@ -1,7 +1,7 @@
+import HeroBlog from "../components/blog/HeroBlog";
+import FaqComponent from "../components/FaqComponent";
+import PortfolioComp from "../components/PortfolioComp";
 import { LinksFunction, MetaFunction } from "@remix-run/node";
-import HeroBlog from "../../components/blog/HeroBlog";
-import FaqComponent from "../../components/FaqComponent";
-import PortfolioComp from "../../components/PortfolioComp";
 export const links: LinksFunction = () => [
   { rel: "canonical", href: "https://sheraian.co.uk/portfolio" },
 ];
