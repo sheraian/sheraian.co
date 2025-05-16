@@ -70,10 +70,11 @@ const About = () => {
           </>
         }
         M_Text={
-          "A memorable motto or phrase that's designed to serve as a permanent expression of company's greater purpose and mission."
+          "A memorable motto or phrase that's designed to serve as a permanent expression of the company's greater purpose and mission."
         }
         isSBtnShow={false}
         S_BtnText={"Explore More"}
+        onpress={undefined}
       />
 
       <motion.div
