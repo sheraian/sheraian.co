@@ -40,10 +40,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Navbar />
-        <div className="w-full pt-16 lg:pt-28 z-10">{children}</div>
+        <Provider store={store}>
+          <Navbar />
+          <div className="w-full pt-16 lg:pt-28 z-10">{children}</div>
 
-        <Footer />
+          <Footer />
+        </Provider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -52,11 +54,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <Provider store={store}>
-      <Outlet />
-    </Provider>
-  );
+  return <Outlet />;
 }
 
 export function ErrorBoundary() {

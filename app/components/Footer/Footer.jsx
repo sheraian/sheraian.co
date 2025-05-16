@@ -4,22 +4,22 @@ import Loader from "../Loader";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  // const [postNewLetters, { isLoading, isSuccess, error }] =
-  //   usePostNewLettersMutation();
+  const [postNewLetters, { isLoadingg, isSuccess, error }] =
+    usePostNewLettersMutation();
   const [loader, setloader] = useState(false);
   let isLoading=false
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // try {
-    //   await postNewLetters({ email }).unwrap();
-    //   alert("Subscribed successfully!");
-    //   setEmail("");
+    e.preventDefault();
+    try {
+      await postNewLetters({ email }).unwrap();
+      alert("Subscribed successfully!");
+      setEmail("");
 
-    // } catch (err) {
-    //   alert("This email already exists or something went wrong.");
+    } catch (err) {
+      alert("This email already exists or something went wrong.");
 
-    // }
+    }
   };
   return (
     <div className="w-full flex flex-col justify-center items-center bg-[url('/assets/Footer/bgImage.svg')] bg-no-repeat bg-cover">
@@ -55,9 +55,7 @@ const Footer = () => {
             )}
           </div>
         </div>
-        {/* Links */}
         <div className="w-[90%] flex flex-col sm:flex-row flex-wrap justify-between items-center lg:items-start gap-[2rem] md:gap-y-[6rem]">
-          {/* 1 */}
           <div className="flex flex-col justify-center items-center lg:items-start gap-y-[1.5rem]">
             <a to="/">
               <img
