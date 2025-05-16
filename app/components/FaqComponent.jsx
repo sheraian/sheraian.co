@@ -26,7 +26,6 @@ function FaqComponent() {
       className="w-full bg-[#F5F5F5] md:py-10"
       initial="hidden"
       whileInView="visible"
-      // viewport={{ once: true }}
       variants={fadeIn}
     >
       <div className="w-[100%] mx-auto text-center flex flex-col gap-10 md:gap-16 items-center">
@@ -42,7 +41,8 @@ function FaqComponent() {
             process, pricing, and support.
           </p>
         </motion.div>
-        {isLoading ? (
+       <div className="w-full flex  flex-col gap-8">
+            {isLoading ? (
           <div className="p-10">
             <Loader />
           </div>
@@ -69,6 +69,7 @@ function FaqComponent() {
         ) : (
           <p className="text-center text-gray-500">No FAQs found</p>
         )}
+       </div>
 
         
 

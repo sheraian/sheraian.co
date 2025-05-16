@@ -186,7 +186,7 @@ href="https://www.instagram.com/sheraian_limited/"
           <p>
             Copyright 2024 - All Rights Reserved By{" "}
             <span className="cursor-pointer underline text-white">
-              <a href="/">Sheraian</a>
+              <a href="/">Sheraian Limited</a>
             </span>
           </p>
           <div className="flex justify-center items-center gap-5">
