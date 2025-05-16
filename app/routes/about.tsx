@@ -181,11 +181,11 @@ const About = () => {
             <p className="font-inter font-normal text-sm md:text-[18px] md:leading-[28px] tracking-[0%]">
               Our mission is typically to provide innovative and reliable
               technology solutions to clients, enabling them to achieve their
-              business goals through efficient and effective IT systems, while
-              its vision is to be a leading provider of cutting-edge technology
+              business goals through efficient and effective IT systems. Our
+              vision is to be a leading provider of cutting-edge technology
               solutions, shaping the future of the industry and empowering
               clients to reach their full potential through digital
-              transformation
+              transformation.
             </p>
             <motion.div
               className="flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-[50px]"

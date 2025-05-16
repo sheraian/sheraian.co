@@ -68,7 +68,7 @@ const Footer = () => {
             </a>
             <p class="font-inter font-normal text-[14px] lg:text-[18px] leading-[22px] tracking-[0%] text-white/80 text-center lg:text-start">
               Your trusted partner in pioneering <br />
-              IT solutions and service
+              IT solutions and services
             </p>
             <div className="flex justify-start items-center gap-x-[1rem]">
               <div className="rounded-full bg-white p-[8px]">
@@ -90,7 +90,7 @@ const Footer = () => {
               {[
                 { name: "Home", link: "/" },
                 { name: "About Us", link: "/about" },
-                { name: "Our Services", link: "/service" },
+                { name: "Our Services", link: "/services" },
                 { name: "Contact us", link: "/contact-us" },
               ].map((d, index) => {
                 return (
@@ -152,7 +152,7 @@ const Footer = () => {
               Follow Us
             </div>
             <p class="font-inter font-normal text-[14px] lg:text-[18px] leading-[22px] tracking-[0%] text-white/80 text-center lg:text-start">
-              The latest news, articles, sent <br />
+              The latest news and articles are sent <br />
               to your inbox weekly.
             </p>
             <div className="flex justify-start items-center gap-x-[0.4rem]">

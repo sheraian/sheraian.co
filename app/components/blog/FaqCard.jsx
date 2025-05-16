@@ -12,7 +12,7 @@ const FaqCard = ({ keyId, title, description,selected,onPress }) => {
       </div>
 
       <div className={`transition-all duration-500 ease-in-out overflow-hidden ${selected==keyId ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"}`}>
-        <p className="text-[0.9rem] font-poppins font-normal mt-2">{description}</p>
+        <p className="text-[0.9rem] font-poppins font-normal mt-2 text-left">{description}</p>
       </div>
     </div>
   );

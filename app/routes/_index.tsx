@@ -100,7 +100,7 @@ const Index = () => {
             </>
           }
           M_Text={
-            "Professionally optimize interdependent intellectual introperable connect best practice. Progressivley fabricate done"
+            "Professionally optimize interdependent intellectual, interoperable connections to best practice. Progressively fabricate done."
           }
           isSBtnShow={true}
           S_BtnText={"Explore More"}
@@ -120,8 +120,9 @@ const Index = () => {
                 We Are Increasing Business Success With Technology
               </p>
               <p className="font-inter font-normal text-sm md:text-[18px] md:leading-[28px] tracking-[0%] align-center">
-                It is a long established fact that a reader will be distracted
-                the readable content of a page when looking at layout the point.
+                It is a long-established fact that a reader will be distracted
+                by the readable content of a page when looking at layout the
+                point.
               </p>
               <div className="flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-[50px]">
                 <div className="flex flex-col gap-[15px] font-inter font-medium text-[20px] leading-[28px] tracking-[0%] ">
