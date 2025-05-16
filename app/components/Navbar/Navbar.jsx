@@ -270,13 +270,14 @@ const Navbar = () => {
             alt="Get In Touch"
           />
         </a>
-        <motion.i
-          className="fas fa-bars text-[1.5rem] flex lg:hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setIsOpen(true)}
-        />
+   <motion.i
+  className="flex xab:hidden fas fa-bars text-[1.5rem]"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  onClick={() => setIsOpen(true)}
+/>
+
       </div>
       <motion.div
         initial={{ x: "-100%" }}

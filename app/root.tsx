@@ -19,6 +19,11 @@ import NotFound from "./components/NotFound";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/app/styles/global.css" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
+
+  {
+    rel: "stylesheet",
+    href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+  },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",

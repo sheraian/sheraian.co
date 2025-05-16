@@ -86,11 +86,12 @@ const About = () => {
       >
         <div className="w-[90%] mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
           <motion.img
-            src="/assets/Home/SecondSec_Image.svg"
+            src="/about1.svg"
             alt="Section Image"
             initial="hidden"
             whileInView="visible"
             variants={fadeIn}
+            className="rounded-[20px] hover:scale-105"
           />
 
           <motion.div
@@ -213,9 +214,12 @@ const About = () => {
             />
           </motion.div>
           <motion.img
-            src="/assets/Home/SecondSec_Image.svg"
-            alt="Section Image"
+            src="/about2.svg"
+            alt="about 2 Image"
+            initial="hidden"
+            whileInView="visible"
             variants={fadeIn}
+            className="rounded-[20px] hover:scale-105"
           />
         </div>
       </motion.div>
