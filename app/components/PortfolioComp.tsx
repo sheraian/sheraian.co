@@ -56,6 +56,7 @@ function PortfolioComp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true, amount: 0.3 }}
+                className="relative"
               >
                 <PortfolioCard item={_} />
               </motion.div>

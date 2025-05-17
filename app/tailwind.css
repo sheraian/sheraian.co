@@ -10,7 +10,6 @@ body {
     color-scheme: dark;
   } */
 }
-
 .bg-test {
   background-image: url("/herobg.svg");
   background-size: cover;
@@ -26,7 +25,12 @@ body {
   padding-left: 20px;
 }
 
-
+.portfoliocard{
+    /* transform: rotate(-5deg); */
+  }
+  .portfoliocards:hover .portfoliocard {
+    display: flex;
+  }
   .outline-text {
     color: transparent;
     -webkit-text-stroke: 1px black; /* Adjust thickness and color */
@@ -76,6 +80,39 @@ body {
     }
   }
   
+@layer components {
+  .clip-triangle {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
+
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.ql-editor ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.ql-editor ol {
+  list-style-type: decimal; /* Numbered list */
+  padding-left: 20px;
+}
+.logo {
+  width: 100%;
+  max-width: 200px; 
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+
 @layer components {
   .clip-triangle {
     clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
