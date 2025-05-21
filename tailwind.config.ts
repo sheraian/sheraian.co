@@ -7,6 +7,7 @@ export default {
       screens: {
         xxl: "1400px",
         xab: "1200px",
+        
         customScreen: "850px", // 2XL Screens (Default)
       },
       rotate: {
