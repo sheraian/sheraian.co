@@ -6,9 +6,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import "./tailwind.css";
-
+import { api } from "./apiSlice";
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -41,5 +41,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ApiProvider api={api}>
+      <Outlet />
+    </ApiProvider>
+  );
 }
